@@ -8,8 +8,6 @@ __TIMELINE :__
 
   - At the end of this step, trainees should be able to do React Components
 
-- Advanced Guides: 2 weeks
-
 __PREREQUISITE :__
 Supporters should make sure trainees got below prerequisites
 - [ES6](https://www.javascripttutorial.net/es6/)
