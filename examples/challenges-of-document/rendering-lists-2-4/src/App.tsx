@@ -1,6 +1,6 @@
 // Challenge 2: Nested lists in one component
 // Challenge 3: Extracting a list item component
-// Challenge 4:
+// Challenge 4: List with a separator
 import { recipes } from './data';
 import './App.css'
 
@@ -31,5 +31,28 @@ export default function RecipeList() {
 				<Recipe {...recipe} key={recipe.id}/>
       ))}
     </div>
+  );
+}
+
+
+// Challenge 4
+const poem = {
+  lines: [
+    'I write, erase, rewrite',
+    'Erase again, and then',
+    'A poppy blooms.'
+  ]
+};
+
+export function Poem() {
+
+  return (
+    <article>
+      {poem.lines.map((line, index) =>
+        <p key={index}>
+          {line}
+        </p>
+      )}
+    </article>
   );
 }
