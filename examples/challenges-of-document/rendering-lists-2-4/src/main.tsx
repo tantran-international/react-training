@@ -5,8 +5,8 @@ import { Poem } from './App.tsx'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
+	<React.StrictMode>
+		<App />
 		<Poem />
-  </React.StrictMode>,
+	</React.StrictMode>,
 )
