@@ -1,35 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+// State: A Component's Memory: Challenge 1 - Complete the gallery
+import { useState } from 'react';
+import { sculptureList } from './data';
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function Gallery() {
+	const [index, setIndex] = useState(0);
+	const [showMore, setShowMore] = useState(false);
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	const hasPrev = index > 0;
+	const hasNext = index < sculptureList.length - 1;
+
+	function handleNextClick() {
+		if (hasNext) {
+			setIndex(index + 1);
+		}
+	}
+
+	function handlePreviousClick() {
+		if (hasPrev) {
+			setIndex(index - 1);
+		}
+	}
+
+	function handleMoreClick() {
+		setShowMore(!showMore);
+	}
+
+	const sculpture = sculptureList[index];
+	return (
+		<>
+			<button onClick={handlePreviousClick}>Previous</button>
+			<button onClick={handleNextClick}>Next</button>
+			<h2>
+				<i>{sculpture.name} </i>
+				by {sculpture.artist}
+			</h2>
+			<h3>
+				({index + 1} of {sculptureList.length})
+			</h3>
+			<button onClick={handleMoreClick}>
+				{showMore ? "Hide" : "Show"} details
+			</button>
+			{showMore && <p>{sculpture.description}</p>}
+			<img src={sculpture.url} alt={sculpture.alt} />
+		</>
+	);
 }
-
-export default App
