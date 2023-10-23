@@ -35,37 +35,6 @@ export default function RecipeList() {
 }
 
 // Challenge 4
-// const poem = {
-// 	lines: [
-// 		'I write, erase, rewrite',
-// 		'Erase again, and then',
-// 		'A poppy blooms.'
-// 	]
-// };
-
-// export function Poem() {
-// 	let output: string[] | JSX.Element[] = [];
-// 	// Fill out put array
-// 	poem.lines.forEach((line, index) => {
-// 		output.push(
-// 			<hr key={index + '-separator'} />
-// 		);
-// 		output.push(
-// 			<p key={index + '-text'}>
-// 				{line}
-// 			</p>
-// 		);
-// 	});
-
-
-// 	// Remove first <hr> tag
-// 	return (
-// 		<article>
-// 			{output}
-// 		</article>
-// 	);
-// }
-
 const poem = {
 	lines: [
 		'I write, erase, rewrite',
@@ -77,7 +46,7 @@ const poem = {
 export function Poem() {
 	// Define type string or JSX.Element for output variable
 	// Second way: Array<string | JSX.Element>
-	const output: (string | JSX.Element)[] = [];
+	const output: (JSX.Element)[] = [];
 
 	// Fill the output array
 	poem.lines.forEach((line, index) => {
