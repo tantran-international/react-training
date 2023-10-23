@@ -1,35 +1,82 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+// Challenge 2: Implement the state queue yourself
+import { getFinalState } from './processQueue';
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+function increment(n: number) {
+	return n + 1;
+}
+increment.toString = () => 'n => n+1';
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+export default function App() {
+	return (
+		<>
+			<TestCase
+				baseState={0}
+				queue={[1, 1, 1]}
+				expected={1}
+			/>
+			<hr />
+			<TestCase
+				baseState={0}
+				queue={[
+					increment,
+					increment,
+					increment
+				]}
+				expected={3}
+			/>
+			<hr />
+			<TestCase
+				baseState={0}
+				queue={[
+					5,
+					increment,
+				]}
+				expected={6}
+			/>
+			<hr />
+			<TestCase
+				baseState={0}
+				queue={[
+					5,
+					increment,
+					42,
+				]}
+				expected={42}
+			/>
+		</>
+	);
 }
 
-export default App
+type PropsType = {
+	baseState: number;
+	queue: (number | ((n: number) => number))[];
+	expected: number;
+}
+
+function TestCase({
+	baseState,
+	queue,
+	expected
+}: PropsType) {
+	const actual = getFinalState(baseState, queue);
+	return (
+		<>
+			<p>Base state: <b>{baseState}</b></p>
+			<p>Queue: <b>[{queue.join(', ')}]</b></p>
+			<p>Expected result: <b>{expected}</b></p>
+			<p style={{
+				color: actual === expected ?
+					'green' :
+					'red'
+			}}>
+				Your result: <b>{actual}</b>
+				{' '}
+				({actual === expected ?
+					'correct' :
+					'wrong'
+				})
+			</p>
+		</>
+	);
+}
