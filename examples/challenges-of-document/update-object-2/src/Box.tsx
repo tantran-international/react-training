@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+// Define data type for Box's props
 type boxType = {
 	children: string;
 	color: string;
@@ -7,26 +8,25 @@ type boxType = {
 	onMove: (dx: number, dy: number) => void
 }
 
-export function Box({
-  children,
-  color,
-  position,
-  onMove
-}: boxType) {
-  const [
-    lastCoordinates,
-    setLastCoordinates
-  ] = useState(null);
+interface ICoordinates {
+	x: number;
+	y: number;
+}
 
-  function handlePointerDown(e: React.MouseEvent<HTMLDivElement>) {
-    (e.target as Element).setPointerCapture(e.pointerId);
+export function Box({children, color, position, onMove}: boxType) {
+	// Define data type for useState React Hook as *Interface for Object or null*
+  const [lastCoordinates, setLastCoordinates] = useState<ICoordinates | null>(null);
+
+	// Define data type for event as Pointer event on Div-Element / e.target as HTML-Div-Element
+  function handlePointerDown(e: React.PointerEvent<HTMLDivElement>) {
+    (e.target as HTMLDivElement).setPointerCapture(e.pointerId);
     setLastCoordinates({
       x: e.clientX,
       y: e.clientY,
     });
   }
 
-  function handlePointerMove(e: React.MouseEvent<HTMLDivElement>) {
+  function handlePointerMove(e: React.PointerEvent<HTMLDivElement>) {
     if (lastCoordinates) {
       setLastCoordinates({
         x: e.clientX,
