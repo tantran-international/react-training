@@ -1,15 +1,25 @@
-import { useState } from 'react';
-import { Button } from './components/buttons';
+
 import './App.css'
+import { Card } from './components/cards/card';
 
 export default function App() {
-	const [show, setShow] = useState(false);
+
+
+	// function changeBackgroundColor() {
+
+
+	// 	setBackground(rand);
+	// }
 
 	return (
 		<div className="App">
 			<h1>Hello CodeSandbox</h1>
-			<Button style={{ background: show ? "red" : "none" }} onClick={() => { setShow(!show); }} buttonText='Show / Hide' />
-			{show ? <h2>Surprise!!!</h2> : null}
+			<Card
+				name='TranVanA'
+				phone='321654987654'
+			// backgroundColor={background}
+			// changeBackground={changeBackgroundColor}
+			/>
 		</div>
 	);
 }
