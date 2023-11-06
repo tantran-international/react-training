@@ -1,0 +1,19 @@
+.btn-cta {
+  padding: 5px;
+  outline: none;
+  border: none;
+  min-width: 160px;
+  font-size: 16px;
+  color: var(--white);
+}
+
+.btn-add {
+  background-color: var(--primary-color);
+}
+
+.btn-popper {
+  margin-top: 2px;
+  padding: 8px 12px;
+  text-align: left;
+  background-color: var(--secondary-color);
+}
