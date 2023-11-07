@@ -1,24 +1,32 @@
 import { TButton } from '@src/types/TButton';
 import './button.css';
 
-export function Button({ isPrimary, className, image, content, onClick }: TButton) {
-  // If have isPrimary prop => render primary || secondary button
-  // If have image prop => render button-icon
-  if (isPrimary == true || isPrimary == false) {
+export function Button({ additionalClass, icon, content, onClick }: TButton) {
+  if (icon) {
     return (
       <button
-        className={isPrimary == true ? 'button button-primary' : 'button button-secondary'}
+        className={`button-icon button-${additionalClass}`}
         type='button'
         onClick={onClick}
       >
-        {content}
-      </button>
-    );
-  } else {
-    return (
-      <button className={'button-icon' + ' ' + className} type='button' onClick={onClick}>
-        <img src={image} alt='button-icon' />
+        <span className='button-icon-wrapper'>
+          <img
+            className={`icon icon-${additionalClass}`}
+            src={icon}
+            alt='button-icon'
+          />
+        </span>
       </button>
     );
   }
+
+  return (
+    <button
+      className={`button button-${additionalClass}`}
+      type='button'
+      onClick={onClick}
+    >
+      {content}
+    </button>
+  );
 }
