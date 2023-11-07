@@ -20,7 +20,7 @@
       "@constants/*": ["src/constants/*"],
       "@server/*": ["src/server/*"],
       "@services/*": ["src/services/*"],
-      "@types/*": ["src/types/*"],
+      "@src/types/*": ["src/types/*"],
       "@assets/*": ["src/assets/*"]
     },
 
