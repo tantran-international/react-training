@@ -18,11 +18,11 @@
   --primary-color-hover: #1b8fac;
   --primary-color-active: #14728a;
   --secondary-color: #4a4e58;
-  --secondary-color-hover: #434750;
-  --secondary-color-active: #3b3e46;
 
   --light-grey: #f4f5f9;
   --medium-grey: #ebedf0;
+  --medium-grey-hover: #e5e6e8;
+  --medium-grey-active: #dbdada;
   --dark-grey: #475466;
 
   --light-red: #ff6455;
