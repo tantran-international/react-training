@@ -1,0 +1,11 @@
+.text-field {
+  padding: 7px 12px;
+  font-size: 14px;
+  border-radius: 2px;
+  outline: none;
+  border: 1px solid var(--common-border-color);
+}
+
+.text-field:focus {
+  border-color: var(--primary-color);
+}
