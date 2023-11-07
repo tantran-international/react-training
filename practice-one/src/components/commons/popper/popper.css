@@ -1,8 +1,7 @@
 .btn-cta {
-  padding: 5px;
+  padding: 5px 60px;
   outline: none;
   border: none;
-  max-width: 160px;
   font-size: 16px;
   color: var(--white);
 }
@@ -12,6 +11,7 @@
 }
 
 .btn-popper {
+  max-width: 165px;
   margin-top: 2px;
   padding: 5px;
   text-align: left;
