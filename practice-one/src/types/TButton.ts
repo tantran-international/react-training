@@ -1,7 +1,6 @@
 export type TButton = {
-  isPrimary?: boolean;
-  className?: string;
-  image?: string;
+  additionalClass?: string;
+  icon?: string;
   content?: string;
   onClick?: Event | any;
 };
