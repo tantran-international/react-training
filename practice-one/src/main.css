@@ -15,7 +15,11 @@
 :root {
   /* Colors */
   --primary-color: #1ca1c1;
+  --primary-color-hover: #1b8fac;
+  --primary-color-active: #14728a;
   --secondary-color: #4a4e58;
+  --secondary-color-hover: #434750;
+  --secondary-color-active: #3b3e46;
 
   --light-grey: #f4f5f9;
   --medium-grey: #ebedf0;
