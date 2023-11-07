@@ -1,0 +1,21 @@
+.button {
+  padding: 7px 30px;
+  outline: none;
+  border: none;
+  border-radius: 2px;
+  font-family: var(--roboto-bold);
+  font-size: 16px;
+}
+
+.button-primary {
+  color: var(--white);
+  background-color: var(--primary-color);
+}
+
+.button-primary:hover {
+  background-color: var(--primary-color-hover);
+}
+
+.button-primary:active {
+  background-color: var(--primary-color-active);
+}
