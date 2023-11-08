@@ -1,9 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
+import { Modal } from '@components/parts/modals/modal';
+import { TextField } from '../text-field/text-field';
 import './popper.css';
 
 export function AddNewPopper() {
   const [showOption, setShowOption] = useState(false);
+  const [isOpenModal, setOpenModal] = useState(false);
 
   // Define useRef.current as button element and set initial value
   const ref = useRef<HTMLButtonElement>(null);
@@ -23,9 +26,18 @@ export function AddNewPopper() {
     };
   }, []);
 
+  const handleClickButtonPopper = () => {
+    setOpenModal(true);
+  };
+
   return (
     <div>
-      <button className='btn-cta btn-add' type='button' onClick={() => setShowOption(true)} ref={ref}>
+      <button
+        className='btn-cta btn-add'
+        type='button'
+        onClick={() => setShowOption(true)}
+        ref={ref}
+      >
         &#43; New
       </button>
       {showOption &&
@@ -33,14 +45,23 @@ export function AddNewPopper() {
           <button
             className='btn-cta btn-popper'
             type='button'
-            onClick={() => {
-              console.log('tannga');
-            }}
+            onClick={handleClickButtonPopper}
           >
             Add new user
           </button>,
           document.querySelector('.popper-wrapper') as HTMLElement
         )}
+      {isOpenModal && (
+        <Modal
+          isOpen={isOpenModal}
+          additionalClass='add-new'
+          onClose={() => setOpenModal(false)}
+          modalDescription='Enter user name'
+          btnTextPrimary='Save'
+        >
+          <TextField additionalClass='add' />
+        </Modal>
+      )}
     </div>
   );
 }

@@ -8,8 +8,8 @@
 
 .button-icon-wrapper {
   display: block;
-  max-width: 38px;
-  max-height: 38px;
+  max-width: 34px;
+  max-height: 34px;
   padding: 10px;
   background-color: var(--white);
 }
@@ -26,7 +26,7 @@
 }
 
 .button-primary {
-  padding: 7px 30px;
+  padding: 6px 30px;
   color: var(--white);
   background-color: var(--primary-color);
 }

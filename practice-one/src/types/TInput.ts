@@ -1,5 +1,5 @@
 export type TInput = {
-  className?: string;
-  placeholder: string;
+  additionalClass?: string;
+  placeholder?: string;
   onChange?: Event | any;
 };
