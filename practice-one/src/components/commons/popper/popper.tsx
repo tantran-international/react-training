@@ -54,11 +54,12 @@ export function AddNewPopper() {
       {isOpenModal && (
         <Modal
           isOpen={isOpenModal}
+          additionalClass='add-new'
           onClose={() => setOpenModal(false)}
           modalDescription='Enter user name'
           btnTextPrimary='Save'
         >
-          <TextField />
+          <TextField additionalClass='add' />
         </Modal>
       )}
     </div>

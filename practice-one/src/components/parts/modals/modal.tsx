@@ -20,21 +20,27 @@ export function Modal({
         createPortal(
           <div className='modal-wrapper'>
             <div className={`modal modal-${additionalClass}`}>
-              {modalTitle && <h2 className='modal-Title'>{modalTitle}</h2>}
-              {modalDescription && <p>{modalDescription}</p>}
-              <Button
-                icon={iconClose}
-                additionalClass='close'
-                onClick={onClose}
-              />
-              {children}
-              {btnTextPrimary && (
+              <div className={`modal-${additionalClass}-header`}>
+                {modalTitle && <h2 className='modal-title'>{modalTitle}</h2>}
+                {modalDescription && (
+                  <p className='modal-description'>{modalDescription}</p>
+                )}
                 <Button
-                  content={btnTextPrimary}
-                  additionalClass='primary'
-                  onClick={onClickBtnPrimary}
+                  icon={iconClose}
+                  additionalClass='close'
+                  onClick={onClose}
                 />
-              )}
+              </div>
+              <div className={`modal-${additionalClass}-body`}>
+                {children}
+                {btnTextPrimary && (
+                  <Button
+                    content={btnTextPrimary}
+                    additionalClass='primary button-save'
+                    onClick={onClickBtnPrimary}
+                  />
+                )}
+              </div>
             </div>
           </div>,
           document.body
