@@ -1,5 +1,5 @@
 import { ItemNavigation } from '../item-navigation/item-navigation';
-import iconSelectedUser from '@assets/images/icons/icon-user-selected.svg';
+import iconUserSelected from '@assets/images/icons/icon-user-selected.svg';
 import iconUser from '@assets/images/icons/icon-user.svg';
 import './list.navigation.css';
 import { useState } from 'react';
@@ -13,20 +13,12 @@ export const ListNavigation = () => {
 
   return (
     <ul className='list-navigation'>
-      {isSelected ? (
-        <ItemNavigation
-          additionalClass='selected'
-          icon={iconSelectedUser}
+      <ItemNavigation
+          additionalClass={isSelected ? 'selected' : ''}
+          icon={isSelected ? iconUserSelected : iconUser}
           content='Users'
           onClick={handleClickedItem}
         />
-      ) : (
-        <ItemNavigation
-          icon={iconUser}
-          content='Users'
-          onClick={handleClickedItem}
-        />
-      )}
     </ul>
   );
 };

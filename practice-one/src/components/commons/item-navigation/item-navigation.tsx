@@ -8,9 +8,15 @@ export const ItemNavigation = ({
   onClick
 }: TListItem) => {
   return (
-    <li className={`list-item list-item-${additionalClass}`} onClick={onClick}>
+    <li
+      className={`list-item list-item-${additionalClass}`}
+      onClick={onClick}
+    >
       <span className='list-icon-wrapper'>
-        <img className='list-icon' src={`${icon}`} />
+        <img
+          className='list-icon'
+          src={`${icon}`}
+        />
       </span>
       <p className='list-item-content'>{content}</p>
     </li>
