@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { Modal } from '@components/parts/modals/modal';
+import { Modal } from '../modal/modal';
 import { TextField } from '../text-field/text-field';
 import './popper.css';
 
-export function AddNewPopper() {
+export function Popper() {
   const [showOption, setShowOption] = useState(false);
   const [isOpenModal, setOpenModal] = useState(false);
 
@@ -38,7 +38,7 @@ export function AddNewPopper() {
         onClick={() => setShowOption(true)}
         ref={ref}
       >
-        &#43; New
+        <span>&#43;</span> New
       </button>
       {showOption &&
         createPortal(
