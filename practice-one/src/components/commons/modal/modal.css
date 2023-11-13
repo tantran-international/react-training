@@ -18,9 +18,9 @@
     0 4px 8px 0 rgba(0, 0, 0, 0.2),
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin: 0 auto;
-  padding: 15px 16px;
+  padding: 15px 20px;
 
-  max-width: 330px;
+  min-width: 350px;
   height: fit-content;
 
   position: absolute;
@@ -29,6 +29,7 @@
   transform: translate(-50%, -50%);
 
   background-color: var(--white);
+  overflow: hidden;
 }
 
 .modal-add-new-header {
@@ -44,5 +45,9 @@
 }
 
 .button-close {
-  margin: -7px 0 0;
+  margin: -16px 0 0;
+}
+
+.text-field-add {
+  min-width: 200px;
 }
