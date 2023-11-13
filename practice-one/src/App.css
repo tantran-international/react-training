@@ -1,4 +1,13 @@
+.user-manager-header {
+  padding: 20px 14px;
+  font-family: var(--roboto-bold);
+  font-size: 16px;
+  color: var(--dark-grey);
+}
+
 .popper-wrapper {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  padding: 18px 0;
 }
