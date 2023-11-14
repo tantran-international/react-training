@@ -8,6 +8,7 @@ export function TextField({ additionalClass, placeholder, onChange }: TInput) {
       type='text'
       placeholder={placeholder}
       onChange={onChange}
+      autoFocus
     />
   );
 }
