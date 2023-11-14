@@ -1,8 +1,15 @@
-import { TModal } from '@src/types/TModal';
-import { Button } from '@components/commons/button/button';
-import iconClose from '@assets/images/icons/icon-close.svg';
 import { createPortal } from 'react-dom';
 import './modal.css';
+
+// Components
+import { Button } from '@components/commons/button/button';
+
+// Types
+import { TModal } from '@src/types/TModal';
+
+// Icons
+import iconClose from '@assets/images/icons/icon-close.svg';
+
 
 export function Modal({
   onClose,
