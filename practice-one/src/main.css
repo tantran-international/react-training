@@ -1,3 +1,5 @@
+@import url(./reset.css);
+
 @font-face {
   font-family: Roboto-regular;
   font-style: normal;
@@ -40,4 +42,8 @@
   /* Fonts */
   --roboto: Roboto-regular;
   --roboto-bold: Roboto-medium;
+}
+
+.container {
+  margin: auto;
 }

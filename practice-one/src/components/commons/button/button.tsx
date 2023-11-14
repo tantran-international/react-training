@@ -9,7 +9,7 @@ export function Button({ additionalClass, icon, content, onClick }: TButton) {
         type='button'
         onClick={onClick}
       >
-        <span className='button-icon-wrapper'>
+        <span className={`icon-wrapper icon-wrapper-${additionalClass}`}>
           <img
             className={`icon icon-${additionalClass}`}
             src={icon}

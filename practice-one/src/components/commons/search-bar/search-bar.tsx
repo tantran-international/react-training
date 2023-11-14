@@ -1,8 +1,15 @@
+import './search-bar.css';
+
+// Components
 import { TextField } from '../text-field/text-field';
 import { Button } from '../button/button';
+
+// Icons
 import iconClose from '@assets/images/icons/icon-close.svg';
+
+// Types
 import { TSearchBar } from '@src/types/TSearchBar';
-import './search-bar.css';
+
 
 export const SearchBar = ({
   additionalClass,
@@ -16,7 +23,7 @@ export const SearchBar = ({
         placeholder='Search'
       />
       <Button
-        additionalClass='search'
+        additionalClass='close'
         icon={iconClose}
         onClick={onClose}
       />

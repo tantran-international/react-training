@@ -1,12 +1,12 @@
 .tool-bar-wrapper {
-  /* background-color: red; */
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   font-family: var(--roboto-bold);
-  font-size: 17px;
-  padding: 10px;
+  font-size: 16px;
+  padding: 11px;
   color: var(--dark-grey);
   display: flex;
   min-width: 1200px;
@@ -14,8 +14,4 @@
   overflow: hidden;
   background-color: var(--white);
   border: 1px solid var(--common-border-color);
-}
-
-.button-icon-search {
-  margin: 15px 0 0;
 }
