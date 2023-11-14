@@ -1,0 +1,11 @@
+.search-bar {
+  position: absolute;
+  top: 14px;
+  left: 21px;
+  /* display: flex;
+  gap: 50px; */
+}
+
+.text-field-search {
+  min-width: 80vw;
+}
