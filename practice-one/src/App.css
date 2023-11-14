@@ -3,8 +3,7 @@
 }
 
 .app-content-wrapper {
-  position: relative;
-  padding: 11px;
+  padding: 10px;
   width: 100%;
   background-color: var(--medium-grey);
   border: 1px solid var(--layout-border-color);
