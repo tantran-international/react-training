@@ -1,8 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
+import './popper.css';
+
+// Components
 import { Modal } from '../modal/modal';
 import { TextField } from '../text-field/text-field';
-import './popper.css';
 
 export function Popper() {
   const [showOption, setShowOption] = useState(false);
@@ -26,6 +28,11 @@ export function Popper() {
     };
   }, []);
 
+
+  /**
+   * Update state of popper to show / hide popper button
+   * @param {function} setOpenModal - function name used for update state.
+   */
   const handleClickButtonPopper = () => {
     setOpenModal(true);
   };
