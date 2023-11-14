@@ -5,7 +5,7 @@ import { Button } from '@components/commons/button/button';
 import { SearchBar } from '@components/commons/search-bar/search-bar';
 import './tool-bar.css';
 
-export const ToolBar = ({content}: {content: string}) => {
+export const ToolBar = ({ content }: { content: string }) => {
   const [isOpenSearchBar, setOpenSearchBar] = useState(false);
 
   return (
@@ -18,7 +18,10 @@ export const ToolBar = ({content}: {content: string}) => {
       />
       {isOpenSearchBar &&
         createPortal(
-          <SearchBar additionalClass='user' onClose={() => setOpenSearchBar(false)} />,
+          <SearchBar
+            additionalClass='user'
+            onClose={() => setOpenSearchBar(false)}
+          />,
           document.querySelector('.app-content-wrapper') as HTMLElement
         )}
     </nav>
