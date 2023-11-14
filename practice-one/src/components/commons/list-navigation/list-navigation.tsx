@@ -4,10 +4,10 @@ import iconUser from '@assets/images/icons/icon-user.svg';
 import { useState } from 'react';
 
 export const ListNavigation = () => {
-  const [isSelected, setSelected] = useState(false);
+  const [isSelected, setSelected] = useState(true);
 
   const handleClickedItem = () => {
-    setSelected(!isSelected);
+    setSelected(true);
   };
 
   return (

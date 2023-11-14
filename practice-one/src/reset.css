@@ -136,6 +136,10 @@ table {
   box-sizing: border-box;
 }
 
+.container {
+  margin: auto;
+}
+
 a,
 button,
 select,
