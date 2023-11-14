@@ -1,3 +1,15 @@
+.app-body {
+  display: flex;
+}
+
+.app-content-wrapper {
+  position: relative;
+  padding: 11px;
+  width: 100%;
+  background-color: var(--medium-grey);
+  border: 1px solid var(--layout-border-color);
+}
+
 .user-manager-header {
   padding: 20px 14px;
   font-family: var(--roboto-bold);
