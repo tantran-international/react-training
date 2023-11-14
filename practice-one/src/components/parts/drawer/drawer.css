@@ -1,5 +1,5 @@
 .drawer {
-  max-width: 211px;
+  min-width: 211px;
   height: 100vh;
   background-color: var(--secondary-color);
 }
