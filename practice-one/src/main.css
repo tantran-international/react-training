@@ -39,6 +39,8 @@
   --layout-border-color: #dadee0;
   --common-border-color: #ccd7e6;
 
+  --letter-avatar-color: rgba(235, 235, 235, 0.7);
+
   /* Fonts */
   --roboto: Roboto-regular;
   --roboto-bold: Roboto-medium;
