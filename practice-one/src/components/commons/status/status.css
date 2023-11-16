@@ -6,12 +6,12 @@
   font-size: 15px;
 }
 
-.status-active {
+.status.active {
   color: var(--light-green);
   background-color: var(--active-color);
 }
 
-.status-not-active {
+.status.not-active {
   color: var(--light-red);
   background-color: var(--not-active-color);
 }

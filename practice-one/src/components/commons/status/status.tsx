@@ -9,11 +9,14 @@ export const Status = ({
   }: TStatus) => {
 
   return (
-    <span className={
+    <span className={`status
+    ${
       isActive
-        ? `status status-active ${additionalClass}`
-        : `status status-not-active ${additionalClass}`
-    }>
+        ? 'active'
+        : 'not-active'
+      }
+    ${additionalClass}`}
+    >
       {
       isActive
         ? 'Active'
