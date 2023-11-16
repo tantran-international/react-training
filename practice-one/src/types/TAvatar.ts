@@ -1,7 +1,7 @@
-import { IUser } from "./IUser";
-
 export type TAvatar = {
-  additionalClass: 'row' | 'information' | 'edit-information';
-  user: IUser;
+  additionalClass: string;
+  src?: string;
+  alt: string;
+  bgColor: string;
   variant: 'rounded' | 'square';
-}
+};
