@@ -1,6 +1,6 @@
 /* Types */
-import { ITheader } from "./ITable";
+import { IColumnType } from "./ITable";
 
 export interface ITheaderProps<T> {
-  tableHeaderDatas: ITheader<T>[];
+  columns: IColumnType<T>[];
 }
