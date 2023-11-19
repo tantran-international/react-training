@@ -4,13 +4,14 @@
 //   additionalClass: string;
 // }
 
-export interface ITheader<T> {
+export interface IColumnType<T> {
   key: string;
   title: string;
+  render?: (column: IColumnType<T>, item: T) => void;
 }
 
 export interface ITableProps<T> {
-  tableHeaderDatas: ITheader<T>[];
-  tableRowDatas: T[];
-  additionalClass: string;
+  columns: IColumnType<T>[];
+  data: T[];
+  additionalClass?: string;
 }
