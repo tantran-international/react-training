@@ -1,8 +1,8 @@
 import './SearchBar.css';
 
 // Components
-import { TextField } from '../text-field/text-field';
-import { Button } from '../Button';
+import { TextField } from '../TextField/index';
+import { Button } from '../Button/index';
 
 // Icons
 import iconClose from '@assets/images/icons/icon-close.svg';
