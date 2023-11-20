@@ -1,5 +1,5 @@
 /* Components */
-import { TableHeaderCell } from '../table-header-cell/TableHeaderCell';
+import { TableHeaderCell } from '../TableHeaderCell';
 
 /* Types */
 import { ITheaderProps } from '@src/types/ITableHeader';
