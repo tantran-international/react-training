@@ -1,5 +1,5 @@
 import { TInput } from '@src/types/TInput';
-import './Text-field.css';
+import './TextField.css';
 
 export function TextField({ additionalClass, placeholder, onChange }: TInput) {
   return (
