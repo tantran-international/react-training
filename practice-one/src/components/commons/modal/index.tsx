@@ -2,7 +2,7 @@ import { createPortal } from 'react-dom';
 import './modal.css';
 
 // Components
-import { Button } from '@components/commons/Button';
+import { Button } from '@components/commons/Button/index';
 
 // Types
 import { TModal } from '@src/types/TModal';
