@@ -1,5 +1,5 @@
 /* Types */
-import { ITableRowCellProps } from '@src/types/ITableRowCell';
+import { ITableRowCellProps } from '@/types/ITableRowCell';
 
 export const TableRowCell = <T,>({
   item,

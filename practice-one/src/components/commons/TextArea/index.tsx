@@ -1,7 +1,7 @@
 import './TextArea.css';
 
 /* Types */
-import { TTextArea } from '@src/types/TTextArea';
+import { TTextArea } from '@/types/TTextArea';
 
 export const TextArea = ({ additionalClass }: TTextArea) => {
   return (

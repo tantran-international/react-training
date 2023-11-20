@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './Switch.css';
 
 /* Types */
-import { TSwitch } from '@src/types/TSwitch';
+import { TSwitch } from '@/types/TSwitch';
 
 export const Switch = ({ additionalClass, isActive }: TSwitch) => {
   const [checked, setChecked] = useState(true);

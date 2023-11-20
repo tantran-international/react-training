@@ -1,5 +1,5 @@
 /* Types */
-import { TTableHeaderCell } from '@src/types/TTableHeaderCell';
+import { TTableHeaderCell } from '@/types/TTableHeaderCell';
 
 export const TableHeaderCell = ({
   key,

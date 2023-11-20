@@ -1,5 +1,5 @@
 /* Types */
-import { ITableRowProps } from '@src/types/ITableRow';
+import { ITableRowProps } from '@/types/ITableRow';
 
 /* Components */
 import { TableRowCell } from '../TableRowCell';

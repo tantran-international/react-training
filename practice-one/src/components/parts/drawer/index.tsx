@@ -1,4 +1,4 @@
-import { TDrawer } from '@src/types/TDrawer';
+import { TDrawer } from '@/types/TDrawer';
 import './Drawer.css';
 
 export const Drawer = ({

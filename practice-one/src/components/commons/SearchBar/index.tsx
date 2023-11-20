@@ -8,7 +8,7 @@ import { Button } from '../Button/index';
 import iconClose from '@assets/images/icons/icon-close.svg';
 
 // Types
-import { TSearchBar } from '@src/types/TSearchBar';
+import { TSearchBar } from '@/types/TSearchBar';
 
 
 export const SearchBar = ({

@@ -1,4 +1,4 @@
-import { TListItem } from '@src/types/TListItem';
+import { TListItem } from '@/types/TListItem';
 import './ItemNavigation.css';
 
 export const ItemNavigation = ({

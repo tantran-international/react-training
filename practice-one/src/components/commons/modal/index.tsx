@@ -5,7 +5,7 @@ import './modal.css';
 import { Button } from '@components/commons/Button/index';
 
 // Types
-import { TModal } from '@src/types/TModal';
+import { TModal } from '@/types/TModal';
 
 // Icons
 import iconClose from '@assets/images/icons/icon-close.svg';

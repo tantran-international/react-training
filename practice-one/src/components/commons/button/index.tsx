@@ -1,4 +1,4 @@
-import { TButton } from '@src/types/TButton';
+import { TButton } from '@/types/TButton';
 import './Button.css'
 
 export function Button({ additionalClass, icon, content, onClick }: TButton) {
