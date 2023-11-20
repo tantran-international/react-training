@@ -1,8 +1,8 @@
-import './table.css';
+import './Table.css';
 
 /* Components */
-import { TableHeader } from './table-header/TableHeader';
-import { TableRow } from './table-row/TableRow';
+import { TableHeader } from './TableHeader/index';
+import { TableRow } from './TableRow/index';
 
 /* Types */
 import { ITableProps } from '@src/types/ITable';
