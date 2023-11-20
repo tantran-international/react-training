@@ -1,4 +1,4 @@
-import './search-bar.css';
+import './SearchBar.css';
 
 // Components
 import { TextField } from '../text-field/text-field';
