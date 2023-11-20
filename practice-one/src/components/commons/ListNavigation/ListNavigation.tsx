@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 // Components
-import { ItemNavigation } from '../item-navigation/item-navigation';
+import { ItemNavigation } from '../ItemNavigation';
 
 // Icons
 import iconUserSelected from '@assets/images/icons/icon-user-selected.svg';
