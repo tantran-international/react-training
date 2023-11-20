@@ -1,5 +1,5 @@
 import { TListItem } from '@src/types/TListItem';
-import './item-navigation.css';
+import './ItemNavigation.css';
 
 export const ItemNavigation = ({
   additionalClass,
