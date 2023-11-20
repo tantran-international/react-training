@@ -6,7 +6,7 @@ import './tool-bar.css';
 import iconSearch from '@assets/images/icons/icon-search.svg';
 
 // Components
-import { Button } from '@components/commons/button/button';
+import { Button } from '@components/commons/Button';
 import { SearchBar } from '@components/commons/search-bar/search-bar';
 
 export const ToolBar = ({ content }: { content: string }) => {

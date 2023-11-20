@@ -2,7 +2,7 @@ import './search-bar.css';
 
 // Components
 import { TextField } from '../text-field/text-field';
-import { Button } from '../button/button';
+import { Button } from '../Button';
 
 // Icons
 import iconClose from '@assets/images/icons/icon-close.svg';
