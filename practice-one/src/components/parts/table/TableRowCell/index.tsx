@@ -7,6 +7,6 @@ export const TableRowCell = <T,>({
 }: ITableRowCellProps<T>): JSX.Element => {
   const value = column['key'];
   return (
-    <td>{column.render ? column.render(column, item) : value}</td>
+    <>{column.render ? column.render(column, item) : value}</>
   );
 };
