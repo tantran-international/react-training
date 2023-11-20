@@ -1,4 +1,4 @@
-import './status.css';
+import './Status.css';
 
 /* Types */
 import { TStatus } from "@src/types/TStatus";
