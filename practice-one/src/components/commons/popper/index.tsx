@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import './popper.css';
 
 // Components
-import { Modal } from '../Modal';
+import { Modal } from '../Modal/index';
 import { TextField } from '../text-field/text-field';
 
 export function Popper() {
