@@ -1,14 +1,14 @@
-import './search-bar.css';
+import './SearchBar.css';
 
 // Components
-import { TextField } from '../text-field/text-field';
-import { Button } from '../button/button';
+import { TextField } from '../TextField/index';
+import { Button } from '../Button/index';
 
 // Icons
 import iconClose from '@assets/images/icons/icon-close.svg';
 
 // Types
-import { TSearchBar } from '@src/types/TSearchBar';
+import { TSearchBar } from '@/types/TSearchBar';
 
 
 export const SearchBar = ({

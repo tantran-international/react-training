@@ -1,7 +1,7 @@
-import './status.css';
+import './Status.css';
 
 /* Types */
-import { TStatus } from "@src/types/TStatus";
+import { TStatus } from "@/types/TStatus";
 
 export const Status = ({
   additionalClass,

@@ -1,5 +1,5 @@
 /* Types */
-import { ITableRowCellProps } from '@src/types/ITableRowCell';
+import { ITableRowCellProps } from '@/types/ITableRowCell';
 
 export const TableRowCell = <T,>({
   item,
@@ -7,6 +7,6 @@ export const TableRowCell = <T,>({
 }: ITableRowCellProps<T>): JSX.Element => {
   const value = column['key'];
   return (
-    <td>{column.render ? column.render(column, item) : value}</td>
+    <>{column.render ? column.render(column, item) : value}</>
   );
 };

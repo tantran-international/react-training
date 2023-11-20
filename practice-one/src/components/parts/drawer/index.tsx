@@ -1,5 +1,5 @@
-import { TDrawer } from '@src/types/TDrawer';
-import './drawer.css';
+import { TDrawer } from '@/types/TDrawer';
+import './Drawer.css';
 
 export const Drawer = ({
   additionalClass,

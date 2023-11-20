@@ -1,8 +1,8 @@
 /* Components */
-import { TableHeaderCell } from '../table-header-cell/TableHeaderCell';
+import { TableHeaderCell } from '../TableHeaderCell';
 
 /* Types */
-import { ITheaderProps } from '@src/types/ITableHeader';
+import { ITheaderProps } from '@/types/ITableHeader';
 
 export const TableHeader = <T,>({ columns }: ITheaderProps<T>): JSX.Element => {
   return (

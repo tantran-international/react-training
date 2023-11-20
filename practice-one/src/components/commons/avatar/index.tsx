@@ -1,7 +1,7 @@
-import './avatar.css';
+import './Avatar.css';
 
 /* Types */
-import { TAvatar } from '@src/types/TAvatar';
+import { TAvatar } from '@/types/TAvatar';
 
 export const Avatar = ({
   additionalClass,

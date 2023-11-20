@@ -3,8 +3,8 @@ import { createPortal } from 'react-dom';
 import './popper.css';
 
 // Components
-import { Modal } from '../modal/modal';
-import { TextField } from '../text-field/text-field';
+import { Modal } from '../Modal/index';
+import { TextField } from '../TextField/index';
 
 export function Popper() {
   const [showOption, setShowOption] = useState(false);
