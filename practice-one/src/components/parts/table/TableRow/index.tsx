@@ -2,7 +2,7 @@
 import { ITableRowProps } from '@src/types/ITableRow';
 
 /* Components */
-import { TableRowCell } from '../table-row-cell/TableRowCell';
+import { TableRowCell } from '../TableRowCell';
 
 export const TableRow = <T,>({
   data,
