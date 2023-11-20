@@ -1,4 +1,4 @@
-import './avatar.css';
+import './Avatar.css';
 
 /* Types */
 import { TAvatar } from '@src/types/TAvatar';
