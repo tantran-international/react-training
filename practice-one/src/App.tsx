@@ -1,8 +1,10 @@
-import { Popper } from '@components/commons/popper/popper';
-import { ListNavigation } from '@components/commons/list-navigation/list-navigation';
-import { Drawer } from '@components/parts/drawer/drawer';
-import { ToolBar } from '@components/parts/tool-bar/tool-bar';
 import './App.css';
+
+/* Components */
+import { Popper } from '@components/commons/Popper/index';
+import { ListNavigation } from '@components/commons/ListNavigation/index';
+import { Drawer } from '@components/parts/Drawer/index';
+import { ToolBar } from '@components/parts/ToolBar/index';
 
 function App() {
   return (
