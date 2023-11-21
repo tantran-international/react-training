@@ -1,14 +1,14 @@
 import { createPortal } from 'react-dom';
-import './modal.css';
+import '@/components/commons/Modal/Modal.css';
 
 // Components
-import { Button } from '@components/commons/Button/index';
+import { Button } from '@/components/commons/Button';
 
 // Types
 import { TModal } from '@/types/TModal';
 
 // Icons
-import iconClose from '@assets/images/icons/icon-close.svg';
+import iconClose from '@/assets/images/icons/icon-close.svg';
 
 
 export function Modal({
