@@ -1,11 +1,11 @@
-import './SearchBar.css';
+import '@/components/commons/SearchBar/SearchBar.css';
 
 // Components
-import { TextField } from '../TextField/index';
-import { Button } from '../Button/index';
+import { TextField } from '@/components/commons/TextField';
+import { Button } from '@/components/commons/Button';
 
 // Icons
-import iconClose from '@assets/images/icons/icon-close.svg';
+import iconClose from '@/assets/images/icons/icon-close.svg';
 
 // Types
 import { TSearchBar } from '@/types/TSearchBar';

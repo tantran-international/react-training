@@ -1,7 +1,7 @@
 import './Switch.css';
 
 /* Types */
-type TSwitch = {
+interface TSwitch {
   additionalClass?: string;
   onChange: () => void;
   checked: boolean;
