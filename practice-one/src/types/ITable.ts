@@ -1,17 +1,11 @@
-// export type TTable = {
-//   theadDatas:
-//   tbodyDatas:
-//   additionalClass: string;
-// }
-
 export interface IColumnType<T> {
   key: string;
   title: string;
-  render?: (column: IColumnType<T>, item: T) => void;
+  render?: (column: IColumnType<T>, item: T) => JSX.Element;
 }
 
-export interface ITableProps<T> {
-  columns: IColumnType<T>[];
+export interface ITable<T> {
   data: T[];
+  columns: IColumnType<T>[];
   additionalClass?: string;
 }

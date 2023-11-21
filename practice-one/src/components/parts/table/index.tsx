@@ -5,15 +5,15 @@ import { TableHeader } from './TableHeader/index';
 import { TableRow } from './TableRow/index';
 
 /* Types */
-import { ITableProps } from '@/types/ITable';
+import { ITable } from '@/types/ITable';
 
 export const Table = <T,>({
   data,
   columns,
   additionalClass
-}: ITableProps<T>): JSX.Element => {
+}: ITable<T>): JSX.Element => {
   return (
-    <table className={`table ${additionalClass}`}>
+    <table className={`table-wrapper ${additionalClass}`}>
       <thead>
         <TableHeader columns={columns} />
       </thead>
