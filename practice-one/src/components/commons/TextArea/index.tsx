@@ -1,12 +1,21 @@
 import './TextArea.css';
 
 /* Types */
-import { TTextArea } from '@/types/TTextArea';
+type TTextArea = {
+  additionalClass: string;
+  onChange: () => void;
+  value: string;
+};
 
-export const TextArea = ({ additionalClass }: TTextArea) => {
+export const TextArea = ({ additionalClass, onChange, value }: TTextArea) => {
+
   return (
     <textarea
+      id='userDetail'
+      name='userDetail'
       className={`text-area ${additionalClass}`}
+      onChange={onChange}
+      value={value}
       autoFocus
     ></textarea>
   );
