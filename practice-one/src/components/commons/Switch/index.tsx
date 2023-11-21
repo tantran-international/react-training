@@ -1,23 +1,26 @@
-import { useState } from 'react';
 import './Switch.css';
 
 /* Types */
-import { TSwitch } from '@/types/TSwitch';
+type TSwitch = {
+  additionalClass?: string;
+  onChange: () => void;
+  checked: boolean;
+};
 
-export const Switch = ({ additionalClass, isActive }: TSwitch) => {
-  const [checked, setChecked] = useState(true);
-
-  const handleToggle = () => {
-    setChecked(!checked);
-  };
-
+export const Switch = ({ additionalClass, onChange, checked }: TSwitch) => {
   return (
-    <label className={`switch-container ${additionalClass}`}>
+    <label
+      htmlFor='toggle-switch'
+      className={`switch-container ${additionalClass}`}>
+
       <input
+        id='toggle-switch'
+        name='toggle-switch'
         type='checkbox'
-        checked={isActive ? checked : !checked}
-        onChange={handleToggle}
+        checked={checked}
+        onChange={onChange}
       />
+
       <span className='switch' />
     </label>
   );
