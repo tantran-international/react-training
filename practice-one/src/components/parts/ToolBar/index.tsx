@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
-import './ToolBar.css';
+import '@/components/parts/ToolBar/ToolBar.css';
 
 // Icons
-import iconSearch from '@assets/images/icons/icon-search.svg';
+import iconSearch from '@/assets/images/icons/icon-search.svg';
 
 // Components
-import { Button } from '@components/commons/Button/index';
-import { SearchBar } from '@components/commons/SearchBar/index';
+import { Button } from '@/components/commons/Button';
+import { SearchBar } from '@/components/commons/SearchBar';
 
 export const ToolBar = ({ content }: { content: string }) => {
   const [isOpenSearchBar, setOpenSearchBar] = useState(false);
