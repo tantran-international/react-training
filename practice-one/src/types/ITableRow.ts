@@ -1,6 +1,6 @@
-import { IColumnType } from "./ITable";
+import { IColumnType } from "@/types/ITable";
 
-export interface ITableRowProps<T> {
+export interface ITableRow<T> {
   data: T[];
   columns: IColumnType<T>[]
 }

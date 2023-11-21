@@ -1,12 +1,49 @@
 import './App.css';
 
 /* Components */
-import { Popper } from '@components/commons/Popper/index';
-import { ListNavigation } from '@components/commons/ListNavigation/index';
-import { Drawer } from '@components/parts/Drawer/index';
-import { ToolBar } from '@components/parts/ToolBar/index';
+import { Popper } from '@/components/commons/Popper';
+import { ListNavigation } from '@/components/commons/ListNavigation';
+import { Drawer } from '@/components/parts/Drawer';
+import { ToolBar } from '@/components/parts/ToolBar';
+import { Table } from '@/components/parts/Table';
 
-function App() {
+import { IColumnType } from './types/ITable';
+
+interface IData {
+  fullName: string;
+  status: string;
+  email: string[];
+}
+
+const columns: IColumnType<IData>[] = [
+  {
+    key: "fullName",
+    title: "Full Name",
+  },
+  {
+    key: "status",
+    title: "Status",
+  },
+  {
+    key: "email",
+    title: "Email",
+  },
+];
+
+const data: IData[] = [
+  {
+    fullName: "Francisco Mendes",
+    status: "Full Stack",
+    email: ["dev", "blogger"],
+  },
+  {
+    fullName: "Ricardo Malva",
+    status: "Social Media Manager",
+    email: ["designer", "photographer"],
+  },
+];
+
+export const App = () => {
   return (
     <>
       <header className='user-manager-header'>User Manager</header>
@@ -21,10 +58,9 @@ function App() {
 
         <div className='app-content-wrapper'>
           <ToolBar content='Users' />
+          <Table data={data} columns={columns}/>
         </div>
       </div>
     </>
   );
 }
-
-export default App;

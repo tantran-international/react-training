@@ -1,9 +1,10 @@
 /* Types */
-import { TTableHeaderCell } from '@/types/TTableHeaderCell';
+type TTableHeaderCell = {
+  children: string;
+}
 
 export const TableHeaderCell = ({
-  key,
   children
 }: TTableHeaderCell) => {
-  return <th key={key}>{children}</th>;
+  return <th>{children}</th>;
 };

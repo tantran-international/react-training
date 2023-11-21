@@ -1,19 +1,17 @@
 /* Components */
-import { TableHeaderCell } from '../TableHeaderCell';
+import { TableHeaderCell } from '@/components/parts/Table/TableHeaderCell';
 
 /* Types */
-import { ITheaderProps } from '@/types/ITableHeader';
+import { ITheader } from '@/types/ITableHeader';
 
-export const TableHeader = <T,>({ columns }: ITheaderProps<T>): JSX.Element => {
+export const TableHeader = <T,>({ columns }: ITheader<T>): JSX.Element => {
   return (
     <tr>
-      {columns.map((column, columnIndex) => {
-        return (
-          <TableHeaderCell key={`table-head-cell-${columnIndex}`}>
-            {column.title}
-          </TableHeaderCell>
-        );
-      })}
+      {columns.map((column, columnIndex) => (
+        <TableHeaderCell key={`table-head-cell-${columnIndex}`}>
+          {column.title}
+        </TableHeaderCell>
+      ))}
     </tr>
   );
 };
