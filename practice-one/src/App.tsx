@@ -6,23 +6,40 @@ import { ListNavigation } from '@/components/commons/ListNavigation';
 import { Drawer } from '@/components/parts/Drawer';
 import { ToolBar } from '@/components/parts/ToolBar';
 import { Table } from '@/components/parts/Table';
+import { Avatar } from '@/components/commons/Avatar';
 
-import { IColumnType } from './types/ITable';
+/* Types */
+import { IColumnType } from '@/types/ITable';
 
 interface IData {
+  avatar: string;
   fullName: string;
-  status: string;
-  email: string[];
+  status: boolean;
+  email: string;
 }
 
 const columns: IColumnType<IData>[] = [
+  {
+    key: 'avatar',
+    title: '',
+    render: (_, item) => (
+        <Avatar
+          additionalClass='avatar-row'
+          variant='rounded'
+          src={item.avatar != ''
+            ? item.avatar
+            : null
+          }
+          alt={item.fullName}/>
+    )
+  },
   {
     key: "fullName",
     title: "Full Name",
   },
   {
     key: "status",
-    title: "Status",
+    title: "Status"
   },
   {
     key: "email",
@@ -32,14 +49,16 @@ const columns: IColumnType<IData>[] = [
 
 const data: IData[] = [
   {
-    fullName: "Francisco Mendes",
-    status: "Full Stack",
-    email: ["dev", "blogger"],
+    avatar: '',
+    fullName: "Tran Duy Tan",
+    status: true,
+    email: "duytantran.it@gmail.com"
   },
   {
-    fullName: "Ricardo Malva",
-    status: "Social Media Manager",
-    email: ["designer", "photographer"],
+    avatar: '',
+    fullName: "Mua Hong",
+    status: false,
+    email: "tranduytan597@gmail.com"
   },
 ];
 
@@ -58,7 +77,10 @@ export const App = () => {
 
         <div className='app-content-wrapper'>
           <ToolBar content='Users' />
-          <Table data={data} columns={columns}/>
+          <Table
+            data={data}
+            columns={columns}
+          />
         </div>
       </div>
     </>
