@@ -1,7 +1,9 @@
+import { ReactNode } from 'react';
+
 type TChildren = {
-  children: string | JSX.Element;
+  children: JSX.Element | string;
 };
 
-export const TableCell = ({ children }: TChildren) => {
+export const TableCell = ({ children }: TChildren): ReactNode => {
   return <td>{children}</td>;
 };
