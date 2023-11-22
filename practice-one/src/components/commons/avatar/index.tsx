@@ -1,7 +1,13 @@
 import './Avatar.css';
 
 /* Types */
-import { TAvatar } from '@/types/TAvatar';
+interface IAvatar {
+  additionalClass?: string;
+  src?: string | null;
+  alt: string;
+  bgColor?: string;
+  variant: 'rounded' | 'square';
+}
 
 export const Avatar = ({
   additionalClass,
@@ -9,22 +15,20 @@ export const Avatar = ({
   alt,
   bgColor,
   variant
-}: TAvatar) => {
+}: IAvatar) => {
 
   /* Get first Letter of alt */
   const initialLetter = alt.charAt(0);
 
   /**
-   * Render image for avatar component
-   * @param src - url of images
-   * @param alt - name of user
-   * @param initialLetter - first letter of alt
+   *
+   * @returns - HTMLElement || string
    */
   const renderAvatar = () => {
     return (
       src
       ? <img
-          className='avatar-image'
+          className="avatar-image"
           src={src}
           alt={alt}
         />
