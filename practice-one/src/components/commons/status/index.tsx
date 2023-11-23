@@ -1,7 +1,7 @@
 import './Status.css';
 
 /* Types */
-import { TStatus } from "@/types/TStatus";
+import { TStatus } from '@/types/TStatus';
 
 export const Status = ({
   additionalClass,
@@ -12,15 +12,15 @@ export const Status = ({
     <span className={`status
     ${
       isActive
-        ? 'active'
-        : 'not-active'
+        ? "active"
+        : "not-active"
       }
     ${additionalClass}`}
     >
       {
       isActive
-        ? 'Active'
-        : 'Not active'
+        ? "Active"
+        : "Not active"
       }
     </span>
   );
