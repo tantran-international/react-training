@@ -1,3 +1,5 @@
+import '@/components/parts/Table/TableHeaderCell/TableHeaderCell.css'
+
 /* Types */
 type TTableHeaderCell = {
   children: string;
@@ -6,5 +8,5 @@ type TTableHeaderCell = {
 export const TableHeaderCell = ({
   children
 }: TTableHeaderCell) => {
-  return <th>{children}</th>;
+  return <th className="table-header-cell">{children}</th>;
 };

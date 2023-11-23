@@ -1,0 +1,7 @@
+.table-header-cell {
+  font-family: var(--roboto-bold);
+  padding: 20px 0px;
+  text-align: left;
+  background-color: var(--medium-grey);
+  border-bottom: 1px solid var(--primary-color);
+}

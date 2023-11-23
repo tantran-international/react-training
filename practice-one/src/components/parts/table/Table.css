@@ -1,0 +1,36 @@
+.table-wrapper {
+  width: 100%;
+  height: 90vh;
+  overflow: auto;
+  background-color: var(--white);
+  border: 1px solid var(--layout-border-color);
+}
+
+.main-table {
+  margin: -1px 0 0;
+  font-family: var(--roboto);
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  background-color: var(--white);
+  width: 100%;
+  border-collapse: separate;
+}
+
+.table-head {
+  position: sticky;
+  top: 0px;
+  background-color: var(--light-grey);
+}
+
+.table-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  border-radius: 100px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 100px;
+}

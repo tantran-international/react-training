@@ -1,7 +1,12 @@
+import { ReactNode } from 'react';
+import '@/components/parts/Table/TableCell/TableCell.css';
+
 type TChildren = {
-  children: string | JSX.Element;
+  children: JSX.Element | string;
 };
 
-export const TableCell = ({ children }: TChildren) => {
-  return <td>{children}</td>;
+export const TableCell = ({
+  children
+}: TChildren): ReactNode => {
+  return <td className="table-cell">{children}</td>;
 };
