@@ -13,17 +13,21 @@ export const Table = <T,>({
   additionalClass
 }: ITable<T>): JSX.Element => {
   return (
-    <table className={`table-wrapper ${additionalClass}`}>
-      <thead>
-        <TableHeader columns={columns} />
-      </thead>
+    <div className="table-wrapper">
+      <table className={`main-table ${additionalClass}`}>
 
-      <tbody>
-        <TableRow
-          columns={columns}
-          data={data}
-        />
-      </tbody>
-    </table>
+        <thead className="table-head">
+          <TableHeader columns={columns} />
+        </thead>
+
+        <tbody className="table-body">
+          <TableRow
+            columns={columns}
+            data={data}
+          />
+        </tbody>
+
+      </table>
+    </div>
   );
 };
