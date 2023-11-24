@@ -45,7 +45,8 @@
 /* Information List */
 .infolist-content {
   padding: 0 15px;
-  font-size: 13px;
+  font-size: 14px;
+  letter-spacing: 0.2px;
 }
 
 .infolist-header {
@@ -57,24 +58,21 @@
   margin: 0 0 25px;
 }
 
-.infolist-email::before {
+.infolist-icon:before {
   display: block;
   content: '';
-  background: url('../../../assets/images/icons/icon-mail.svg') no-repeat;
-  background-size: 20px 20px;
   width: 25px;
   height: 40px;
   float: left;
   margin: -4px 6px 0 0;
 }
 
-.infolist-date::before {
-  display: block;
-  content: '';
+.infolist-email:before {
+  background: url('../../../assets/images/icons/icon-mail.svg') no-repeat;
+  background-size: 20px 20px;
+}
+
+.infolist-date:before {
   background: url('../../../assets/images/icons/icon-clock.svg') no-repeat;
   background-size: 20px 20px;
-  width: 25px;
-  height: 40px;
-  float: left;
-  margin: -4px 6px 0 0;
 }
