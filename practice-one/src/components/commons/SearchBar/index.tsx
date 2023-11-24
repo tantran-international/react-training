@@ -19,7 +19,7 @@ export const SearchBar = ({
   return (
     <div className={`search-bar search-bar-${additionalClass}`}>
       <TextField
-        additionalClass='search'
+        additionalClass='text-field-search'
         placeholder='Search'
       />
       <Button
