@@ -41,7 +41,7 @@
 }
 
 .button-secondary {
-  padding: 7px 30px;
+  padding: 6px 30px;
   color: var(--primary-color);
   background-color: var(--medium-grey);
 }

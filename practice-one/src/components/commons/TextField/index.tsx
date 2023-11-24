@@ -1,11 +1,15 @@
 import { TInput } from '@/types/TInput';
-import './TextField.css';
+import '@/components/commons/TextField/TextField.css';
 
-export function TextField({ additionalClass, placeholder, onChange }: TInput) {
+export function TextField({
+  additionalClass,
+  placeholder,
+  onChange
+}: TInput) {
   return (
     <input
-      className={`text-field text-field-${additionalClass}`}
-      type='text'
+      className={`text-field ${additionalClass}`}
+      type="text"
       placeholder={placeholder}
       onChange={onChange}
       autoFocus

@@ -1,72 +1,78 @@
 import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import './popper.css';
+import '@/components/commons/Popper/Popper.css';
 
 // Components
-import { Modal } from '../Modal/index';
-import { TextField } from '../TextField/index';
+import { Modal } from '@/components/commons/Modal';
+import { TextField } from '@/components/commons/TextField';
 
 export function Popper() {
+  /* Handle show/hide (btn-popper) */
   const [showOption, setShowOption] = useState(false);
+  /* Handle show/hide Modal */
   const [isOpenModal, setOpenModal] = useState(false);
 
-  // Define useRef.current as button element and set initial value
+  /* Define useRef.current as button element and set initial value */
   const ref = useRef<HTMLButtonElement>(null);
 
-  // Perform side effect handleClickOutSide in popper component, when event.target != ref.current
+  /* Click outside to hide (btn-popper) */
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (!ref.current?.contains(event.target as Node)) {
         setShowOption(false);
       }
     };
-
     document.addEventListener('click', handleClickOutside);
-
     return () => {
       document.removeEventListener('click', handleClickOutside);
     };
   }, []);
 
+  /* Helpers */
+  const handleClickPopper = () => {
+    setShowOption(true);
+  };
 
-  /**
-   * Update state of popper to show / hide popper button
-   * @param {function} setOpenModal - function name used for update state.
-   */
-  const handleClickButtonPopper = () => {
+  const handleOpenModal = () => {
     setOpenModal(true);
   };
 
+  const handleCloseModal = () => {
+    setOpenModal(false);
+  };
+
   return (
-    <div>
+    <div className="popper-wrapper">
       <button
-        className='btn-cta btn-add'
-        type='button'
-        onClick={() => setShowOption(true)}
+        className="btn-cta btn-add"
+        type="button"
+        onClick={handleClickPopper}
         ref={ref}
       >
-        <span>&#43;</span> New
+        <span className="btn-add-symbol">&#43;</span> New
       </button>
+
       {showOption &&
         createPortal(
           <button
-            className='btn-cta btn-popper'
-            type='button'
-            onClick={handleClickButtonPopper}
+            className="btn-cta btn-popper"
+            type="button"
+            onClick={handleOpenModal}
           >
             Add new user
           </button>,
-          document.querySelector('.popper-wrapper') as HTMLElement
+          document.querySelector(".popper-wrapper") as HTMLElement
         )}
+
       {isOpenModal && (
         <Modal
           isOpen={isOpenModal}
-          additionalClass='add-new'
-          onClose={() => setOpenModal(false)}
-          modalDescription='Enter user name'
-          btnTextPrimary='Save'
+          additionalClass="modal-add-new"
+          onClose={handleCloseModal}
+          modalDescription="Enter user name"
+          btnTextPrimary="Save"
         >
-          <TextField additionalClass='add' />
+          <TextField additionalClass="text-field-add" />
         </Modal>
       )}
     </div>

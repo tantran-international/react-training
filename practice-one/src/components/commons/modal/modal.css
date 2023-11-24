@@ -9,16 +9,11 @@
 }
 
 .modal {
-  font-family: var(--roboto-bold);
   color: var(--dark-grey);
   box-shadow:
     0 4px 8px 0 rgba(0, 0, 0, 0.2),
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin: 0 auto;
-  padding: 10px 20px;
-
-  min-width: 350px;
-  height: fit-content;
 
   position: absolute;
   top: 50%;
@@ -29,7 +24,16 @@
   overflow: hidden;
 }
 
+
+/* Modal-Add-New */
+.modal-add-new {
+  min-width: 350px;
+  height: fit-content;
+  padding: 10px 20px;
+}
+
 .modal-add-new-header {
+  font-family: var(--roboto-bold);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -45,3 +49,34 @@
 .text-field-add {
   min-width: 200px;
 }
+/* End Modal-Add-New */
+
+/* Start Modal-Comfirm */
+.modal-confirm {
+  min-width: 270px;
+  height: fit-content;
+  padding: 20px 0 15px;
+  border-top: 5px solid var(--primary-color);
+}
+
+.modal-confirm-header .modal-title {
+  margin: 0 0 15px;
+  font-family: var(--roboto-bold);
+  font-size: 18px;
+  text-align: center;
+
+}
+
+.modal-confirm-header .modal-description {
+  margin: 0 0 15px;
+  font-family: var(--roboto);
+  font-size: 16px;
+  text-align: center;
+}
+
+.modal-confirm-body {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+/* End Modal-Comfirm */

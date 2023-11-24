@@ -1,19 +1,24 @@
 import { TButton } from '@/types/TButton';
-import './Button.css'
+import '@/components/commons/Button/Button.css';
 
-export function Button({ additionalClass, icon, content, onClick }: TButton) {
+export function Button({
+  additionalClass,
+  icon,
+  content,
+  onClick
+}: TButton) {
   if (icon) {
     return (
       <button
-        className={`button-icon button-${additionalClass}`}
-        type='button'
+        className={`button-icon ${additionalClass}`}
+        type="button"
         onClick={onClick}
       >
-        <span className={`icon-wrapper icon-wrapper-${additionalClass}`}>
+        <span className={`icon-wrapper`}>
           <img
-            className={`icon icon-${additionalClass}`}
+            className={`icon`}
             src={icon}
-            alt='button-icon'
+            alt="button-icon"
           />
         </span>
       </button>
@@ -22,8 +27,8 @@ export function Button({ additionalClass, icon, content, onClick }: TButton) {
 
   return (
     <button
-      className={`button button-${additionalClass}`}
-      type='button'
+      className={`button ${additionalClass}`}
+      type="button"
       onClick={onClick}
     >
       {content}
