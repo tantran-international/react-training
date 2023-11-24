@@ -7,14 +7,15 @@ import { Modal } from '@/components/commons/Modal';
 import { TextField } from '@/components/commons/TextField';
 
 export function Popper() {
+  /* Handle show/hide (btn-popper) */
   const [showOption, setShowOption] = useState(false);
+  /* Handle show/hide Modal */
   const [isOpenModal, setOpenModal] = useState(false);
 
-
-  // Define useRef.current as button element and set initial value
+  /* Define useRef.current as button element and set initial value */
   const ref = useRef<HTMLButtonElement>(null);
 
-  // Perform side effect handleClickOutSide in popper component, when event.target != ref.current
+  /* Click outside to hide (btn-popper) */
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (!ref.current?.contains(event.target as Node)) {
@@ -27,9 +28,17 @@ export function Popper() {
     };
   }, []);
 
-  /* Update state of popper to show / hide popper button */
-  const handleClickButtonPopper = () => {
+  /* Helpers */
+  const handleClickPopper = () => {
+    setShowOption(true);
+  };
+
+  const handleOpenModal = () => {
     setOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
   };
 
   return (
@@ -37,31 +46,33 @@ export function Popper() {
       <button
         className="btn-cta btn-add"
         type="button"
-        onClick={() => setShowOption(true)}
+        onClick={handleClickPopper}
         ref={ref}
       >
-        <span className='btn-add-symbol'>&#43;</span> New
+        <span className="btn-add-symbol">&#43;</span> New
       </button>
+
       {showOption &&
         createPortal(
           <button
             className="btn-cta btn-popper"
             type="button"
-            onClick={handleClickButtonPopper}
+            onClick={handleOpenModal}
           >
             Add new user
           </button>,
           document.querySelector(".popper-wrapper") as HTMLElement
         )}
+
       {isOpenModal && (
         <Modal
           isOpen={isOpenModal}
-          additionalClass="add-new"
-          onClose={() => setOpenModal(false)}
+          additionalClass="modal-add-new"
+          onClose={handleCloseModal}
           modalDescription="Enter user name"
           btnTextPrimary="Save"
         >
-          <TextField additionalClass="add" />
+          <TextField additionalClass="text-field-add" />
         </Modal>
       )}
     </div>
