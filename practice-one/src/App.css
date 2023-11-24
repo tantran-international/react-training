@@ -1,8 +1,9 @@
 .main-header {
   padding: 20px 14px;
   font-family: var(--roboto-bold);
-  font-size: 16px;
+  font-size: 15px;
   color: var(--dark-grey);
+  border: 1px solid var(--layout-border-color);
 }
 
 .main-body {
@@ -13,5 +14,4 @@
   padding: 10px;
   width: 100%;
   background-color: var(--medium-grey);
-  border: 1px solid var(--layout-border-color);
 }
