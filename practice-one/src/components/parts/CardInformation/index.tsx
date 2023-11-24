@@ -9,7 +9,7 @@ import { Button } from '@/components/commons/Button';
 import iconEdit from '@/assets/images/icons/icon-pen.svg';
 
 /* Types */
-interface IUserInformation {
+interface ICardInformation {
   additionalClass?: string;
   content: string;
   status: boolean;
@@ -29,20 +29,20 @@ export const CardInformation = ({
   bgColor,
   email,
   lastVisitedDate
-}: IUserInformation) => {
+}: ICardInformation) => {
   /**
-   *
+   * Get lastVisitedDate from data and render with customize format
    * @returns - string format of lastvisitedDate for render
    */
   const renderLastVisitedDate = () => {
     /* Convert and get needed value of Date + Time from data */
     const dataDate = new Date(lastVisitedDate);
     const month = dataDate.toLocaleString('default', { month: 'short' });
-    const day = ('0' + (dataDate.getDay() + 1)).slice(-2);
+    const day = ('0' + dataDate.getDate()).slice(-2);
     const year = dataDate.getFullYear();
-    const hour = ('0' + (dataDate.getHours() + 1)).slice(-2);
-    const minute = ('0' + (dataDate.getMinutes() + 1)).slice(-2);
-    const second = ('0' + (dataDate.getSeconds() + 1)).slice(-2);
+    const hour = ('0' + dataDate.getHours()).slice(-2);
+    const minute = ('0' + dataDate.getMinutes()).slice(-2);
+    const second = ('0' + dataDate.getSeconds()).slice(-2);
 
     return `${month} ${day}, ${year} ${hour}:${minute}:${second}`;
   };
@@ -52,7 +52,10 @@ export const CardInformation = ({
       <header className='info-header'>
         <div>
           <h2 className='infor-heading'>{content}</h2>
-          <Status additionalClass='info-status' isActive={status} />
+          <Status
+            additionalClass='info-status'
+            isActive={status}
+          />
         </div>
         <Button icon={iconEdit} />
       </header>
@@ -70,12 +73,12 @@ export const CardInformation = ({
 
       <div className='infolist-content'>
         <div className='infolist-header'>
-          <span className='infolist-email'></span> Email:
+          <span className='infolist-icon infolist-email'></span> Email:
         </div>
         <p className='infolist-detail'>{email}</p>
 
         <div className='infolist-header'>
-          <span className='infolist-date'></span> Last visited:
+          <span className='infolist-icon infolist-date'></span> Last visited:
         </div>
         <p className='infolist-detail'>{renderLastVisitedDate()}</p>
       </div>
