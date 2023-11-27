@@ -1,0 +1,78 @@
+.card-information {
+  margin: 10px 10px 10px 0;
+  min-width: 350px;
+  background-color: var(--white);
+  border: 1px solid var(--layout-border-color);
+  font-family: var(--roboto);
+  color: var(--dark-grey);
+}
+
+.info-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 10px;
+  font-family: var(--roboto-bold);
+  font-size: 15px;
+  border-bottom: 1px solid var(--layout-border-color);
+}
+
+/* Header */
+.infor-heading {
+  margin: 0 20px 0 0;
+  display: inline;
+}
+
+.info-status {
+  margin: 0 45px 0 0;
+}
+
+/* Media contents */
+.info-media-content {
+  padding: 22px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-name {
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+  margin: 20px 0 0;
+}
+
+/* Information List */
+.infolist-content {
+  padding: 0 15px;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+}
+
+.infolist-header {
+  font-weight: bold;
+  margin: 0 0 10px;
+}
+
+.infolist-detail {
+  margin: 0 0 25px;
+}
+
+.infolist-icon:before {
+  display: block;
+  content: '';
+  width: 25px;
+  height: 40px;
+  float: left;
+  margin: -4px 6px 0 0;
+}
+
+.infolist-email:before {
+  background: url('../../../assets/images/icons/icon-mail.svg') no-repeat;
+  background-size: 20px 20px;
+}
+
+.infolist-date:before {
+  background: url('../../../assets/images/icons/icon-clock.svg') no-repeat;
+  background-size: 20px 20px;
+}

@@ -1,0 +1,40 @@
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--roboto);
+  color: var(--white);
+  background-color: red;
+  overflow: hidden;
+}
+
+.avatar-rounded {
+  border-radius: 50%;
+}
+
+.avatar-row {
+  width: 40px;
+  height: 40px;
+  font-size: 25px;
+}
+
+.avatar-information {
+  width: 190px;
+  height: 190px;
+  font-size: 135px;
+  color: var(--letter-avatar-color);
+  background-color: inherit;
+}
+
+.avatar-edit-information {
+  width: 110px;
+  height: 110px;
+  font-size: 80px;
+  color: var(--letter-avatar-color);
+}
+
+.avatar-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}

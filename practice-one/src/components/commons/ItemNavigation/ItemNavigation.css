@@ -1,0 +1,27 @@
+.list-item {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  padding: 7px 10px;
+  font-size: 14px;
+  color: var(--white);
+  cursor: pointer;
+  font-family: var(--roboto);
+}
+
+.list-icon-wrapper {
+  display: inline-block;
+  max-width: 30px;
+  max-height: 30px;
+}
+
+.list-icon {
+  width: 100%;
+  height: auto;
+}
+
+.list-item-selected {
+  color: var(--primary-color);
+  box-shadow: 3px 0 var(--primary-color) inset;
+  background-color: #3e424b;
+}

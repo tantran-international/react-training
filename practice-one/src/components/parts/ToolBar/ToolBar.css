@@ -1,0 +1,17 @@
+.tool-bar-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-family: var(--roboto-bold);
+  font-size: 16px;
+  padding: 11px;
+  color: var(--dark-grey);
+  display: flex;
+  width: 100%;
+  max-height: 45px;
+  overflow: hidden;
+  background-color: var(--white);
+  border: 1px solid var(--common-border-color);
+}

@@ -1,0 +1,18 @@
+.table-header {
+  border-bottom: 1px solid var(--primary-color);
+}
+
+/* Column Avatar */
+.table-header th:first-child {
+  width: 85px;
+}
+
+/* Column Full-Name */
+.table-header th:nth-child(2) {
+  width: 500px;
+}
+
+/* Column Status */
+.table-header th:nth-child(3) {
+  width: 150px;
+}

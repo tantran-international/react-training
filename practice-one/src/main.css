@@ -1,3 +1,5 @@
+@import url(./reset.css);
+
 @font-face {
   font-family: Roboto-regular;
   font-style: normal;
@@ -15,10 +17,14 @@
 :root {
   /* Colors */
   --primary-color: #1ca1c1;
+  --primary-color-hover: #1b8fac;
+  --primary-color-active: #14728a;
   --secondary-color: #4a4e58;
 
   --light-grey: #f4f5f9;
   --medium-grey: #ebedf0;
+  --medium-grey-hover: #e5e6e8;
+  --medium-grey-active: #dbdada;
   --dark-grey: #475466;
 
   --light-red: #ff6455;
@@ -33,7 +39,13 @@
   --layout-border-color: #dadee0;
   --common-border-color: #ccd7e6;
 
+  --letter-avatar-color: rgba(235, 235, 235, 0.7);
+
   /* Fonts */
   --roboto: Roboto-regular;
   --roboto-bold: Roboto-medium;
+}
+
+.container {
+  margin: auto;
 }
