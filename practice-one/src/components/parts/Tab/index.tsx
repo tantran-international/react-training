@@ -1,4 +1,4 @@
-import '@/components//commons/Tab/Tab.css';
+import '@/components/parts/Tab/Tab.css'
 import { useState } from 'react';
 
 /* Components */
@@ -18,7 +18,10 @@ interface ITab<T> {
   item: T;
 }
 
-export const Tab = ({ tabs, item }: ITab<IData>): JSX.Element => {
+export const Tab = ({
+  tabs,
+  item
+}: ITab<IData>): JSX.Element => {
   const [activeTab, setActiveTab] = useState(0);
 
   /* Helpers */

@@ -8,10 +8,10 @@
 
 .main-body {
   display: flex;
+  background-color: var(--medium-grey);
 }
 
 .app-content-wrapper {
   padding: 10px;
   width: 100%;
-  background-color: var(--medium-grey);
 }
