@@ -9,3 +9,11 @@
 .text-field:focus {
   border-color: var(--primary-color);
 }
+
+.label-text-field-edit {
+  padding: 0 20px 0 0;
+}
+
+.text-field-edit {
+  min-width: 350px;
+}
