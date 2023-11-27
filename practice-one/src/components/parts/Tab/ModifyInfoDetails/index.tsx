@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import '@/components/parts/Tab/ModifyInfoDetails/ModifyInfoDetails.css';
 
 /* Components */
 import { Button } from '@/components/commons/Button';
@@ -25,6 +24,7 @@ export const ModifyInfoDetail = ({
   const handleFullNameChange = (value: string) => {
     setFullname(value);
   };
+
   const handleEmailChange = (value: string) => {
     setEmail(value);
   };
