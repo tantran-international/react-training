@@ -3,7 +3,7 @@ import { useState } from 'react';
 /* Components */
 import { Button } from '@/components/commons/Button';
 import { TextField } from '@/components/commons/TextField';
-import { Avatar } from '@/components/commons/Avatar';
+import { ImageUploader } from '@/components/commons/ImageUploader';
 
 /* Types */
 import { IData } from '@/types/IData';
@@ -68,21 +68,7 @@ export const ModifyInfoDetail = ({
             </div>
 
             <div>
-              <label htmlFor=''>Avatar</label>
-
-              <Avatar
-                src={item.avatar}
-                alt={item.fullName}
-                bgColor={item.bgColor}
-                variant='square'
-                additionalClass='avatar-edit-information'
-              />
-
-              <button type='button'>
-                <span className='button-upload-icon'></span>Upload new photo
-              </button>
-
-              <input type='file' accept='image/*' />
+              <ImageUploader item={item} />
             </div>
           </form>
         </>

@@ -18,13 +18,4 @@
   flex-direction: column;
   align-items: end;
 }
-.button-upload-icon:before {
-  display: block;
-  content: '';
-  width: 25px;
-  height: 40px;
-  float: left;
-  margin: -4px 6px 0 0;
-  background: url('../../../assets/images/icons/icon-upload.svg') no-repeat;
-  background-size: 20px 20px;
-}
+
