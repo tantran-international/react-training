@@ -27,7 +27,6 @@ export function TextField({
    * @param event - event onChane of input
    */
   const handleInputChange = (event: FormEvent<HTMLInputElement>) => {
-    console.log(typeof event);
     onInputChange?.(event.currentTarget.value);
   };
 
