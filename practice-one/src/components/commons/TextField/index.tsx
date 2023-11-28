@@ -7,9 +7,10 @@ interface IInput {
   id: string;
   name: string;
   placeholder?: string;
-  value: string;
+  value?: string;
   onInputChange?: (value: string) => void;
   additionalClass?: string;
+  isAutoFocus?: boolean;
 }
 
 export function TextField({
@@ -19,9 +20,9 @@ export function TextField({
   placeholder,
   value,
   onInputChange,
-  additionalClass
+  additionalClass,
+  isAutoFocus
 }: IInput) {
-
   /**
    * Update fullName state of TextField when it's changed
    * @param event - event onChane of input
@@ -44,6 +45,7 @@ export function TextField({
         value={value}
         onChange={handleInputChange}
         className={`text-field ${additionalClass}`}
+        autoFocus={isAutoFocus == true ? true : false}
       />
     </>
   );
