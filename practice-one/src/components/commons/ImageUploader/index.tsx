@@ -17,16 +17,15 @@ export const ImageUploader = () => {
       <input
         type='file'
         accept='image/*'
-        onChange={(event) => {
-          handleImageChange(event);
-        }}
+        onChange={handleImageChange}
       />
 
       {selectedImage && (
         <div>
           <img
             src={URL.createObjectURL(selectedImage)}
-            alt='example: Full Name of User' />
+            alt='example: Full Name of User'
+          />
         </div>
       )}
     </div>
