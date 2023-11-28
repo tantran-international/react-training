@@ -1,12 +1,19 @@
-import { TButton } from '@/types/TButton';
 import '@/components/commons/Button/Button.css';
+
+/* Types */
+interface IButton {
+  additionalClass?: string;
+  icon?: string;
+  content?: string;
+  onClick?: Event | any;
+};
 
 export function Button({
   additionalClass,
   icon,
   content,
   onClick
-}: TButton) {
+}: IButton) {
   if (icon) {
     return (
       <button
