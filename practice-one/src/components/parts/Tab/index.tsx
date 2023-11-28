@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { TabButton } from '@/components/parts/Tab/TabButton';
 import { Button } from '@/components/commons/Button';
 import { TabPanel } from '@/components/parts/Tab/TabPanel';
-import { ModifyInfoDetail } from '@/components/parts/Tab/ModifyInfoDetails';
+import { ModifyInfoDetail } from '@/components/parts/Tab/ModifyInfoDetails';  
 
 /* Icons */
 import iconReturn from '@/assets/images/icons/icon-back.svg';
@@ -45,7 +45,7 @@ export const Tab = ({
       </div>
       <TabPanel>
         <ModifyInfoDetail activeTab={tabs[activeTab]} item={item} />
-        </TabPanel>
+      </TabPanel>
     </div>
   );
 };
