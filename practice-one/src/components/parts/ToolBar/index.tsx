@@ -9,7 +9,12 @@ import iconSearch from '@/assets/images/icons/icon-search.svg';
 import { Button } from '@/components/commons/Button';
 import { SearchBar } from '@/components/commons/SearchBar';
 
-export const ToolBar = (content: string) => {
+/* Types */
+interface IToolbar {
+  content: string;
+}
+
+export const ToolBar = ({content}: IToolbar) => {
   const [isOpenSearchBar, setOpenSearchBar] = useState(false);
 
   return (
