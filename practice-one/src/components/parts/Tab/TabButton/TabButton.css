@@ -1,0 +1,14 @@
+.tab-item {
+  font-family: var(--roboto-bold);
+  font-size: 17px;
+  background-color: var(--white);
+  color: var(--primary-color);
+  outline: none;
+  border: none;
+  padding: 12px 0;
+  min-width: 150px;
+}
+
+.tab-item-active {
+  border-bottom: 3px solid var(--primary-color);
+}

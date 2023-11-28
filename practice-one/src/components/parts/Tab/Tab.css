@@ -6,6 +6,11 @@
   font-family: var(--roboto-bold);
   font-size: 15px;
   color: var(--dark-grey);
+  border: 1px solid var(--layout-border-color);
+}
+
+.tab-edit {
+  border-bottom: 1px solid var(--layout-border-color);
 }
 
 .tab-toolbar {

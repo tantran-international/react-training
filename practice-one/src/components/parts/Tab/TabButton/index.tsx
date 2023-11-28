@@ -1,3 +1,5 @@
+import '@/components/parts/Tab/TabButton/TabButton.css'
+
 /* Types */
 interface ITabButton {
   title: string;
