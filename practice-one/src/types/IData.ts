@@ -4,7 +4,7 @@ export interface IData {
   email: string;
   isActive: boolean;
   registered?: string;
-  lastVisitedDate?: string;
+  lastVisitedDate: string;
   details?: string;
   bgColor?: string;
 }

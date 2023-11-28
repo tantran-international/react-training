@@ -32,6 +32,10 @@
   background-color: var(--primary-color);
 }
 
+.button-primary-edit {
+  padding: 6px 36px;
+}
+
 .button-primary:hover {
   background-color: var(--primary-color-hover);
 }

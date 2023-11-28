@@ -7,7 +7,11 @@ interface TSwitch {
   checked: boolean;
 };
 
-export const Switch = ({ additionalClass, onChange, checked }: TSwitch) => {
+export const Switch = ({
+    additionalClass,
+    onChange,
+    checked
+  }: TSwitch) => {
   return (
     <label
       htmlFor='toggle-switch'

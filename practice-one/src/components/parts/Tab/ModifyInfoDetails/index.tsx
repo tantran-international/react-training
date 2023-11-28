@@ -1,12 +1,19 @@
 import { useState } from 'react';
+import '@/components/parts/Tab/ModifyInfoDetails/ModifyInforDetails.css';
 
 /* Components */
 import { Button } from '@/components/commons/Button';
 import { TextField } from '@/components/commons/TextField';
 import { ImageUploader } from '@/components/commons/ImageUploader';
+import { Switch } from '@/components/commons/Switch';
+import { Status } from '@/components/commons/Status';
 
 /* Types */
 import { IData } from '@/types/IData';
+
+/* Helpers */
+import { renderDate } from '@/helpers/renderDate';
+import { TextArea } from '@/components/commons/TextArea';
 
 interface IModyfiInfoDetails<T> {
   activeTab: string;
@@ -19,8 +26,9 @@ export const ModifyInfoDetail = ({
 }: IModyfiInfoDetails<IData>) => {
   const [fullName, setFullname] = useState(item.fullName);
   const [email, setEmail] = useState(item.email);
+  const [status, setStatus] = useState(item.isActive);
+  const [details, setDetails] = useState(item.details)
 
-  /* Helpers */
   const handleFullNameChange = (value: string) => {
     setFullname(value);
   };
@@ -29,23 +37,28 @@ export const ModifyInfoDetail = ({
     setEmail(value);
   };
 
+  const handleSwitchChange = () => {
+    setStatus(!status);
+  };
+
+  const handleDetailsChange = (value: string) => {
+    setDetails(value);
+  }
+
   switch (activeTab) {
     case 'General':
+
+    const dateData = new Date();
+    const currentDate = dateData.toString();
       return (
         <>
           <div className='tab-toolbar'>
-            <Button
-              additionalClass='button-secondary'
-              content='Delete'
-            />
-            <Button
-              additionalClass='button-primary'
-              content='Save'
-            />
+            <Button additionalClass='button-secondary' content='Delete' />
+            <Button additionalClass='button-primary button-primary-edit' content='Save' />
           </div>
 
           <form className='form-edit-user'>
-            <div>
+            <div className='form-edit-item'>
               <TextField
                 label='Full Name'
                 id='edit-name'
@@ -56,7 +69,7 @@ export const ModifyInfoDetail = ({
               />
             </div>
 
-            <div>
+            <div className='form-edit-item'>
               <TextField
                 label='Email'
                 id='edit-email'
@@ -67,8 +80,33 @@ export const ModifyInfoDetail = ({
               />
             </div>
 
-            <div>
-              <ImageUploader item={item} />
+            <ImageUploader item={item} />
+
+            <div className='form-edit-item-status'>
+              <span className='form-edit-label'>Status</span>
+              <Switch
+                onChange={handleSwitchChange}
+                checked={status}
+                additionalClass='form-edit-switch'
+              />
+              <div className='status-wrapper'>
+                <Status isActive={status} />
+              </div>
+            </div>
+
+            <div className="form-edit-item form-edit-item-date">
+              <span className='form-edit-label'>Resistered</span>
+              <p className='form-edit-content'>{renderDate(item.registered)}</p>
+            </div>
+
+            <div className="form-edit-item form-edit-item-date">
+              <span className='form-edit-label'>Last visited</span>
+              <p className='form-edit-content'>{renderDate(item.lastVisitedDate)}</p>
+            </div>
+
+            <div className="form-edit-item form-edit-item-details">
+              <span className='form-edit-label'>Details</span>
+              <TextArea onDetailsChange={handleDetailsChange} value={details} />
             </div>
           </form>
         </>

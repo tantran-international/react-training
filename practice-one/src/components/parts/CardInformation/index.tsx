@@ -20,6 +20,9 @@ interface ICardInformation {
   lastVisitedDate: string;
 }
 
+/* Helpers */
+import { renderDate } from '@/helpers/renderDate';
+
 export const CardInformation = ({
   additionalClass,
   content,
@@ -30,22 +33,6 @@ export const CardInformation = ({
   email,
   lastVisitedDate
 }: ICardInformation) => {
-  /**
-   * Get lastVisitedDate from data and render with customize format
-   * @returns - string format of lastvisitedDate for render
-   */
-  const renderLastVisitedDate = () => {
-    /* Convert and get needed value of Date + Time from data */
-    const dataDate = new Date(lastVisitedDate);
-    const month = dataDate.toLocaleString('default', { month: 'short' });
-    const day = ('0' + dataDate.getDate()).slice(-2);
-    const year = dataDate.getFullYear();
-    const hour = ('0' + dataDate.getHours()).slice(-2);
-    const minute = ('0' + dataDate.getMinutes()).slice(-2);
-    const second = ('0' + dataDate.getSeconds()).slice(-2);
-
-    return `${month} ${day}, ${year} ${hour}:${minute}:${second}`;
-  };
 
   return (
     <article className={`card-information ${additionalClass}`}>
@@ -80,7 +67,7 @@ export const CardInformation = ({
         <div className='infolist-header'>
           <span className='infolist-icon infolist-date'></span> Last visited:
         </div>
-        <p className='infolist-detail'>{renderLastVisitedDate()}</p>
+        <p className='infolist-detail'>{renderDate(lastVisitedDate)}</p>
       </div>
     </article>
   );
