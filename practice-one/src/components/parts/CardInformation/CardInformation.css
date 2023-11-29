@@ -60,7 +60,7 @@
 
 .infolist-icon:before {
   display: block;
-  content: '';
+  content: "";
   width: 25px;
   height: 40px;
   float: left;
@@ -68,11 +68,11 @@
 }
 
 .infolist-email:before {
-  background: url('../../../assets/images/icons/icon-mail.svg') no-repeat;
+  background: url("../../../assets/images/icons/icon-mail.svg") no-repeat;
   background-size: 20px 20px;
 }
 
 .infolist-date:before {
-  background: url('../../../assets/images/icons/icon-clock.svg') no-repeat;
+  background: url("../../../assets/images/icons/icon-clock.svg") no-repeat;
   background-size: 20px 20px;
 }
