@@ -1,4 +1,4 @@
-import './Status.css';
+import '@/components/commons/Status/Status.css'
 
 /* Types */
 interface IStatus {
