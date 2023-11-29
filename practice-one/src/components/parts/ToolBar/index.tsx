@@ -19,7 +19,7 @@ export const ToolBar = ({content}: IToolbar) => {
 
   return (
     <nav className='tool-bar-wrapper'>
-      <p>{content}</p>
+      <h2 className='tool-bar-heading'>{content}</h2>
       <Button
         additionalClass='search'
         icon={iconSearch}
