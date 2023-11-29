@@ -1,11 +1,18 @@
-import { TDrawer } from '@/types/TDrawer';
-import './Drawer.css';
+import '@/components/parts/Drawer/Drawer.css';
+
+/* Types */
+interface IDrawer {
+  additionalClass?: string;
+  children: JSX.Element;
+}
 
 export const Drawer = ({
   additionalClass,
   children
-}: TDrawer) => {
+}: IDrawer) => {
   return (
-    <aside className={`drawer drawer-${additionalClass}`}>{children}</aside>
+    <aside className={`drawer drawer-${additionalClass}`}>
+      {children}
+    </aside>
   );
 };

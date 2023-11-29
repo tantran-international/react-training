@@ -21,9 +21,17 @@ export const ListNavigation = () => {
   return (
     <ul className='list-navigation'>
       <ItemNavigation
-          additionalClass={isSelected ? 'selected' : ''}
-          icon={isSelected ? iconUserSelected : iconUser}
-          content='Users'
+          additionalClass={
+            isSelected
+              ? 'selected'
+              : ''
+          }
+          icon={
+            isSelected
+              ? iconUserSelected
+              : iconUser
+          }
+          content="Users"
           onClick={handleClickedItem}
         />
     </ul>

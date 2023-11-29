@@ -1,15 +1,21 @@
 .tab-edit-wrapper {
   width: 100%;
   min-width: 300px;
+  height: 89vh;
   margin: 10px 10px 10px 0;
   background-color: var(--white);
   font-family: var(--roboto-bold);
   font-size: 15px;
   color: var(--dark-grey);
   border: 1px solid var(--layout-border-color);
+  overflow: auto;
 }
 
 .tab-edit {
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+  background-color: var(--white);
   border-bottom: 1px solid var(--layout-border-color);
 }
 

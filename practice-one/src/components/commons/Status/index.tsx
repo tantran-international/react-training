@@ -1,12 +1,15 @@
-import './Status.css';
+import '@/components/commons/Status/Status.css'
 
 /* Types */
-import { TStatus } from '@/types/TStatus';
+interface IStatus {
+  additionalClass?: string;
+  isActive: boolean;
+}
 
 export const Status = ({
   additionalClass,
   isActive
-  }: TStatus) => {
+  }: IStatus) => {
 
   return (
     <span className={`status

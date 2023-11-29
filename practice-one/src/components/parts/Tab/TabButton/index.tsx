@@ -7,6 +7,7 @@ interface ITabButton {
   index: number;
   onTabClick: (index: number) => void;
 }
+
 export const TabButton = ({
   title,
   isActiveTab,
@@ -16,13 +17,16 @@ export const TabButton = ({
   const handleTabClick = () => {
     onTabClick(index);
   };
+
   return (
     <button
-      className={`tab-item ${isActiveTab
-        ? 'tab-item-active'
-        : ''
-      }`}
-      type='button'
+      className={`tab-item ${
+          isActiveTab
+            ? "tab-item-active"
+            : ""
+        }`
+      }
+      type="button"
       onClick={handleTabClick}
     >
       {title}

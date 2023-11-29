@@ -8,13 +8,17 @@ import { Button } from '@/components/commons/Button';
 import iconClose from '@/assets/images/icons/icon-close.svg';
 
 // Types
-import { TSearchBar } from '@/types/TSearchBar';
+interface ISearchBar {
+  additionalClass?: string;
+  onClose?: () => void;
+  onChange?: () => void;
+}
 
 export const SearchBar = ({
   additionalClass,
   onClose,
   onChange
-}: TSearchBar) => {
+}: ISearchBar) => {
   return (
     <div className={`search-bar search-bar-${additionalClass}`}>
       <TextField

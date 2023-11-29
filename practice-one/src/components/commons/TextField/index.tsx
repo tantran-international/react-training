@@ -45,7 +45,11 @@ export function TextField({
         value={value}
         onChange={handleInputChange}
         className={`text-field ${additionalClass}`}
-        autoFocus={isAutoFocus == true ? true : false}
+        autoFocus={
+          isAutoFocus == true
+            ? true
+            : false
+        }
       />
     </>
   );

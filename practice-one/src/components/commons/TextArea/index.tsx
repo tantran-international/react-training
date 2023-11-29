@@ -1,8 +1,8 @@
 import { FormEvent } from 'react';
-import './TextArea.css';
+import '@/components/commons/TextArea/TextArea.css';
 
 /* Types */
-type TTextArea = {
+interface ITextArea {
   additionalClass?: string;
   onDetailsChange: (value: string) => void;
   value?: string;
@@ -12,7 +12,7 @@ export const TextArea = ({
   additionalClass,
   onDetailsChange,
   value
-}: TTextArea) => {
+}: ITextArea) => {
 
   /**
    * Update fullName state of TextField when it's changed
@@ -24,8 +24,8 @@ export const TextArea = ({
 
   return (
     <textarea
-      id='userDetail'
-      name='userDetail'
+      id="userDetail"
+      name="userDetail"
       className={`text-area ${additionalClass}`}
       onChange={handleDetailsChange}
       value={value}
