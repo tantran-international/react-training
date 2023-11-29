@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "id": "Tue Aug 19 1975 23:15:30 GMT+0700 (Indochina Time)",
+      "avatar": null,
+      "fullName": "Tan Tran",
+      "email": "duytantran.it@gmail.com",
+      "isActive": true,
+      "registeredDate": null,
+      "lastVisitedDate": null,
+      "details": "I have some question, sir!"
+    },
+    {
+      "id": "Tue Aug 19 1975 23:35:30 GMT+0700 (Indochina Time)",
+      "avatar": null,
+      "fullName": "G-Dragon",
+      "email": "gdragon.singer@gmail.com",
+      "isActive": true,
+      "registeredDate": "Tue Aug 19 2024 23:15:30 GMT+0700 (Indochina Time)",
+      "lastVisitedDate": null,
+      "details": "I'm handsome than Tan Tran!"
+    }
+  ]
+}
