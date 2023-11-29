@@ -1,8 +1,10 @@
 import { ReactNode } from 'react';
+
 interface TTabPanel {
   children: ReactNode;
   additionalClass?: string;
 }
+
 export const TabPanel = ({
   children,
   additionalClass
