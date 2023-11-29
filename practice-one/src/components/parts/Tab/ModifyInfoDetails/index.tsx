@@ -11,14 +11,14 @@ import { Status } from '@/components/commons/Status';
 /* Types */
 import { IData } from '@/types/IData';
 
-/* Helpers */
-import { renderDate } from '@/helpers/renderDate';
-import { TextArea } from '@/components/commons/TextArea';
-
 interface IModyfiInfoDetails<T> {
   activeTab: string;
   item: T;
 }
+
+/* Helpers */
+import { renderDate } from '@/helpers/renderDate';
+import { TextArea } from '@/components/commons/TextArea';
 
 export const ModifyInfoDetail = ({
   activeTab,
@@ -46,67 +46,81 @@ export const ModifyInfoDetail = ({
   }
 
   switch (activeTab) {
-    case 'General':
-
-    const dateData = new Date();
-    const currentDate = dateData.toString();
+    case "General":
       return (
         <>
-          <div className='tab-toolbar'>
-            <Button additionalClass='button-secondary' content='Delete' />
-            <Button additionalClass='button-primary button-primary-edit' content='Save' />
+          <div className="tab-toolbar">
+            <Button
+              additionalClass="button-secondary"
+              content="Delete"
+            />
+            <Button
+              additionalClass="button-primary button-primary-edit"
+              content="Save"
+            />
           </div>
 
-          <form className='form-edit-user'>
-            <div className='form-edit-item'>
+          <form className="form-edit-user">
+            <div className="form-edit-item">
               <TextField
-                label='Full Name'
-                id='edit-name'
-                name='edit-name'
+                label="Full Name"
+                id="edit-name"
+                name="edit-name"
                 value={fullName}
                 onInputChange={handleFullNameChange}
-                additionalClass='text-field-edit'
+                additionalClass="text-field-edit"
               />
             </div>
 
-            <div className='form-edit-item'>
+            <div className="form-edit-item">
               <TextField
-                label='Email'
-                id='edit-email'
-                name='edit-email'
+                label="Email"
+                id="edit-email"
+                name="edit-email"
                 value={email}
                 onInputChange={handleEmailChange}
-                additionalClass='text-field-edit'
+                additionalClass="text-field-edit"
               />
             </div>
 
             <ImageUploader item={item} />
 
-            <div className='form-edit-item-status'>
-              <span className='form-edit-label'>Status</span>
+            <div className="form-edit-item-status">
+              <span className="form-edit-label">Status</span>
               <Switch
                 onChange={handleSwitchChange}
                 checked={status}
-                additionalClass='form-edit-switch'
+                additionalClass="form-edit-switch"
               />
-              <div className='status-wrapper'>
+              <div className="status-wrapper">
                 <Status isActive={status} />
               </div>
             </div>
 
             <div className="form-edit-item form-edit-item-date">
-              <span className='form-edit-label'>Resistered</span>
-              <p className='form-edit-content'>{renderDate(item.registered)}</p>
+              <span className="form-edit-label">Resistered</span>
+              <p className="form-edit-content">{
+                item.registered == null || ""
+                  ? "Unknown"
+                  : renderDate(item.registered)
+              }</p>
             </div>
 
             <div className="form-edit-item form-edit-item-date">
-              <span className='form-edit-label'>Last visited</span>
-              <p className='form-edit-content'>{renderDate(item.lastVisitedDate)}</p>
+              <span className="form-edit-label">Last visited</span>
+              <p className="form-edit-content">{
+                item.lastVisitedDate == null || ""
+                  ? "Unknown"
+                  : renderDate(item.lastVisitedDate)
+              }</p>
             </div>
 
             <div className="form-edit-item form-edit-item-details">
-              <span className='form-edit-label'>Details</span>
-              <TextArea onDetailsChange={handleDetailsChange} value={details} />
+              <span className="form-edit-label">Details</span>
+              <TextArea
+                onDetailsChange={handleDetailsChange}
+                value={details}
+              />
             </div>
           </form>
         </>
