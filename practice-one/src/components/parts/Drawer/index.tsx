@@ -3,7 +3,7 @@ import '@/components/parts/Drawer/Drawer.css';
 /* Types */
 interface IDrawer {
   additionalClass?: string;
-  children: any;
+  children: JSX.Element;
 }
 
 export const Drawer = ({
