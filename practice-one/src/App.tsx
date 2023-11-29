@@ -1,4 +1,5 @@
 import '@/App.css';
+import { useState, useEffect } from 'react';
 
 /* Components */
 import { Popper } from '@/components/commons/Popper';
@@ -13,6 +14,9 @@ import { Tab } from '@/components/parts/Tab';
 /* Types */
 import { IColumnType } from '@/types/ITable';
 import { IData } from '@/types/IData';
+
+/* Services */
+import { getUsers } from '@/services/usersService';
 
 /* Define column's titles and datatypes as variable */
 const columns: IColumnType<IData>[] = [
@@ -44,158 +48,31 @@ const columns: IColumnType<IData>[] = [
   }
 ];
 
-/* Mock data */
-const data: IData[] = [
-  {
-    avatar: '',
-    fullName: 'Tran Duy Tan',
-    isActive: true,
-    email: 'duytantran.it@gmail.com',
-    bgColor: '#c79a1e'
-  },
-  {
-    avatar: '',
-    fullName: 'Mua Hong',
-    isActive: false,
-    email: 'tranduytan597@gmail.com',
-    bgColor: '#c71ec4'
-  },
-  {
-    avatar: '',
-    fullName: 'Tran Duy Tan',
-    isActive: true,
-    email: 'duytantran.it@gmail.com',
-    bgColor: '#c79a1e'
-  },
-  {
-    avatar: '',
-    fullName: 'Mua Hong',
-    isActive: false,
-    email: 'tranduytan597@gmail.com',
-    bgColor: '#c71ec4'
-  },
-  {
-    avatar: '',
-    fullName: 'Tran Duy Tan',
-    isActive: true,
-    email: 'duytantran.it@gmail.com',
-    bgColor: '#c79a1e'
-  },
-  {
-    avatar: '',
-    fullName: 'Mua Hong',
-    isActive: false,
-    email: 'tranduytan597@gmail.com',
-    bgColor: '#c71ec4'
-  },
-  {
-    avatar: '',
-    fullName: 'Tran Duy Tan',
-    isActive: true,
-    email: 'duytantran.it@gmail.com',
-    bgColor: '#c79a1e'
-  },
-  {
-    avatar: '',
-    fullName: 'Mua Hong',
-    isActive: false,
-    email: 'tranduytan597@gmail.com',
-    bgColor: '#c71ec4'
-  },
-  {
-    avatar: '',
-    fullName: 'Tran Duy Tan',
-    isActive: true,
-    email: 'duytantran.it@gmail.com',
-    bgColor: '#c79a1e'
-  },
-  {
-    avatar: '',
-    fullName: 'Mua Hong',
-    isActive: false,
-    email: 'tranduytan597@gmail.com',
-    bgColor: '#c71ec4'
-  },
-  {
-    avatar: '',
-    fullName: 'Tran Duy Tan',
-    isActive: true,
-    email: 'duytantran.it@gmail.com',
-    bgColor: '#c79a1e'
-  },
-  {
-    avatar: '',
-    fullName: 'Mua Hong',
-    isActive: false,
-    email: 'tranduytan597@gmail.com',
-    bgColor: '#c71ec4'
-  },
-  {
-    avatar: '',
-    fullName: 'Mua Hong',
-    isActive: false,
-    email: 'tranduytan597@gmail.com',
-    bgColor: '#c71ec4'
-  },
-  {
-    avatar: '',
-    fullName: 'Tran Duy Tan',
-    isActive: true,
-    email: 'duytantran.it@gmail.com',
-    bgColor: '#c79a1e'
-  },
-  {
-    avatar: '',
-    fullName: 'Mua Hong',
-    isActive: false,
-    email: 'tranduytan597@gmail.com',
-    bgColor: '#c71ec4'
-  },
-  {
-    avatar: '',
-    fullName: 'Tran Duy Tan',
-    isActive: true,
-    email: 'duytantran.it@gmail.com',
-    bgColor: '#c79a1e'
-  },
-  {
-    avatar: '',
-    fullName: 'Mua Hong',
-    isActive: false,
-    email: 'tranduytan597@gmail.com',
-    bgColor: '#c71ec4'
-  },
-  {
-    avatar: '',
-    fullName: 'Tran Duy Tan',
-    isActive: true,
-    email: 'duytantran.it@gmail.com',
-    bgColor: '#c79a1e'
-  },
-  {
-    avatar: '',
-    fullName: 'Mua Hong',
-    isActive: false,
-    email: 'tranduytan597@gmail.com',
-    bgColor: '#c71ec4'
-  }
-];
-
 const item: IData = {
   avatar: '',
   fullName: 'Mua Hong',
   isActive: false,
   email: 'tranduytan597@gmail.com',
-  bgColor: '#c71ec4'
+  bgColor: '#c71ec4',
+  registeredDate: null
 };
 
 export const App = () => {
-  const ArrayTab = ['General', 'Roles'];
+  const tabs = ['General'];
+  const [users, setUsers] = useState<[]>([]);
+
+  useEffect(() => {
+    const fetchUsersData = async () => {
+      let { data, error } = await getUsers();
+      /* If any error occurred, show empty data */
+      {error ? setUsers([]) : setUsers(data);}
+    };
+    fetchUsersData();
+  }, []);
 
   return (
     <>
       <header className='main-header'>User Manager</header>
-
       <div className='main-body'>
         <Drawer>
           <Popper />
@@ -204,10 +81,10 @@ export const App = () => {
 
         <div className='app-content-wrapper'>
           <ToolBar content='Users' />
-          <Table data={data} columns={columns} />
+          <Table data={users} columns={columns} />
         </div>
 
-        <Tab tabs={ArrayTab} item={item}/>
+        <Tab tabs={tabs} item={item} />
       </div>
     </>
   );

@@ -4,8 +4,8 @@ export interface IData {
   fullName: string;
   email: string;
   isActive: boolean;
-  registeredDate?: string;
-  lastVisitedDate: string;
+  registeredDate: string | null;
+  lastVisitedDate?: string | null;
   details?: string;
   bgColor?: string;
 }
