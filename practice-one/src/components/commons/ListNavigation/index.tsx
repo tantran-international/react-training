@@ -9,7 +9,7 @@ import iconUser from '@/assets/images/icons/icon-user.svg';
 
 /* Types */
 interface IListNavigation {
-  listItems: string[];
+  types: string[];
   onItemClick: (key: string) => void;
 }
 
@@ -17,7 +17,7 @@ interface IListNavigation {
 import { toCapitalizeFirstLetter } from '@/helpers/toCapitalize';
 
 export const ListNavigation = ({
-  listItems,
+  types,
   onItemClick
 }: IListNavigation) => {
   const [itemSelected, setItemSelected] = useState<number | null>(null);
@@ -34,10 +34,10 @@ export const ListNavigation = ({
 
   /* Render difference listIcons for difference listItems */
   const renderListIcon = (
-    listItem: string,
+    type: string,
     index: number
   ) => {
-    switch (listItem) {
+    switch (type) {
       case 'users':
         const condition = (itemSelected == index)
           ? iconUserSelected
@@ -50,28 +50,28 @@ export const ListNavigation = ({
     }
   };
 
-  /* useEffect: auto selected listItem "users" as default */
+  /* Auto selected listItem has type "users" as default */
   useEffect(() => {
     handleClickedItem('list-item-users', 0);
   }, []);
 
   return (
     <ul className='list-navigation'>
-      {listItems.map((listItem, index) => (
+      {types.map((type, index) => (
         <ItemNavigation
-          key={`list-item-${listItem}`}
+          key={`list-item-${type}`}
           additionalClass={
             itemSelected == index
             ? 'list-item-selected'
             : ''
           }
           icon={renderListIcon(
-            listItem,
+            type,
             index
           )}
-          content={toCapitalizeFirstLetter(listItem)}
+          content={toCapitalizeFirstLetter(type)}
           onItemClick={() => handleClickedItem(
-            `list-item-${listItem}`,
+            `list-item-${type}`,
             index
           )}
         />
