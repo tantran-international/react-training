@@ -4,3 +4,5 @@ export const ITEM_TYPE = {
   ROLES: 'roles',
   RULES: 'rules'
 };
+
+export const ITEM_TYPES = [ITEM_TYPE.USERS, ITEM_TYPE.ROLES, ITEM_TYPE.RULES];
