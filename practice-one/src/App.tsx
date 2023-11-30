@@ -62,7 +62,7 @@ export const App = () => {
   const [users, setUsers] = useState<[]>([]);
 
   /* Get new datas and re-render UI when data is changed */
-  const callBackGetUsers = async () => {
+  const handleGetUsers = async () => {
     const { data, error } = await getUsers();
     if (error) {
       alert('Something went wrong');
@@ -75,7 +75,7 @@ export const App = () => {
   const handleItemSelected = async (itemKey: string) => {
     switch (itemKey) {
       case 'list-item-users':
-        callBackGetUsers();
+        handleGetUsers();
         break;
 
       default:
@@ -88,9 +88,9 @@ export const App = () => {
       <header className='main-header'>User Manager</header>
       <div className='main-body'>
         <Drawer>
-          <Popper onModalSubmit={callBackGetUsers} />
+          <Popper onModalSubmit={handleGetUsers} />
           <ListNavigation
-            listItems={['users']}
+            types={['users']}
             onItemClick={handleItemSelected}
           />
         </Drawer>
