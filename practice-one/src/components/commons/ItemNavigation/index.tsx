@@ -3,21 +3,21 @@ import './ItemNavigation.css';
 /* Types */
 interface IListItem {
   additionalClass?: string;
-  icon: string;
+  icon?: string;
   content: string;
-  onClick?: () => void;
+  onItemClick: () => void;
 };
 
 export const ItemNavigation = ({
   additionalClass,
   icon,
   content,
-  onClick
+  onItemClick
 }: IListItem) => {
   return (
     <li
-      className={`list-item list-item-${additionalClass}`}
-      onClick={onClick}
+      className={`list-item ${additionalClass}`}
+      onClick={onItemClick}
     >
       <span className="list-icon-wrapper">
         <img
