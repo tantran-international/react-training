@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-import { USER_URL, BASE_URL } from '@/constaints/urls';
+import { generateRandomColor } from '@/helpers/randoms';
+
+import { USER_URL, BASE_URL } from '@/constants/urls';
 
 axios.defaults.baseURL = BASE_URL;
 
@@ -27,6 +29,7 @@ export const getUsers = async () => {
 
 export const addUsers = async (fullName: string) => {
   try {
+
     const date = new Date();
     const currentDate = date.toString();
     const { status } = await axios.post(USER_URL, {
@@ -36,7 +39,9 @@ export const addUsers = async (fullName: string) => {
       email: '',
       isActive: false,
       registeredDate: currentDate,
-      lastVisitedDate: null
+      lastVisitedDate: null,
+      details: '',
+      bgColor: generateRandomColor()
     });
     if (status === 201) {
       return {
