@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
-// Components
+/* Components */
 import { ItemNavigation } from '@/components/commons/ItemNavigation';
 
-// Icons
+/* Icons */
 import iconUserSelected from '@/assets/images/icons/icon-user-selected.svg';
 import iconUser from '@/assets/images/icons/icon-user.svg';
 
@@ -25,18 +25,23 @@ export const ListNavigation = ({
   /* Update styles for listItem when selected
   and get differece types of data base on keyItem */
   const handleClickedItem = (
-    keyItem: string,
+    itemKey: string,
     index: number
   ) => {
     setItemSelected(index);
-    onItemClick(keyItem);
+    onItemClick(itemKey);
   };
 
   /* Render difference listIcons for difference listItems */
-  const renderListIcon = (listItem: string, index: number) => {
+  const renderListIcon = (
+    listItem: string,
+    index: number
+  ) => {
     switch (listItem) {
       case 'users':
-        const condition = itemSelected == index ? iconUserSelected : iconUser;
+        const condition = (itemSelected == index)
+          ? iconUserSelected
+          : iconUser;
         return condition;
         break;
 

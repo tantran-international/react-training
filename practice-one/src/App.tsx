@@ -1,5 +1,5 @@
 import '@/App.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 /* Components */
 import { Popper } from '@/components/commons/Popper';
@@ -59,62 +59,29 @@ const item: IData = {
 };
 
 export const App = () => {
-  /* Handle selected listItem, default is "users" listItem */
-  const [itemSelected, setItemSelected] = useState<string | null>(
-    'list-item-users'
-  );
   const [users, setUsers] = useState<[]>([]);
 
   /* Get new datas and re-render UI when data is changed */
   const callBackGetUsers = async () => {
     const { data, error } = await getUsers();
-    /* If any error occurred, show empty data and alert */
-    {
-      error == null
-        ? setUsers(data)
-        : (setUsers([]), alert('Something when wrong'));
+    if (error) {
+      alert('Something went wrong');
+      return;
     }
+    setUsers(data);
   };
 
   /* Get difference datas for difference listItem */
   const handleItemSelected = async (itemKey: string) => {
-    setItemSelected(itemKey);
     switch (itemKey) {
       case 'list-item-users':
-        const { data, error } = await getUsers();
-        if (error) {
-          alert('Something when wrong');
-          return;
-        }
-        setUsers(data);
+        callBackGetUsers();
         break;
 
       default:
         break;
     }
   };
-
-  /* useEffect: implement getUsers (method get) and assign data as (users state) */
-  useEffect(() => {
-    switch (itemSelected) {
-      case 'list-item-users':
-        console.log('');
-        const fetchUsersData = async () => {
-          const { data, error } = await getUsers();
-          /* If any error occurred, show empty data and alert */
-          {
-            error == null
-              ? setUsers(data)
-              : (setUsers([]), alert('Something when wrong'));
-          }
-        };
-        fetchUsersData();
-        break;
-
-      default:
-        break;
-    }
-  }, []);
 
   return (
     <>
