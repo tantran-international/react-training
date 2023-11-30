@@ -8,11 +8,11 @@ import { TextField } from '@/components/commons/TextField';
 import { addUsers } from '@/services/usersService';
 
 /* Types */
-interface TPopper {
+interface IPopper {
   onModalSubmit: () => void;
 }
 
-export function Popper({ onModalSubmit }: TPopper) {
+export function Popper({ onModalSubmit }: IPopper) {
   /* Handle show/hide (btn-popper) */
   const [showOption, setShowOption] = useState(false);
 
@@ -22,26 +22,27 @@ export function Popper({ onModalSubmit }: TPopper) {
   /* Handle change value of TextField */
   const [userName, setUserName] = useState('');
 
-  /* Helpers */
+  /* Handle value of Textfield when update initial value */
   const handleUserNameChange = (value: string) => {
     setUserName(value);
   };
 
-  const handleClickPopper = () => {
+  /* Show all Options buttons below Popper button */
+  const handleClickPopperBtn = () => {
     setShowOption(true);
   };
 
+  /* Open modal when clicked on Add new button */
   const handleOpenModal = () => {
     setOpenModal(true);
   };
 
+  /* Close modal when click on close icon button */
   const handleCloseModal = () => {
     setOpenModal(false);
   };
 
-  /**
-   * Implement addUsers (post method) when Save button is clicked
-   */
+  /* Update data when Save button is clicked */
   const handleClickPrimaryBtn = async () => {
     const { error } = await addUsers(userName);
     {
@@ -51,10 +52,10 @@ export function Popper({ onModalSubmit }: TPopper) {
     setOpenModal(false);
   };
 
-  /* useRef: Define useRef.current as button element and set initial value */
+  /* Define useRef.current as button element and set initial value */
   const ref = useRef<HTMLButtonElement>(null);
 
-  /* useEffect: Implement feature click outside to hide (btn-popper) */
+  /* Implement feature click outside to hide (btn-popper) */
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (!ref.current?.contains(event.target as Node)) {
@@ -72,7 +73,7 @@ export function Popper({ onModalSubmit }: TPopper) {
       <button
         className='btn-cta btn-add'
         type='button'
-        onClick={handleClickPopper}
+        onClick={handleClickPopperBtn}
         ref={ref}
       >
         <span className='btn-add-symbol'>&#43;</span> New
