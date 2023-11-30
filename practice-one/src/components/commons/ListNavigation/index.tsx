@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 // Components
 import { ItemNavigation } from '@/components/commons/ItemNavigation';
@@ -7,33 +7,70 @@ import { ItemNavigation } from '@/components/commons/ItemNavigation';
 import iconUserSelected from '@/assets/images/icons/icon-user-selected.svg';
 import iconUser from '@/assets/images/icons/icon-user.svg';
 
-export const ListNavigation = () => {
-  const [isSelected, setSelected] = useState(true);
+/* Types */
+interface IListNavigation {
+  listItems: string[];
+  onItemClick: (key: string) => void;
+}
 
-  /**
-   * Update state of list-navigation to update styles
-   * @param {function} setSelected - function name used for update state.
-   */
-  const handleClickedItem = () => {
-    setSelected(true);
+/* Helpers */
+import { toCapitalizeFirstLetter } from '@/helpers/toCapitalize';
+
+export const ListNavigation = ({
+  listItems,
+  onItemClick
+}: IListNavigation) => {
+  const [itemSelected, setItemSelected] = useState<number | null>(null);
+
+  /* Update styles for listItem when selected
+  and get differece types of data base on keyItem */
+  const handleClickedItem = (
+    keyItem: string,
+    index: number
+  ) => {
+    setItemSelected(index);
+    onItemClick(keyItem);
   };
+
+  /* Render difference listIcons for difference listItems */
+  const renderListIcon = (listItem: string, index: number) => {
+    switch (listItem) {
+      case 'users':
+        const condition = itemSelected == index ? iconUserSelected : iconUser;
+        return condition;
+        break;
+
+      default:
+        break;
+    }
+  };
+
+  /* useEffect: auto selected listItem "users" as default */
+  useEffect(() => {
+    handleClickedItem('list-item-users', 0);
+  }, []);
 
   return (
     <ul className='list-navigation'>
-      <ItemNavigation
+      {listItems.map((listItem, index) => (
+        <ItemNavigation
+          key={`list-item-${listItem}`}
           additionalClass={
-            isSelected
-              ? 'selected'
-              : ''
+            itemSelected == index
+            ? 'list-item-selected'
+            : ''
           }
-          icon={
-            isSelected
-              ? iconUserSelected
-              : iconUser
-          }
-          content="Users"
-          onClick={handleClickedItem}
+          icon={renderListIcon(
+            listItem,
+            index
+          )}
+          content={toCapitalizeFirstLetter(listItem)}
+          onItemClick={() => handleClickedItem(
+            `list-item-${listItem}`,
+            index
+          )}
         />
+      ))}
     </ul>
   );
 };
