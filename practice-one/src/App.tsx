@@ -18,6 +18,9 @@ import { IData } from '@/types/IData';
 /* Services */
 import { getUsers } from '@/services/usersService';
 
+/* Constaints */
+import { ITEM_TYPE } from '@/constants/itemTypes';
+
 /* Define column's titles and it's UI */
 const columns: IColumnType<IData>[] = [
   {
@@ -74,7 +77,7 @@ export const App = () => {
   /* Get difference datas for difference listItem */
   const handleItemSelected = async (itemKey: string) => {
     switch (itemKey) {
-      case 'list-item-users':
+      case ITEM_TYPE.USERS:
         handleGetUsers();
         break;
 
@@ -90,7 +93,7 @@ export const App = () => {
         <Drawer>
           <Popper onModalSubmit={handleGetUsers} />
           <ListNavigation
-            types={['users']}
+            itemTypes={['users']}
             onItemClick={handleItemSelected}
           />
         </Drawer>

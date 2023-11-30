@@ -3,16 +3,16 @@ import './ItemNavigation.css';
 /* Types */
 interface IListItem {
   additionalClass?: string;
+  onItemClick: () => void;
   icon?: string;
   content: string;
-  onItemClick: () => void;
 };
 
 export const ItemNavigation = ({
   additionalClass,
+  onItemClick,
   icon,
-  content,
-  onItemClick
+  content
 }: IListItem) => {
   return (
     <li

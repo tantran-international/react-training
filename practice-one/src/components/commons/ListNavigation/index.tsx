@@ -9,15 +9,18 @@ import iconUser from '@/assets/images/icons/icon-user.svg';
 
 /* Types */
 interface IListNavigation {
-  types: string[];
+  itemTypes: string[];
   onItemClick: (key: string) => void;
 }
+
+/* Containts */
+import { ITEM_TYPE } from '@/constants/itemTypes';
 
 /* Helpers */
 import { toCapitalizeFirstLetter } from '@/helpers/toCapitalize';
 
 export const ListNavigation = ({
-  types,
+  itemTypes,
   onItemClick
 }: IListNavigation) => {
   const [itemSelected, setItemSelected] = useState<number | null>(null);
@@ -25,11 +28,11 @@ export const ListNavigation = ({
   /* Update styles for listItem when selected
   and get differece types of data base on keyItem */
   const handleClickedItem = (
-    itemKey: string,
+    itemType: string,
     index: number
   ) => {
     setItemSelected(index);
-    onItemClick(itemKey);
+    onItemClick(itemType);
   };
 
   /* Render difference listIcons for difference listItems */
@@ -38,7 +41,7 @@ export const ListNavigation = ({
     index: number
   ) => {
     switch (type) {
-      case 'users':
+      case ITEM_TYPE.USERS:
         const condition = (itemSelected == index)
           ? iconUserSelected
           : iconUser;
@@ -52,26 +55,26 @@ export const ListNavigation = ({
 
   /* Auto selected listItem has type "users" as default */
   useEffect(() => {
-    handleClickedItem('list-item-users', 0);
+    handleClickedItem(ITEM_TYPE.USERS, 0);
   }, []);
 
   return (
     <ul className='list-navigation'>
-      {types.map((type, index) => (
+      {itemTypes.map((itemType, index) => (
         <ItemNavigation
-          key={`list-item-${type}`}
+          key={itemType}
           additionalClass={
             itemSelected == index
             ? 'list-item-selected'
             : ''
           }
           icon={renderListIcon(
-            type,
+            itemType,
             index
           )}
-          content={toCapitalizeFirstLetter(type)}
+          content={toCapitalizeFirstLetter(itemType)}
           onItemClick={() => handleClickedItem(
-            `list-item-${type}`,
+            itemType,
             index
           )}
         />
