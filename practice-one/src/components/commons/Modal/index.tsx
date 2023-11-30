@@ -13,8 +13,8 @@ interface IModal {
   isOpen: boolean;
   btnTextPrimary?: string;
   btnTextSecondary?: string;
-  handleClickBtnPrimary?: () => void;
-  handleClickBtnSecondary?: () => void;
+  onBtnPrimaryClick?: () => void;
+  onBtnSecondaryClick?: () => void;
   children?: JSX.Element[] | JSX.Element;
 }
 
@@ -29,8 +29,7 @@ export function Modal({
   isOpen,
   btnTextPrimary,
   btnTextSecondary,
-  handleClickBtnPrimary,
-  handleClickBtnSecondary,
+  onBtnPrimaryClick,
   children
 }: IModal) {
   return (
@@ -77,7 +76,7 @@ export function Modal({
                       <Button
                         content={btnTextPrimary}
                         additionalClass="button-primary button-save"
-                        onClick={handleClickBtnPrimary}
+                        onClick={onBtnPrimaryClick}
                       />
                     </>
                   )
@@ -87,7 +86,7 @@ export function Modal({
                       <Button
                         content={btnTextPrimary}
                         additionalClass="button-primary button-save"
-                        onClick={handleClickBtnPrimary}
+                        onClick={onBtnPrimaryClick}
                       />
                     </>
                   )}

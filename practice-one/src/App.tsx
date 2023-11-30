@@ -18,7 +18,7 @@ import { IData } from '@/types/IData';
 /* Services */
 import { getUsers } from '@/services/usersService';
 
-/* Define column's titles and datatypes as variable */
+/* Define column's titles and it's UI */
 const columns: IColumnType<IData>[] = [
   {
     key: 'avatar',
@@ -50,6 +50,7 @@ const columns: IColumnType<IData>[] = [
 
 const item: IData = {
   avatar: '',
+  id: 'đsfsà',
   fullName: 'Mua Hong',
   isActive: false,
   email: 'tranduytan597@gmail.com',
@@ -61,11 +62,32 @@ export const App = () => {
   const tabs = ['General'];
   const [users, setUsers] = useState<[]>([]);
 
+  const callBackGetUsers = async () => {
+   const { data, error } = await getUsers();
+   /* If any error occurred, show empty data and alert */
+   {
+     error == null
+     ? setUsers(data)
+     : (
+        setUsers([]),
+        alert('Something when wrong')
+       );
+   }
+  }
+
+  /* useEffect: implement getUsers (method get) and assign data as (users state) */
   useEffect(() => {
     const fetchUsersData = async () => {
-      let { data, error } = await getUsers();
-      /* If any error occurred, show empty data */
-      {error ? setUsers([]) : setUsers(data);}
+      const { data, error } = await getUsers();
+      /* If any error occurred, show empty data and alert */
+      {
+        error == null
+        ? setUsers(data)
+        : (
+            setUsers([]),
+            alert('Something when wrong')
+          );
+      }
     };
     fetchUsersData();
   }, []);
@@ -75,16 +97,22 @@ export const App = () => {
       <header className='main-header'>User Manager</header>
       <div className='main-body'>
         <Drawer>
-          <Popper />
+          <Popper onModalSubmit={callBackGetUsers}/>
           <ListNavigation />
         </Drawer>
 
         <div className='app-content-wrapper'>
           <ToolBar content='Users' />
-          <Table data={users} columns={columns} />
+          <Table
+            data={users}
+            columns={columns}
+          />
         </div>
 
-        <Tab tabs={tabs} item={item} />
+        <Tab
+          tabs={tabs}
+          item={item}
+        />
       </div>
     </>
   );
