@@ -24,3 +24,31 @@ export const getUsers = async () => {
     };
   }
 };
+
+export const addUsers = async (fullName: string) => {
+  try {
+    const date = new Date();
+    const currentDate = date.toString();
+    const { status } = await axios.post(USER_URL, {
+      id: currentDate,
+      avatar: null,
+      fullName: fullName,
+      email: '',
+      isActive: false,
+      registeredDate: currentDate,
+      lastVisitedDate: null
+    });
+    if (status === 201) {
+      return {
+        error: null
+      };
+    }
+    return {
+      error: 'Something went wrong'
+    };
+  } catch (error) {
+    return {
+      error
+    };
+  }
+};
