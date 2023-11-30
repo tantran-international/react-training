@@ -19,7 +19,7 @@ import { IData } from '@/types/IData';
 import { getUsers } from '@/services/usersService';
 
 /* Constaints */
-import { ITEM_TYPE } from '@/constants/itemTypes';
+import { ITEM_TYPES, ITEM_TYPE } from '@/constants/itemTypes';
 
 /* Define column's titles and it's UI */
 const columns: IColumnType<IData>[] = [
@@ -93,7 +93,7 @@ export const App = () => {
         <Drawer>
           <Popper onModalSubmit={handleGetUsers} />
           <ListNavigation
-            itemTypes={['users']}
+            itemTypes={ITEM_TYPES}
             onItemClick={handleItemSelected}
           />
         </Drawer>
