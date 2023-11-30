@@ -1,8 +1,5 @@
-/* Define types of ItemNavigation components */
-export const ITEM_TYPE = {
-  USERS: 'users',
-  ROLES: 'roles',
-  RULES: 'rules'
-};
+/* Define types of ItemNavigation */
+export const ITEM_TYPE = { USERS: 'users' };
 
-export const ITEM_TYPES = [ITEM_TYPE.USERS, ITEM_TYPE.ROLES, ITEM_TYPE.RULES];
+/* Define array of ItemNavigation types */
+export const ITEM_TYPES = [ITEM_TYPE.USERS];
