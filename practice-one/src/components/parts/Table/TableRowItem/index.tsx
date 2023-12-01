@@ -1,10 +1,9 @@
 import '@/components/parts/Table/TableRowItem/TableRowItem.css';
 
-/* Types */
 interface ITableRowItem {
   children: JSX.Element[];
   selected: number;
-  onRowClick: (selected: number) => void;
+  onRowItemClick: (index: number) => void;
   index: number;
 }
 
@@ -12,12 +11,11 @@ export const TableRowItem = ({
   children,
   index,
   selected,
-  onRowClick
+  onRowItemClick
 }: ITableRowItem) => {
-
-  /* Assign index to state variable in (TableRow component) to update styles of clicked TableRow */
-  const handleRowClick = () => {
-    onRowClick(index);
+  /* Update styles of clicked TableRow */
+  const handleRowItemClick = () => {
+    onRowItemClick(index);
   };
 
   /* Assign conditional to variable */
@@ -27,10 +25,12 @@ export const TableRowItem = ({
     <tr
       className={
         isSelected
-          ? "table-row table-row-selected"
-          : "table-row"
+        ? 'table-row table-row-selected'
+        : 'table-row'
       }
-      onClick={handleRowClick}
-    >{children}</tr>
+      onClick={handleRowItemClick}
+    >
+      {children}
+    </tr>
   );
 };
