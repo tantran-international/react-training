@@ -1,78 +1,125 @@
 {
   "users": [
     {
-      "id": "Tue Aug 19 1975 23:15:30 GMT+0700 (Indochina Time)",
+      "id": "Fri Dec 01 2023 12:34:30 GMT+0700 (Indochina Time)",
       "avatar": null,
-      "fullName": "Tan Tran",
-      "email": "duytantran.it@gmail.com",
-      "isActive": true,
-      "registeredDate": null,
+      "fullName": "sadafaa",
+      "email": null,
+      "isActive": false,
+      "registeredDate": "Fri Dec 01 2023 12:34:30 GMT+0700 (Indochina Time)",
       "lastVisitedDate": null,
-      "details": "I have some question, sir!"
+      "details": "",
+      "bgColor": "#d15dfb"
     },
     {
-      "id": "Tue Aug 19 1975 23:35:30 GMT+0700 (Indochina Time)",
+      "id": "Fri Dec 01 2023 12:34:33 GMT+0700 (Indochina Time)",
       "avatar": null,
-      "fullName": "G-Dragon",
-      "email": "gdragon.singer@gmail.com",
-      "isActive": true,
-      "registeredDate": "Tue Aug 19 2024 23:15:30 GMT+0700 (Indochina Time)",
+      "fullName": "sfafaga",
+      "email": null,
+      "isActive": false,
+      "registeredDate": "Fri Dec 01 2023 12:34:33 GMT+0700 (Indochina Time)",
       "lastVisitedDate": null,
-      "details": "I'm handsome than Tan Tran!"
+      "details": "",
+      "bgColor": "#a3e6ac"
     },
     {
-      "id": "Tue Aug 19 1975 23:55:30 GMT+0700 (Indochina Time)",
+      "id": "Fri Dec 01 2023 12:42:26 GMT+0700 (Indochina Time)",
       "avatar": null,
-      "fullName": "TOP",
-      "email": "top.singer@gmail.com",
+      "fullName": "Pikâpika",
+      "email": null,
       "isActive": false,
-      "registeredDate": "Tue Aug 19 2024 23:05:30 GMT+0700 (Indochina Time)",
-      "lastVisitedDate": null
+      "registeredDate": "Fri Dec 01 2023 12:42:26 GMT+0700 (Indochina Time)",
+      "lastVisitedDate": null,
+      "details": "",
+      "bgColor": "#53f2d1"
     },
     {
-      "id": "Thu Nov 30 2023 08:37:44 GMT+0700 (Indochina Time)",
+      "id": "Fri Dec 01 2023 13:10:17 GMT+0700 (Indochina Time)",
       "avatar": null,
-      "fullName": "Tran Hoai Vien",
-      "email": "",
+      "fullName": "safaf",
+      "email": null,
       "isActive": false,
-      "registeredDate": "Thu Nov 30 2023 08:37:44 GMT+0700 (Indochina Time)",
-      "lastVisitedDate": null
+      "registeredDate": "Fri Dec 01 2023 13:10:17 GMT+0700 (Indochina Time)",
+      "lastVisitedDate": null,
+      "details": "",
+      "bgColor": "#835b4b"
     },
     {
-      "id": "Thu Nov 30 2023 09:17:11 GMT+0700 (Indochina Time)",
+      "id": "Fri Dec 01 2023 13:10:21 GMT+0700 (Indochina Time)",
       "avatar": null,
-      "fullName": "Tong thong",
-      "email": "",
+      "fullName": "dfss",
+      "email": null,
       "isActive": false,
-      "registeredDate": "Thu Nov 30 2023 09:17:11 GMT+0700 (Indochina Time)",
-      "lastVisitedDate": null
+      "registeredDate": "Fri Dec 01 2023 13:10:21 GMT+0700 (Indochina Time)",
+      "lastVisitedDate": null,
+      "details": "",
+      "bgColor": "#f65f6e"
     },
     {
-      "id": "Thu Nov 30 2023 09:17:23 GMT+0700 (Indochina Time)",
+      "id": "Fri Dec 01 2023 13:10:24 GMT+0700 (Indochina Time)",
       "avatar": null,
-      "fullName": "Ba ban chuoi chien",
-      "email": "",
+      "fullName": "fsss",
+      "email": null,
       "isActive": false,
-      "registeredDate": "Thu Nov 30 2023 09:17:23 GMT+0700 (Indochina Time)",
-      "lastVisitedDate": null
+      "registeredDate": "Fri Dec 01 2023 13:10:24 GMT+0700 (Indochina Time)",
+      "lastVisitedDate": null,
+      "details": "",
+      "bgColor": "#2f10ec"
     },
     {
-      "id": "Thu Nov 30 2023 09:22:49 GMT+0700 (Indochina Time)",
+      "id": "Fri Dec 01 2023 13:12:52 GMT+0700 (Indochina Time)",
       "avatar": null,
-      "fullName": "Anh Vien",
-      "email": "",
+      "fullName": "asfaf",
+      "email": null,
       "isActive": false,
-      "registeredDate": "Thu Nov 30 2023 09:22:49 GMT+0700 (Indochina Time)",
-      "lastVisitedDate": null
+      "registeredDate": "Fri Dec 01 2023 13:12:52 GMT+0700 (Indochina Time)",
+      "lastVisitedDate": null,
+      "details": "",
+      "bgColor": "#2d902a"
     },
     {
-      "id": "Thu Nov 30 2023 09:22:55 GMT+0700 (Indochina Time)",
+      "id": "Fri Dec 01 2023 13:13:20 GMT+0700 (Indochina Time)",
       "avatar": null,
-      "fullName": "Á",
-      "email": "",
+      "fullName": "sdssgs",
+      "email": null,
       "isActive": false,
-      "registeredDate": "Thu Nov 30 2023 09:22:55 GMT+0700 (Indochina Time)",
-      "lastVisitedDate": null
+      "registeredDate": "Fri Dec 01 2023 13:13:20 GMT+0700 (Indochina Time)",
+      "lastVisitedDate": null,
+      "details": "",
+      "bgColor": "#e3cd9a"
+    },
+    {
+      "id": "Fri Dec 01 2023 13:15:57 GMT+0700 (Indochina Time)",
+      "avatar": null,
+      "fullName": "sdfsf",
+      "email": null,
+      "isActive": false,
+      "registeredDate": "Fri Dec 01 2023 13:15:57 GMT+0700 (Indochina Time)",
+      "lastVisitedDate": null,
+      "details": "",
+      "bgColor": "#ec23ad"
+    },
+    {
+      "id": "Fri Dec 01 2023 13:19:30 GMT+0700 (Indochina Time)",
+      "avatar": null,
+      "fullName": "safaff",
+      "email": null,
+      "isActive": false,
+      "registeredDate": "Fri Dec 01 2023 13:19:30 GMT+0700 (Indochina Time)",
+      "lastVisitedDate": null,
+      "details": "",
+      "bgColor": "#f297ea"
+    },
+    {
+      "id": "Fri Dec 01 2023 13:20:18 GMT+0700 (Indochina Time)",
+      "avatar": null,
+      "fullName": "fsdsg",
+      "email": null,
+      "isActive": false,
+      "registeredDate": "Fri Dec 01 2023 13:20:18 GMT+0700 (Indochina Time)",
+      "lastVisitedDate": null,
+      "details": "",
+      "bgColor": "#3ebe80"
     }
   ]
 }
