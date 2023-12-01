@@ -1,6 +1,6 @@
 /* Components */
 import { TableCell } from '@/components/parts/Table/TableCell';
-import { IColumnType } from '@/types/ITable';
+import { IColumnType } from '@/types/IColumnTypes';
 
 /* Helpers */
 import { getObjectValue } from '@/helpers/getObjects';
