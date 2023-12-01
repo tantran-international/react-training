@@ -1,5 +1,5 @@
 import '@/App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 /* Components */
 import { Popper } from '@/components/commons/Popper';
@@ -58,7 +58,8 @@ const item: IData = {
   isActive: false,
   email: 'tranduytan597@gmail.com',
   bgColor: '#c71ec4',
-  registeredDate: null
+  registeredDate: null,
+  lastVisitedDate: null
 };
 
 export const App = () => {
@@ -103,7 +104,7 @@ export const App = () => {
           <Table data={users} columns={columns} />
         </div>
 
-        <Tab tabs={['General']} item={item} />
+        {/* <Tab tabs={['General']} item={item} /> */}
       </div>
     </>
   );

@@ -1,41 +1,52 @@
 /* Types */
-import { IColumnType } from "@/types/ITable";
+import { IData } from '@/types/IData';
+import { IColumnType } from '@/types/ITable';
 interface ITableRow<T> {
+  onRowClick: (index: number, dataItem: IData) => void;
   data: T[];
-  columns: IColumnType<T>[]
+  columns: IColumnType<T>[];
 }
 
 /* Components */
 import { TableRowItem } from '@/components/parts/Table/TableRowItem';
 import { TableRowCell } from '@/components/parts/Table/TableRowCell';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-export const TableRow = <T,>({ data, columns }: ITableRow<T>): JSX.Element => {
+export const TableRow = ({
+  onRowClick,
+  data,
+  columns
+}: ITableRow<IData>): JSX.Element => {
   /* Initial "0" don't match with any index of TableRowItems == none TableRowItem is selected */
   const [selected, setSelected] = useState(0);
 
   /**
-   *
-   * @param index - index of Object is rendered as TableRowItem in (Array "data")
+   * Handle index of TableRowItem to set selected
+   * @param index - index of TableRowItem
    */
   const handleSelectedRow = (index: number) => {
     setSelected(index);
+    onRowClick(index - 1, data[index - 1]);
   };
+
+  /* OLD USE EFFECT CODE */
+  // useEffect(() => {
+  //   {
+  //     selected && setSelected(data.length);
+  //   }
+  // }, [data.length]);
 
   return (
     <>
       {data.map((item, itemIndex) => (
         <TableRowItem
-          key={`table-body-${itemIndex}`}
+          key={`table-row-${itemIndex}`}
           /* (param + 1) to avoid initial value of state */
           index={itemIndex + 1}
           selected={selected}
-          onRowClick={handleSelectedRow}
+          onRowItemClick={handleSelectedRow}
         >
-          {columns.map((
-              column,
-              columnIndex
-            ) => (
+          {columns.map((column, columnIndex) => (
             <TableRowCell
               key={`table-row-cell-${columnIndex}`}
               item={item}

@@ -11,13 +11,13 @@ import iconEdit from '@/assets/images/icons/icon-pen.svg';
 /* Types */
 interface ICardInformation {
   additionalClass?: string;
-  content: string;
+  title: string;
   status: boolean;
   avatar?: string;
-  name: string;
+  fullName: string;
   bgColor: string;
-  email?: string;
-  lastVisitedDate: string;
+  email?: string | null;
+  lastVisitedDate: string | null;
 }
 
 /* Helpers */
@@ -25,54 +25,55 @@ import { renderDate } from '@/helpers/renderDate';
 
 export const CardInformation = ({
   additionalClass,
-  content,
+  title,
   status,
   avatar,
-  name,
+  fullName,
   bgColor,
   email,
   lastVisitedDate
 }: ICardInformation) => {
-
   return (
     <article className={`card-information ${additionalClass}`}>
-      <header className="info-header">
+      <header className='info-header'>
         <div>
-          <h2 className="infor-heading">{content}</h2>
-          <Status
-            additionalClass="info-status"
-            isActive={status}
-          />
+          <h2 className='infor-heading'>{title}</h2>
+          <Status additionalClass='info-status' isActive={status} />
         </div>
         <Button icon={iconEdit} />
       </header>
 
-      <div className="info-media-content">
+      <div className='info-media-content'>
         <Avatar
-          additionalClass="avatar-information"
+          additionalClass='avatar-information'
           src={avatar}
-          alt={name}
+          alt={fullName}
           bgColor={bgColor}
-          variant="square"
+          variant='square'
         />
-        <p className="info-name">{name}</p>
+        <p className='info-name'>{fullName}</p>
       </div>
 
-      <div className="infolist-content">
-        <div className="infolist-header">
-          <span className="infolist-icon infolist-email"></span> Email:
+      <div className='infolist-content'>
+        <div className='infolist-header'>
+          <span className='infolist-icon infolist-email'></span> Email:
         </div>
-        <p className="infolist-detail">{email}</p>
+        <p className='infolist-detail'>{
+          email == null || ""
+          ? "Unknown"
+          : email
+        }</p>
 
-        <div className="infolist-header">
-          <span className="infolist-icon infolist-date"></span> Last visited:
+        <div className='infolist-header'>
+          <span className='infolist-icon infolist-date'></span> Last visited:
         </div>
-        <p className="infolist-detail">{
-            lastVisitedDate == null || ''
-              ? 'Unknown'
-              : renderDate(lastVisitedDate)
-            }
-          </p>
+        <p className='infolist-detail'>
+          {
+            lastVisitedDate == null || ""
+            ? 'Unknown'
+            : renderDate(lastVisitedDate)
+          }
+        </p>
       </div>
     </article>
   );
