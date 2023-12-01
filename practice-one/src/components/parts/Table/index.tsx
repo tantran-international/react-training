@@ -1,59 +1,41 @@
-import { createPortal } from 'react-dom';
 import '@/components/parts/Table/Table.css';
 
 /* Components */
-import { TableHeader } from './TableHeader/index';
-import { TableRow } from './TableRow/index';
-import { CardInformation } from '@/components/parts/CardInformation';
+import { TableHeader } from '@/components/parts/Table/TableHeader';
+import { TableRow } from '@/components/parts/Table/TableRow';
 
 /* Types */
-import { IData } from '@/types/IData';
-import { ITable } from '@/types/ITable';
-import { useEffect, useState } from 'react';
-
-/* Contants */
-import { CARD_TYPES } from '@/constants/cardTypes';
+import { IData } from '@/types/IDatas';
+import { IColumnType } from '@/types/IColumnTypes';
+interface ITable<T> {
+  onRowClick: (index: number, item: IData) => void;
+  data: T[];
+  columns: IColumnType<T>[];
+  additionalClass?: string;
+  selectedRowIndex: number;
+}
 
 export const Table = ({
+  onRowClick,
   data,
   columns,
-  additionalClass
+  additionalClass,
+  selectedRowIndex
 }: ITable<IData>): JSX.Element => {
 
-  const [rowIndex, setRowIndex] = useState(0);
-
-  const [rowData, setRowData] = useState<IData | null>(null);
-
-  const handleRowClick = (index: number, dataItem: IData): void => {
-    setRowData(dataItem);
-    setRowIndex(index + 1)
-  };
-
-  // useEffect(() => {
-  //   console.log(rowIndex);
-  // }, [data])
-
   return (
-    <div className='table-wrapper'>
+    <div className="table-wrapper">
       <table className={`main-table ${additionalClass}`}>
-        <thead className='table-head'>
+        <thead className="table-head">
           <TableHeader columns={columns} />
         </thead>
 
-        <tbody className='table-body'>
-          <TableRow onRowClick={handleRowClick} columns={columns} data={data} />
-          {rowData != null &&
-            createPortal(
-              <CardInformation
-                title={CARD_TYPES.USERS}
-                status={rowData.isActive}
-                fullName={rowData.fullName}
-                email={rowData.email}
-                bgColor={rowData.bgColor}
-                lastVisitedDate={rowData.lastVisitedDate}
-              />,
-              document.querySelector('.main-body') as HTMLElement
-            )}
+        <tbody className="table-body">
+          <TableRow
+            onRowClick={onRowClick}
+            columns={columns}
+            data={data}
+            selectedRowIndex={selectedRowIndex}/>
         </tbody>
       </table>
     </div>

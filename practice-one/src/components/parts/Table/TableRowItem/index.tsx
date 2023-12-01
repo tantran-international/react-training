@@ -1,25 +1,42 @@
+import { useState } from 'react';
+
 import '@/components/parts/Table/TableRowItem/TableRowItem.css';
+
+/* Types */
+import { IData } from '@/types/IDatas';
 
 interface ITableRowItem {
   children: JSX.Element[];
-  selected: number;
-  onRowItemClick: (index: number) => void;
+  selectedRowIndex: number;
+  onRowItemClick: (
+    index: number,
+    item: IData
+  ) => void;
   index: number;
+  item: IData;
 }
 
 export const TableRowItem = ({
   children,
   index,
-  selected,
+  selectedRowIndex,
+  item,
   onRowItemClick
 }: ITableRowItem) => {
+
+  /* Handle index of selected row */
+  const [selectedRow, setSelectedRow] = useState(selectedRowIndex);
+
+  const rowIndex = index + 1;
+
   /* Update styles of clicked TableRow */
   const handleRowItemClick = () => {
-    onRowItemClick(index);
+    setSelectedRow(rowIndex);
+    onRowItemClick(rowIndex, item);
   };
 
-  /* Assign conditional to variable */
-  const isSelected = selected > 0 && selected === index;
+  /* Conditional to update styles for selected row */
+  const isSelected = selectedRow > 0 && selectedRowIndex === rowIndex;
 
   return (
     <tr

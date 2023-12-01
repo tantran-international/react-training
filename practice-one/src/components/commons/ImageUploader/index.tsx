@@ -5,7 +5,7 @@ import '@/components/commons/ImageUploader/ImageUploader.css';
 import { Avatar } from '@/components/commons/Avatar';
 
 /* Types */
-import { IData } from '@/types/IData';
+import { IData } from '@/types/IDatas';
 
 interface IImageUploader<T> {
   item: T;

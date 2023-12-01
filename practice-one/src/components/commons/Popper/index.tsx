@@ -46,7 +46,7 @@ export function Popper({ onModalSubmit }: IPopper) {
   const handleClickPrimaryBtn = async () => {
     const { error } = await addUsers(userName);
     {
-      error && alert('Something when wrong');
+      error && alert('Something went wrong');
     }
     onModalSubmit();
     setOpenModal(false);
@@ -69,42 +69,42 @@ export function Popper({ onModalSubmit }: IPopper) {
   }, []);
 
   return (
-    <div className='popper-wrapper'>
+    <div className="popper-wrapper">
       <button
-        className='btn-cta btn-add'
-        type='button'
+        className="btn-cta btn-add"
+        type="button"
         onClick={handleClickPopperBtn}
         ref={ref}
       >
-        <span className='btn-add-symbol'>&#43;</span> New
+        <span className="btn-add-symbol">&#43;</span> New
       </button>
 
       {showOption &&
         createPortal(
           <button
-            className='btn-cta btn-popper'
-            type='button'
+            className="btn-cta btn-popper"
+            type="button"
             onClick={handleOpenModal}
           >
             Add new user
           </button>,
-          document.querySelector('.popper-wrapper') as HTMLElement
+          document.querySelector(".popper-wrapper") as HTMLElement
         )}
 
       {isOpenModal && (
         <Modal
           isOpen={isOpenModal}
-          additionalClass='modal-add-new'
+          additionalClass="modal-add-new"
           onClose={handleCloseModal}
-          modalDescription='Enter user name'
-          btnTextPrimary='Save'
+          modalDescription="Enter user name"
+          btnTextPrimary="Save"
           onBtnPrimaryClick={handleClickPrimaryBtn}
         >
           <TextField
-            id='input-add-user'
-            name='input-add-user'
+            id="input-add-user"
+            name="input-add-user"
             isAutoFocus={true}
-            additionalClass='text-field-add'
+            additionalClass="text-field-add"
             onInputChange={handleUserNameChange}
           />
         </Modal>

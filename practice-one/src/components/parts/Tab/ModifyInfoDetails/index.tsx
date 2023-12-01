@@ -9,7 +9,7 @@ import { Switch } from '@/components/commons/Switch';
 import { Status } from '@/components/commons/Status';
 
 /* Types */
-import { IData } from '@/types/IData';
+import { IData } from '@/types/IDatas';
 
 interface IModyfiInfoDetails<T> {
   activeTab: string;

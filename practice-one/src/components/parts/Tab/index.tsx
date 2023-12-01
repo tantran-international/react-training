@@ -11,7 +11,7 @@ import { ModifyInfoDetail } from '@/components/parts/Tab/ModifyInfoDetails';
 import iconReturn from '@/assets/images/icons/icon-back.svg';
 
 /* Types */
-import { IData } from '@/types/IData';
+import { IData } from '@/types/IDatas';
 
 interface ITab<T> {
   tabs: string[];
