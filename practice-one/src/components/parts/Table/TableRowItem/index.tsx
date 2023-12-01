@@ -5,15 +5,15 @@ import '@/components/parts/Table/TableRowItem/TableRowItem.css';
 /* Types */
 import { IData } from '@/types/IDatas';
 
-interface ITableRowItem {
+interface ITableRowItem<T> {
   children: JSX.Element[];
   selectedRowIndex: number;
   onRowItemClick: (
     index: number,
-    item: IData
+    item: T
   ) => void;
   index: number;
-  item: IData;
+  item: T;
 }
 
 export const TableRowItem = ({
@@ -22,7 +22,7 @@ export const TableRowItem = ({
   selectedRowIndex,
   item,
   onRowItemClick
-}: ITableRowItem) => {
+}: ITableRowItem<IData>) => {
 
   /* Handle index of selected row */
   const [selectedRow, setSelectedRow] = useState(selectedRowIndex);
