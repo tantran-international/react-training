@@ -36,7 +36,7 @@ export const addUsers = async (fullName: string) => {
       id: currentDate,
       avatar: null,
       fullName: fullName,
-      email: '',
+      email: null,
       isActive: false,
       registeredDate: currentDate,
       lastVisitedDate: null,
