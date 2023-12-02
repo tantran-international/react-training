@@ -1,6 +1,6 @@
 export interface IData {
   id: string;
-  avatar?: string | null;
+  avatar: string | null;
   fullName: string;
   email: string | null;
   isActive: boolean;
