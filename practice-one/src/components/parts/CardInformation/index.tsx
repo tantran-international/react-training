@@ -13,11 +13,12 @@ interface ICardInformation {
   additionalClass?: string;
   title: string;
   status: boolean;
-  avatar?: string;
+  avatar: string | null;
   fullName: string;
   bgColor: string;
   email?: string | null;
   lastVisitedDate: string | null;
+  onEditButtonCLick: () => void;
 }
 
 /* Helpers */
@@ -31,7 +32,8 @@ export const CardInformation = ({
   fullName,
   bgColor,
   email,
-  lastVisitedDate
+  lastVisitedDate,
+  onEditButtonCLick
 }: ICardInformation) => {
   return (
     <article className={`card-information ${additionalClass}`}>
@@ -40,7 +42,7 @@ export const CardInformation = ({
           <h2 className="infor-heading">{title}</h2>
           <Status additionalClass="info-status" isActive={status} />
         </div>
-        <Button icon={iconEdit} />
+        <Button icon={iconEdit} onClick={onEditButtonCLick}/>
       </header>
 
       <div className="info-media-content">
