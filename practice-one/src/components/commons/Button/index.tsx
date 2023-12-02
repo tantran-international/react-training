@@ -4,6 +4,8 @@ import { MouseEventHandler } from 'react';
 
 /* Types */
 interface IButton {
+  type: "button" | "submit" | "reset";
+  form?: string;
   additionalClass?: string;
   icon?: string;
   content?: string;
@@ -11,16 +13,19 @@ interface IButton {
 };
 
 export function Button({
+  type,
   additionalClass,
   icon,
   content,
+  form,
   onClick
 }: IButton) {
   if (icon) {
     return (
       <button
+        type={type}
+        form={form}
         className={`button-icon ${additionalClass}`}
-        type="button"
         onClick={onClick}
       >
         <span className={`icon-wrapper`}>
@@ -36,8 +41,9 @@ export function Button({
 
   return (
     <button
+      type={type}
+      form={form}
       className={`button ${additionalClass}`}
-      type="button"
       onClick={onClick}
     >
       {content}

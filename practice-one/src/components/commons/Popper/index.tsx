@@ -7,11 +7,10 @@ import '@/components/commons/Popper/Popper.css';
 /* Components */
 import { Modal } from '@/components/commons/Modal';
 import { TextField } from '@/components/commons/TextField';
-import { addUsers } from '@/services/usersService';
 
 /* Types */
 interface IPopper {
-  onModalSubmit: () => void;
+  onModalSubmit: (data: string) => void;
 }
 
 export function Popper({ onModalSubmit }: IPopper) {
@@ -46,11 +45,7 @@ export function Popper({ onModalSubmit }: IPopper) {
 
   /* Update data when Save button is clicked */
   const handleClickPrimaryBtn = async () => {
-    const { error } = await addUsers(userName);
-    {
-      error && alert('Something went wrong');
-    }
-    onModalSubmit();
+    onModalSubmit(userName);
     setOpenModal(false);
   };
 

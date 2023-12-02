@@ -2,7 +2,7 @@ export interface IData {
   id: string;
   avatar: string | null;
   fullName: string;
-  email: string | null;
+  email: string;
   isActive: boolean;
   registeredDate: string | null;
   lastVisitedDate: string | null;

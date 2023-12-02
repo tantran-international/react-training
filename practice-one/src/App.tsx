@@ -21,6 +21,7 @@ import { IData } from '@/types/IDatas';
 
 /* Services */
 import { getUsers } from '@/services/usersService';
+import { addUsers } from '@/services/usersService';
 
 /* Constaints */
 import { ITEM_TYPES, ITEM_TYPE } from '@/constants/itemTypes';
@@ -58,17 +59,6 @@ const columns: IColumnType<IData>[] = [
   }
 ];
 
-const item: IData = {
-  avatar: '',
-  id: 'đsfsà',
-  fullName: 'Mua Hong',
-  isActive: false,
-  email: 'tranduytan597@gmail.com',
-  bgColor: '#c71ec4',
-  registeredDate: null,
-  lastVisitedDate: null
-};
-
 export const App = () => {
   const [users, setUsers] = useState<[]>([]);
   const [rowIndex, setRowIndex] = useState(0);
@@ -77,56 +67,54 @@ export const App = () => {
 
   /* Get new datas and re-render UI when data is changed */
   const handleGetUsers = async () => {
-    const {
-      data,
-      error
-    } = await getUsers();
+    const { data, error } = await getUsers();
     if (error) {
       alert('Something went wrong');
       return;
     }
+    const lastDataItem = data[data.length - 1];
     setUsers(data);
+    setRowData(lastDataItem);
+    setRowIndex(data.length);
+  };
+
+  const handleAddNewUser = async (userName: string) => {
+    const { error } = await addUsers(userName);
+    {
+      error && alert('Something went wrong');
+    }
   };
 
   /* Close card information and render editor information */
   const handleShowEditor = () => {
     setShowDetails(SHOW_DETAILS.EDITOR);
-  }
+  };
 
   /* Close editor and render card information */
   const handleCloseEditor = () => {
     setShowDetails(SHOW_DETAILS.INFO);
-  }
+  };
 
   /* Get data and row-index of table row && show information details */
-  const handleSelectedRow = (
-    index: number,
-    dataItem: IData
-  ): void => {
+  const handleSelectedRow = (index: number, dataItem: IData): void => {
     setRowData(dataItem);
     setRowIndex(index);
-    setShowDetails(SHOW_DETAILS.INFO);
+    if (showDetails == SHOW_DETAILS.INFO || showDetails == null) {
+      setShowDetails(SHOW_DETAILS.INFO);
+    } else if (showDetails == SHOW_DETAILS.EDITOR) {
+      setShowDetails(SHOW_DETAILS.EDITOR);
+    }
   };
 
   /* Get data to Re-render UI and auto show lastest User's Information */
-  const handleAddNewRow = async () => {
-    const {
-      data,
-      error
-    } = await getUsers();
-    const lastDataItem = data[data.length - 1];
-    if (error) {
-      alert('Something went wrong');
-      return;
-    }
-    setUsers(data);
-    setRowData(lastDataItem);
-    setRowIndex(data.length);
+  const handleAddNewRow = async (userName: string) => {
+    await handleAddNewUser(userName);
+    await handleGetUsers();
     setShowDetails(SHOW_DETAILS.INFO);
   };
 
   /* Get and render datas based on list-item's types */
-  const handleItemSelected = async (itemKey: string) => {
+  const handleItemSelected = (itemKey: string) => {
     switch (itemKey) {
       case ITEM_TYPE.USERS:
         handleGetUsers();
@@ -136,6 +124,10 @@ export const App = () => {
         break;
     }
   };
+
+  // const handleFormUpdate = () => {
+
+  // }
 
   return (
     <>
@@ -159,7 +151,8 @@ export const App = () => {
           />
         </div>
 
-        {(showDetails == SHOW_DETAILS.INFO && rowData != null) &&
+        {showDetails == SHOW_DETAILS.INFO &&
+          rowData != null &&
           createPortal(
             <CardInformation
               title={CARD_TYPES.USERS}
@@ -174,12 +167,16 @@ export const App = () => {
             document.querySelector('.main-body') as HTMLElement
           )}
 
-          {(showDetails == SHOW_DETAILS.EDITOR && rowData != null) &&
-            createPortal(
-              <Tab tabs={TAB_TYPES} dataItem={rowData} onReturnButtonClick={handleCloseEditor}/>,
-              document.querySelector('.main-body') as HTMLElement
-            )
-          }
+        {showDetails == SHOW_DETAILS.EDITOR &&
+          rowData != null &&
+          createPortal(
+            <Tab
+              tabs={TAB_TYPES}
+              dataItem={rowData}
+              onReturnButtonClick={handleCloseEditor}
+            />,
+            document.querySelector('.main-body') as HTMLElement
+          )}
       </div>
     </>
   );
