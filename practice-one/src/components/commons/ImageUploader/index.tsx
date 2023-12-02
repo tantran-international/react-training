@@ -8,10 +8,10 @@ import { Avatar } from '@/components/commons/Avatar';
 /* Types */
 import { IData } from '@/types/IDatas';
 interface IImageUploader<T> {
-  item: T;
+  dataItem: T;
 }
 
-export const ImageUploader = ({ item }: IImageUploader<IData>) => {
+export const ImageUploader = ({ dataItem }: IImageUploader<IData>) => {
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
 
   /***
@@ -30,10 +30,10 @@ export const ImageUploader = ({ item }: IImageUploader<IData>) => {
         src={
           selectedImage
           ? URL.createObjectURL(selectedImage)
-          : item.avatar
+          : dataItem.avatar
         }
-        alt={item.fullName}
-        bgColor={item.bgColor}
+        alt={dataItem.fullName}
+        bgColor={dataItem.bgColor}
         variant="square"
         additionalClass="avatar-edit-information"
       />
@@ -49,7 +49,7 @@ export const ImageUploader = ({ item }: IImageUploader<IData>) => {
           type="file"
           accept="image/*"
           id="button-upload-image"
-          name={item.fullName}
+          name={dataItem.fullName}
           onChange={handleImageChange}
         />
       </div>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import '@/components/parts/Tab/ModifyInfoDetails/ModifyInforDetails.css';
 
@@ -13,7 +13,7 @@ import { Status } from '@/components/commons/Status';
 import { IData } from '@/types/IDatas';
 interface IModyfiInfoDetails<T> {
   activeTab: string;
-  item: T;
+  dataItem: T;
 }
 
 /* Helpers */
@@ -22,12 +22,12 @@ import { TextArea } from '@/components/commons/TextArea';
 
 export const ModifyInfoDetails = ({
   activeTab,
-  item
+  dataItem
 }: IModyfiInfoDetails<IData>) => {
-  const [fullName, setFullname] = useState(item.fullName);
-  const [email, setEmail] = useState(item.email);
-  const [status, setStatus] = useState(item.isActive);
-  const [details, setDetails] = useState(item.details)
+  const [fullName, setFullname] = useState(dataItem.fullName);
+  const [email, setEmail] = useState(dataItem.email);
+  const [status, setStatus] = useState(dataItem.isActive);
+  const [details, setDetails] = useState(dataItem.details)
 
   const handleFullNameChange = (value: string) => {
     setFullname(value);
@@ -45,22 +45,42 @@ export const ModifyInfoDetails = ({
     setDetails(value);
   }
 
+  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    console.log('huhu');
+  }
+
+  /* Update the initial value of TextField && TextArea && Switch && Status components
+  when the dataItem prop has changed */
+  useEffect(() => {
+    setFullname(dataItem.fullName);
+    setEmail(dataItem.email);
+    setStatus(dataItem.isActive);
+    setDetails(dataItem.details);
+  }, [dataItem])
+
   switch (activeTab) {
     case "General":
       return (
         <>
           <div className="tab-toolbar">
             <Button
+              type='button'
               additionalClass="button-secondary"
               content="Delete"
             />
             <Button
+              type="submit"
+              form="form-edit-user"
               additionalClass="button-primary button-primary-edit"
               content="Save"
             />
           </div>
 
-          <form className="form-edit-user">
+          <form id="form-edit-user"
+            className="form-edit-user"
+            onSubmit={handleFormSubmit}
+          >
             <div className="form-edit-item">
               <TextField
                 label="Full Name"
@@ -83,7 +103,7 @@ export const ModifyInfoDetails = ({
               />
             </div>
 
-            <ImageUploader item={item} />
+            <ImageUploader dataItem={dataItem} />
 
             <div className="form-edit-item-status">
               <span className="form-edit-label">Status</span>
@@ -100,18 +120,18 @@ export const ModifyInfoDetails = ({
             <div className="form-edit-item form-edit-item-date">
               <span className="form-edit-label">Resistered</span>
               <p className="form-edit-content">{
-                item.registeredDate == null || ""
+                dataItem.registeredDate == null
                   ? "Unknown"
-                  : renderDate(item.registeredDate)
+                  : renderDate(dataItem.registeredDate)
               }</p>
             </div>
 
             <div className="form-edit-item form-edit-item-date">
               <span className="form-edit-label">Last visited</span>
               <p className="form-edit-content">{
-                item.lastVisitedDate == null || ""
+                dataItem.lastVisitedDate == null
                   ? "Unknown"
-                  : renderDate(item.lastVisitedDate)
+                  : renderDate(dataItem.lastVisitedDate)
               }</p>
             </div>
 

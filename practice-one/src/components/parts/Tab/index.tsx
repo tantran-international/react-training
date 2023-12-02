@@ -1,11 +1,10 @@
 import { useState } from 'react';
 
-import '@/components/parts/Tab/Tab.css'
+import '@/components/parts/Tab/Tab.css';
 
 /* Components */
 import { TabButton } from '@/components/parts/Tab/TabButton';
 import { Button } from '@/components/commons/Button';
-import { TabPanel } from '@/components/parts/Tab/TabPanel';
 import { ModifyInfoDetails } from '@/components/parts/Tab/ModifyInfoDetails';
 
 /* Icons */
@@ -17,7 +16,7 @@ import { IData } from '@/types/IDatas';
 interface ITab<T> {
   tabs: string[];
   dataItem: T;
-  onReturnButtonClick: () => void
+  onReturnButtonClick: () => void;
 }
 
 export const Tab = ({
@@ -25,35 +24,34 @@ export const Tab = ({
   dataItem,
   onReturnButtonClick
 }: ITab<IData>): JSX.Element => {
-
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTabIndex, setActiveTabIndex] = useState(0);
 
   /* Active tab recognition to display different ModifyInfoDetail */
   const handleActiveTab = (index: number) => {
-    setActiveTab(index);
+    setActiveTabIndex(index);
   };
 
+  /* Define name value of active tab */
+  const tabData = tabs[activeTabIndex];
+
   return (
-    <div className="tab-edit-wrapper">
-      <div className="tab-edit">
-        <Button icon={iconReturn} onClick={onReturnButtonClick}/>
-          {tabs.map((tab, index) => (
-            <TabButton
-              index={index}
-              title={tab}
-              key={`tab-item-${index}`}
-              onTabClick={handleActiveTab}
-              isActiveTab={activeTab === index}
+    <div className='tab-edit-wrapper'>
+      <div className='tab-edit'>
+        <Button type='button' icon={iconReturn} onClick={onReturnButtonClick} />
+        {tabs.map((tab, index) => (
+          <TabButton
+            index={index}
+            title={tab}
+            key={`tab-item-${index}`}
+            onTabClick={handleActiveTab}
+            isActiveTab={activeTabIndex === index}
           />
         ))}
       </div>
-
-      <TabPanel>
-        <ModifyInfoDetails
-          activeTab={tabs[activeTab]}
-          item={dataItem}
-        />
-      </TabPanel>
+      <ModifyInfoDetails
+        activeTab={tabData}
+        dataItem={dataItem}
+      />
     </div>
   );
 };

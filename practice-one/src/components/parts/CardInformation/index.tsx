@@ -42,7 +42,7 @@ export const CardInformation = ({
           <h2 className="infor-heading">{title}</h2>
           <Status additionalClass="info-status" isActive={status} />
         </div>
-        <Button icon={iconEdit} onClick={onEditButtonCLick}/>
+        <Button type='button' icon={iconEdit} onClick={onEditButtonCLick}/>
       </header>
 
       <div className="info-media-content">
@@ -61,7 +61,7 @@ export const CardInformation = ({
           <span className="infolist-icon infolist-email"></span> Email:
         </div>
         <p className="infolist-detail">{
-          email == null || ""
+          email == ""
           ? "Unknown"
           : email
         }</p>
