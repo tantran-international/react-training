@@ -59,14 +59,14 @@ export const ListNavigation = ({
   }, []);
 
   return (
-    <ul className='list-navigation'>
+    <ul className="list-navigation">
       {itemTypes.map((itemType, index) => (
         <ItemNavigation
           key={itemType}
           additionalClass={
             itemSelected == index
-            ? 'list-item-selected'
-            : ''
+            ? "list-item-selected"
+            : ""
           }
           icon={renderListIcon(
             itemType,

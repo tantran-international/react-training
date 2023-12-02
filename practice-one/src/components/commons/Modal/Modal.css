@@ -49,7 +49,6 @@
   min-width: 200px;
   margin: 0 12px 0 0;
 }
-/* End Modal-Add-New */
 
 /* Start Modal-Comfirm */
 .modal-confirm {
@@ -79,4 +78,3 @@
   justify-content: center;
   gap: 8px;
 }
-/* End Modal-Comfirm */

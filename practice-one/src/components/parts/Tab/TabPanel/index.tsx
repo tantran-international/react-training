@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 
+/* Types */
 interface TTabPanel {
   children: ReactNode;
   additionalClass?: string;

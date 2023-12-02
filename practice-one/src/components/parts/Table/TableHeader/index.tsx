@@ -4,7 +4,7 @@ import '@/components/parts/Table/TableHeader/TableHeader.css';
 import { TableHeaderCell } from '@/components/parts/Table/TableHeaderCell';
 
 /* Types */
-import { IColumnType } from '@/types/ITable';
+import { IColumnType } from '@/types/IColumnTypes';
 interface ITheader<T> {
   columns: IColumnType<T>[];
 }

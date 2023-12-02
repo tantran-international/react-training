@@ -42,8 +42,8 @@ export const TableRowItem = ({
     <tr
       className={
         isSelected
-        ? 'table-row table-row-selected'
-        : 'table-row'
+        ? "table-row table-row-selected"
+        : "table-row"
       }
       onClick={handleRowItemClick}
     >

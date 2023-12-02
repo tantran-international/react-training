@@ -35,42 +35,42 @@ export const CardInformation = ({
 }: ICardInformation) => {
   return (
     <article className={`card-information ${additionalClass}`}>
-      <header className='info-header'>
+      <header className="info-header">
         <div>
-          <h2 className='infor-heading'>{title}</h2>
-          <Status additionalClass='info-status' isActive={status} />
+          <h2 className="infor-heading">{title}</h2>
+          <Status additionalClass="info-status" isActive={status} />
         </div>
         <Button icon={iconEdit} />
       </header>
 
-      <div className='info-media-content'>
+      <div className="info-media-content">
         <Avatar
-          additionalClass='avatar-information'
+          additionalClass="avatar-information"
           src={avatar}
           alt={fullName}
           bgColor={bgColor}
-          variant='square'
+          variant="square"
         />
-        <p className='info-name'>{fullName}</p>
+        <p className="info-name">{fullName}</p>
       </div>
 
-      <div className='infolist-content'>
-        <div className='infolist-header'>
-          <span className='infolist-icon infolist-email'></span> Email:
+      <div className="infolist-content">
+        <div className="infolist-header">
+          <span className="infolist-icon infolist-email"></span> Email:
         </div>
-        <p className='infolist-detail'>{
+        <p className="infolist-detail">{
           email == null || ""
           ? "Unknown"
           : email
         }</p>
 
-        <div className='infolist-header'>
-          <span className='infolist-icon infolist-date'></span> Last visited:
+        <div className="infolist-header">
+          <span className="infolist-icon infolist-date"></span> Last visited:
         </div>
-        <p className='infolist-detail'>
+        <p className="infolist-detail">
           {
             lastVisitedDate == null || ""
-            ? 'Unknown'
+            ? "Unknown"
             : renderDate(lastVisitedDate)
           }
         </p>

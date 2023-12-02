@@ -1,4 +1,4 @@
-import './Avatar.css';
+import '@/components/commons/Avatar/Avatar.css';
 
 /* Types */
 interface IAvatar {
@@ -20,10 +20,7 @@ export const Avatar = ({
   /* Get first Letter of alt */
   const initialLetter = alt.charAt(0);
 
-  /**
-   *
-   * @returns - HTMLElement || string
-   */
+  /* Handle render Avatar */
   const renderAvatar = () => {
     return (
       src

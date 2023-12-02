@@ -18,20 +18,20 @@ export const ToolBar = ({content}: IToolbar) => {
   const [isOpenSearchBar, setOpenSearchBar] = useState(false);
 
   return (
-    <nav className='tool-bar-wrapper'>
-      <h2 className='tool-bar-heading'>{content}</h2>
+    <nav className="tool-bar-wrapper">
+      <h2 className="tool-bar-heading">{content}</h2>
       <Button
-        additionalClass='search'
+        additionalClass="search"
         icon={iconSearch}
         onClick={() => setOpenSearchBar(true)}
       />
       {isOpenSearchBar &&
         createPortal(
           <SearchBar
-            additionalClass='user'
+            additionalClass="user"
             onClose={() => setOpenSearchBar(false)}
           />,
-          document.querySelector('.tool-bar-wrapper') as HTMLElement
+          document.querySelector(".tool-bar-wrapper") as HTMLElement
         )}
     </nav>
   );

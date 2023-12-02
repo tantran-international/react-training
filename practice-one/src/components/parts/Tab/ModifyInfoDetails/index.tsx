@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import '@/components/parts/Tab/ModifyInfoDetails/ModifyInforDetails.css';
 
 /* Components */
@@ -10,7 +11,6 @@ import { Status } from '@/components/commons/Status';
 
 /* Types */
 import { IData } from '@/types/IDatas';
-
 interface IModyfiInfoDetails<T> {
   activeTab: string;
   item: T;
@@ -20,7 +20,7 @@ interface IModyfiInfoDetails<T> {
 import { renderDate } from '@/helpers/renderDate';
 import { TextArea } from '@/components/commons/TextArea';
 
-export const ModifyInfoDetail = ({
+export const ModifyInfoDetails = ({
   activeTab,
   item
 }: IModyfiInfoDetails<IData>) => {
@@ -100,9 +100,9 @@ export const ModifyInfoDetail = ({
             <div className="form-edit-item form-edit-item-date">
               <span className="form-edit-label">Resistered</span>
               <p className="form-edit-content">{
-                item.registered == null || ""
+                item.registeredDate == null || ""
                   ? "Unknown"
-                  : renderDate(item.registered)
+                  : renderDate(item.registeredDate)
               }</p>
             </div>
 
