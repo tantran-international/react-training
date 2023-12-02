@@ -16,12 +16,14 @@ import { IData } from '@/types/IDatas';
 
 interface ITab<T> {
   tabs: string[];
-  item: T;
+  dataItem: T;
+  onReturnButtonClick: () => void
 }
 
 export const Tab = ({
   tabs,
-  item
+  dataItem,
+  onReturnButtonClick
 }: ITab<IData>): JSX.Element => {
 
   const [activeTab, setActiveTab] = useState(0);
@@ -34,7 +36,7 @@ export const Tab = ({
   return (
     <div className="tab-edit-wrapper">
       <div className="tab-edit">
-        <Button icon={iconReturn} />
+        <Button icon={iconReturn} onClick={onReturnButtonClick}/>
           {tabs.map((tab, index) => (
             <TabButton
               index={index}
@@ -49,7 +51,7 @@ export const Tab = ({
       <TabPanel>
         <ModifyInfoDetails
           activeTab={tabs[activeTab]}
-          item={item}
+          item={dataItem}
         />
       </TabPanel>
     </div>

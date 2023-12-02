@@ -1,5 +1,7 @@
 import '@/App.css';
-import { useEffect, useState } from 'react';
+
+import { useState } from 'react';
+
 import { createPortal } from 'react-dom';
 
 /* Components */
@@ -23,6 +25,8 @@ import { getUsers } from '@/services/usersService';
 /* Constaints */
 import { ITEM_TYPES, ITEM_TYPE } from '@/constants/itemTypes';
 import { CARD_TYPES } from '@/constants/cardTypes';
+import { SHOW_DETAILS } from '@/constants/showDetailsTypes';
+import { TAB_TYPES } from '@/constants/tabTypes';
 
 /* Define column's titles and it's UI */
 const columns: IColumnType<IData>[] = [
@@ -69,14 +73,7 @@ export const App = () => {
   const [users, setUsers] = useState<[]>([]);
   const [rowIndex, setRowIndex] = useState(0);
   const [rowData, setRowData] = useState<IData | null>(null);
-
-  const handleSelectedRow = (
-    index: number,
-    dataItem: IData
-  ): void => {
-    setRowData(dataItem);
-    setRowIndex(index);
-  };
+  const [showDetails, setShowDetails] = useState<string | null>(null);
 
   /* Get new datas and re-render UI when data is changed */
   const handleGetUsers = async () => {
@@ -91,6 +88,27 @@ export const App = () => {
     setUsers(data);
   };
 
+  /* Close card information and render editor information */
+  const handleShowEditor = () => {
+    setShowDetails(SHOW_DETAILS.EDITOR);
+  }
+
+  /* Close editor and render card information */
+  const handleCloseEditor = () => {
+    setShowDetails(SHOW_DETAILS.INFO);
+  }
+
+  /* Get data and row-index of table row && show information details */
+  const handleSelectedRow = (
+    index: number,
+    dataItem: IData
+  ): void => {
+    setRowData(dataItem);
+    setRowIndex(index);
+    setShowDetails(SHOW_DETAILS.INFO);
+  };
+
+  /* Get data to Re-render UI and auto show lastest User's Information */
   const handleAddNewRow = async () => {
     const {
       data,
@@ -104,9 +122,10 @@ export const App = () => {
     setUsers(data);
     setRowData(lastDataItem);
     setRowIndex(data.length);
+    setShowDetails(SHOW_DETAILS.INFO);
   };
 
-  /* Get difference datas for difference listItem */
+  /* Get and render datas based on list-item's types */
   const handleItemSelected = async (itemKey: string) => {
     switch (itemKey) {
       case ITEM_TYPE.USERS:
@@ -140,20 +159,27 @@ export const App = () => {
           />
         </div>
 
-        {rowData != null &&
+        {(showDetails == SHOW_DETAILS.INFO && rowData != null) &&
           createPortal(
             <CardInformation
               title={CARD_TYPES.USERS}
               status={rowData.isActive}
+              avatar={rowData.avatar}
               fullName={rowData.fullName}
               email={rowData.email}
               bgColor={rowData.bgColor}
               lastVisitedDate={rowData.lastVisitedDate}
+              onEditButtonCLick={handleShowEditor}
             />,
             document.querySelector('.main-body') as HTMLElement
           )}
 
-        {/* <Tab tabs={['General']} item={item} /> */}
+          {(showDetails == SHOW_DETAILS.EDITOR && rowData != null) &&
+            createPortal(
+              <Tab tabs={TAB_TYPES} dataItem={rowData} onReturnButtonClick={handleCloseEditor}/>,
+              document.querySelector('.main-body') as HTMLElement
+            )
+          }
       </div>
     </>
   );
