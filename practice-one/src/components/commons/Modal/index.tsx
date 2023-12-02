@@ -1,10 +1,11 @@
 import { createPortal } from 'react-dom';
+
 import '@/components/commons/Modal/Modal.css';
 
-// Components
+/* Components */
 import { Button } from '@/components/commons/Button';
 
-// Types
+/* Types */
 interface IModal {
   onClose?: () => void;
   modalTitle?: string;
@@ -18,7 +19,7 @@ interface IModal {
   children?: JSX.Element[] | JSX.Element;
 }
 
-// Icons
+/* Icons */
 import iconClose from '@/assets/images/icons/icon-close.svg';
 
 export function Modal({
@@ -45,54 +46,52 @@ export function Modal({
               onClick={(event) => event.stopPropagation()}
             >
               <div className={`${additionalClass}-header`}>
-                {modalTitle
-                ? (
-                    <>
-                      <h2 className="modal-title">{modalTitle}</h2>
-                      <p className="modal-description">{modalDescription}</p>
-                    </>
-                  )
-                : (
-                    <>
-                      <p className="modal-description">{modalDescription}</p>
-                      <Button
-                        icon={iconClose}
-                        additionalClass="button-icon-close"
-                        onClick={onClose}
-                      />
-                    </>
-                  )}
+                {modalTitle ? (
+                  <>
+                    <h2 className="modal-title">{modalTitle}</h2>
+                    <p className="modal-description">{modalDescription}</p>
+                  </>
+                ) : (
+                  <>
+                    <p className="modal-description">{modalDescription}</p>
+                    <Button
+                      icon={iconClose}
+                      additionalClass="button-icon-close"
+                      onClick={onClose}
+                    />
+                  </>
+                )}
               </div>
 
               <div className={`${additionalClass}-body`}>
-                {modalTitle
-                ? (
-                    <>
-                      <Button
-                        content={btnTextSecondary}
-                        additionalClass="button-secondary button-save"
-                        onClick={onClose}
-                      />
-                      <Button
-                        content={btnTextPrimary}
-                        additionalClass="button-primary button-save"
-                        onClick={onBtnPrimaryClick}
-                      />
-                    </>
-                  )
-                : (
-                    <>
-                      {children}
-                      <Button
-                        content={btnTextPrimary}
-                        additionalClass="button-primary button-save"
-                        onClick={onBtnPrimaryClick}
-                      />
-                    </>
-                  )}
+                {modalTitle ? (
+                  <>
+                    <Button
+                      content={btnTextSecondary}
+                      additionalClass="button-secondary button-save"
+                      onClick={onClose}
+                    />
+                    <Button
+                      content={btnTextPrimary}
+                      additionalClass="button-primary button-save"
+                      onClick={onBtnPrimaryClick}
+                    />
+                  </>
+                ) : (
+                  <>
+                    {children}
+                    <Button
+                      content={btnTextPrimary}
+                      additionalClass="button-primary button-save"
+                      onClick={onBtnPrimaryClick}
+                    />
+                  </>
+                )}
               </div>
             </div>
-          </div>, document.body )}
+          </div>,
+          document.body
+        )}
     </>
   );
 }

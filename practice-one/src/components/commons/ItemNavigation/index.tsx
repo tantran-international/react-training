@@ -1,4 +1,4 @@
-import './ItemNavigation.css';
+import '@/components/commons/ItemNavigation/ItemNavigation.css';
 
 /* Types */
 interface IListItem {

@@ -1,11 +1,13 @@
 import '@/components/commons/Button/Button.css';
 
+import { MouseEventHandler } from 'react';
+
 /* Types */
 interface IButton {
   additionalClass?: string;
   icon?: string;
   content?: string;
-  onClick?: Event | any;
+  onClick?: MouseEventHandler;
 };
 
 export function Button({

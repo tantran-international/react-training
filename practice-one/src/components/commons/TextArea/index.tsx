@@ -1,4 +1,5 @@
 import { FormEvent } from 'react';
+
 import '@/components/commons/TextArea/TextArea.css';
 
 /* Types */
@@ -15,7 +16,7 @@ export const TextArea = ({
 }: ITextArea) => {
 
   /**
-   * Update fullName state of TextField when it's changed
+   * Update fullName state of TextField on change
    * @param event - event onChane of input
    */
   const handleDetailsChange = (event: FormEvent<HTMLTextAreaElement>) => {

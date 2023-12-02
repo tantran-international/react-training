@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
+
 import { createPortal } from 'react-dom';
+
 import '@/components/commons/Popper/Popper.css';
 
 /* Components */
@@ -76,7 +78,8 @@ export function Popper({ onModalSubmit }: IPopper) {
         onClick={handleClickPopperBtn}
         ref={ref}
       >
-        <span className="btn-add-symbol">&#43;</span> New
+        <span className="btn-add-symbol">&#43;</span>
+        New
       </button>
 
       {showOption &&

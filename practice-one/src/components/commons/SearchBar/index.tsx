@@ -22,15 +22,15 @@ export const SearchBar = ({
   return (
     <div className={`search-bar search-bar-${additionalClass}`}>
       <TextField
-        id='input-search-user'
-        name='input-search-user'
-        placeholder='Search'
+        id="input-search-user"
+        name="input-search-user"
+        placeholder="Search"
         onInputChange={() => {}}
-        additionalClass='text-field-search'
+        additionalClass="text-field-search"
         isAutoFocus={true}
       />
       <Button
-        additionalClass='close'
+        additionalClass="close"
         icon={iconClose}
         onClick={onClose}
       />

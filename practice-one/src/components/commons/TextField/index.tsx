@@ -1,4 +1,5 @@
 import '@/components/commons/TextField/TextField.css';
+
 import { FormEvent } from 'react';
 
 /* Types */
@@ -7,7 +8,7 @@ interface IInput {
   id: string;
   name: string;
   placeholder?: string;
-  value?: string;
+  value?: string | null;
   onInputChange?: (value: string) => void;
   additionalClass?: string;
   isAutoFocus?: boolean;
@@ -38,11 +39,11 @@ export function TextField({
       </label>
 
       <input
-        type='text'
+        type="text"
         id={id}
         name={name}
         placeholder={placeholder}
-        value={value}
+        value={value as string}
         onChange={handleInputChange}
         className={`text-field ${additionalClass}`}
         autoFocus={

@@ -17,3 +17,7 @@
 .text-field-edit {
   min-width: 350px;
 }
+
+.text-field-search {
+  width: 100%;
+}

@@ -1,11 +1,12 @@
-import '@/components/parts/Tab/Tab.css'
 import { useState } from 'react';
+
+import '@/components/parts/Tab/Tab.css'
 
 /* Components */
 import { TabButton } from '@/components/parts/Tab/TabButton';
 import { Button } from '@/components/commons/Button';
 import { TabPanel } from '@/components/parts/Tab/TabPanel';
-import { ModifyInfoDetail } from '@/components/parts/Tab/ModifyInfoDetails';
+import { ModifyInfoDetails } from '@/components/parts/Tab/ModifyInfoDetails';
 
 /* Icons */
 import iconReturn from '@/assets/images/icons/icon-back.svg';
@@ -25,9 +26,7 @@ export const Tab = ({
 
   const [activeTab, setActiveTab] = useState(0);
 
-  /**
-   * Active tab recognition to display different contents
-   */
+  /* Active tab recognition to display different ModifyInfoDetail */
   const handleActiveTab = (index: number) => {
     setActiveTab(index);
   };
@@ -48,7 +47,7 @@ export const Tab = ({
       </div>
 
       <TabPanel>
-        <ModifyInfoDetail
+        <ModifyInfoDetails
           activeTab={tabs[activeTab]}
           item={item}
         />

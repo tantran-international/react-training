@@ -1,4 +1,5 @@
-/** Generate random colors
+/**
+  * Generate random colors
   * @return string - random Hexadecimal Color
   */
 export const generateRandomColor = () => {
