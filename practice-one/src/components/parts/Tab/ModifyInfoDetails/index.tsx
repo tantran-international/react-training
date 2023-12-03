@@ -31,7 +31,7 @@ export const ModifyInfoDetails = ({
   onSubmitForm,
   onDeleteUser
 }: IModyfiInfoDetails<IData>) => {
-  const [avatar, setAvatar] = useState(dataItem.avatar);
+  const [avatar, setAvatar] = useState<string | null>(dataItem.avatar);
   const [fullName, setFullname] = useState(dataItem.fullName);
   const [email, setEmail] = useState(dataItem.email);
   const [status, setStatus] = useState(dataItem.isActive);
@@ -59,7 +59,7 @@ export const ModifyInfoDetails = ({
   };
 
   /* Get updated avatar's source */
-  const handleAvatarChange = (value: string) => {
+  const handleAvatarChange = (value: string | null) => {
     setAvatar(value);
   };
 
@@ -82,19 +82,21 @@ export const ModifyInfoDetails = ({
     onSubmitForm(updatedItem);
   };
 
+  /* Open modal confirm */
   const handleOpenModal = () => {
     setOpenModal(true);
   };
 
+  /* Close modal confirm and delete item in database */
   const handleDeleteButton = () => {
     setOpenModal(false);
     onDeleteUser(dataItem.id);
   };
 
-    /* Close modal when click on close icon button */
-    const handleCloseModal = () => {
-      setOpenModal(false);
-    };
+  /* Close modal when click on close icon button */
+  const handleCloseModal = () => {
+    setOpenModal(false);
+  };
 
   /* Update the initial value of TextField && TextArea && Switch && Status
   components and re-render when the dataItem prop has changed */
