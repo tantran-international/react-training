@@ -55,6 +55,7 @@ export function Modal({
                   <>
                     <p className="modal-description">{modalDescription}</p>
                     <Button
+                      type="button"
                       icon={iconClose}
                       additionalClass="button-icon-close"
                       onClick={onClose}
@@ -67,11 +68,13 @@ export function Modal({
                 {modalTitle ? (
                   <>
                     <Button
+                      type="button"
                       content={btnTextSecondary}
                       additionalClass="button-secondary button-save"
                       onClick={onClose}
                     />
                     <Button
+                      type="button"
                       content={btnTextPrimary}
                       additionalClass="button-primary button-save"
                       onClick={onBtnPrimaryClick}
@@ -81,6 +84,7 @@ export function Modal({
                   <>
                     {children}
                     <Button
+                      type="button"
                       content={btnTextPrimary}
                       additionalClass="button-primary button-save"
                       onClick={onBtnPrimaryClick}
