@@ -1,6 +1,6 @@
 import '@/App.css';
 
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
 
 import { createPortal } from 'react-dom';
 
@@ -20,7 +20,12 @@ import { IColumnType } from '@/types/IColumnTypes';
 import { IData } from '@/types/IDatas';
 
 /* Services */
-import { getUsers, addUser, updateUser, deleteUser } from '@/services/usersService';
+import {
+  getUsers,
+  addUser,
+  updateUser,
+  deleteUser
+} from '@/services/usersService';
 
 /* Constaints */
 import { ITEM_TYPES, ITEM_TYPE } from '@/constants/itemTypes';
@@ -59,10 +64,11 @@ const columns: IColumnType<IData>[] = [
 ];
 
 export const App = () => {
-  const [users, setUsers] = useState<[]>([]);
+  const [apiUsers, setApiUsers] = useState<IData[]>([]);
   const [rowIndex, setRowIndex] = useState(0);
   const [rowData, setRowData] = useState<IData | null>(null);
   const [showDetails, setShowDetails] = useState<string | null>(null);
+  const [filteredUsers, setFilteredUsers] = useState<IData[]>([]);
 
   /* Get new datas and re-render UI */
   const handleGetUsers = async () => {
@@ -71,7 +77,8 @@ export const App = () => {
       alert('Something went wrong');
       return;
     }
-    setUsers(data);
+    setApiUsers(data);
+    setFilteredUsers(data);
   };
 
   /* Create new dataItem and add to database */
@@ -80,6 +87,22 @@ export const App = () => {
     {
       error && alert('Something went wrong');
     }
+  };
+
+  /* Get data to Re-render UI and auto show lastest User's Information */
+  const handleAddNewRow = async (userName: string) => {
+    await handleAddNewUser(userName);
+    const { data, error } = await getUsers();
+    if (error) {
+      alert('Something went wrong');
+      return;
+    }
+    const lastDataItem = data[data.length - 1];
+    setApiUsers(data);
+    setFilteredUsers(data);
+    setRowData(lastDataItem);
+    setRowIndex(data.length);
+    setShowDetails(SHOW_DETAILS.INFO);
   };
 
   /* Update datas and re-render UI */
@@ -91,8 +114,9 @@ export const App = () => {
     }
     setRowData(data);
     handleGetUsers();
-  }
+  };
 
+  /* Close EditorDetails and remove remove specified data */
   const handleDeleteUser = async (dataId: string) => {
     const { error } = await deleteUser(dataId);
     if (error) {
@@ -101,7 +125,7 @@ export const App = () => {
     }
     handleGetUsers();
     setShowDetails(null);
-  }
+  };
 
   /* Close card information and open editor information */
   const handleShowEditor = () => {
@@ -124,21 +148,6 @@ export const App = () => {
     }
   };
 
-  /* Get data to Re-render UI and auto show lastest User's Information */
-  const handleAddNewRow = async (userName: string) => {
-    await handleAddNewUser(userName);
-    const { data, error } = await getUsers();
-    if (error) {
-      alert('Something went wrong');
-      return;
-    }
-    const lastDataItem = data[data.length - 1];
-    setUsers(data);
-    setRowData(lastDataItem);
-    setRowIndex(data.length);
-    setShowDetails(SHOW_DETAILS.INFO);
-  };
-
   /* Get and render datas based on list-item's types */
   const handleItemSelected = (itemKey: string) => {
     switch (itemKey) {
@@ -150,6 +159,20 @@ export const App = () => {
         break;
     }
   };
+
+  /* Find user's fullName with serach keywork */
+  const handleInputChange = (event: FormEvent<HTMLInputElement>) => {
+    const searchKeyWord = event.currentTarget.value;
+    const filteredItems = apiUsers.filter((apiUser) =>
+    apiUser.fullName.toLowerCase().includes(searchKeyWord.toLowerCase())
+    );
+    setFilteredUsers(filteredItems);
+  };
+
+  /* Render all users when SearchBar is closed */
+  const handleClosedSearchBar = () => {
+    setFilteredUsers(apiUsers);
+  }
 
   return (
     <>
@@ -164,10 +187,14 @@ export const App = () => {
         </Drawer>
 
         <div className='app-content-wrapper'>
-          <ToolBar content='Users' />
+          <ToolBar
+            type='Users'
+            onSearchBarChange={handleInputChange}
+            onSearchBarClose={handleClosedSearchBar}
+          />
           <Table
             onRowClick={handleSelectedRow}
-            data={users}
+            data={filteredUsers}
             columns={columns}
             selectedRowIndex={rowIndex}
           />

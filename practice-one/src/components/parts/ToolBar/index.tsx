@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { createPortal } from 'react-dom';
 import '@/components/parts/ToolBar/ToolBar.css';
 
@@ -11,16 +11,29 @@ import { SearchBar } from '@/components/commons/SearchBar';
 
 /* Types */
 interface IToolbar {
-  content: string;
+  type: string;
+  onSearchBarChange: (event: FormEvent<HTMLInputElement>) => void;
+  onSearchBarClose: () => void;
 }
 
-export const ToolBar = ({content}: IToolbar) => {
+export const ToolBar = ({
+    type,
+    onSearchBarChange,
+    onSearchBarClose
+  }: IToolbar) => {
   const [isOpenSearchBar, setOpenSearchBar] = useState(false);
+
+  /* Close searchBar and execute onSearchBarClose function */
+  const handleSearchBarClose = () => {
+    setOpenSearchBar(false);
+    onSearchBarClose();
+  }
 
   return (
     <nav className="tool-bar-wrapper">
-      <h2 className="tool-bar-heading">{content}</h2>
+      <h2 className="tool-bar-heading">{type}</h2>
       <Button
+        type="button"
         additionalClass="search"
         icon={iconSearch}
         onClick={() => setOpenSearchBar(true)}
@@ -29,7 +42,8 @@ export const ToolBar = ({content}: IToolbar) => {
         createPortal(
           <SearchBar
             additionalClass="user"
-            onClose={() => setOpenSearchBar(false)}
+            onSearchBarClose={handleSearchBarClose}
+            onSearchBarChange={onSearchBarChange}
           />,
           document.querySelector(".tool-bar-wrapper") as HTMLElement
         )}

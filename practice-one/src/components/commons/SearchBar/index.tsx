@@ -1,5 +1,7 @@
 import '@/components/commons/SearchBar/SearchBar.css';
 
+import { FormEvent } from 'react';
+
 // Components
 import { TextField } from '@/components/commons/TextField';
 import { Button } from '@/components/commons/Button';
@@ -10,29 +12,31 @@ import iconClose from '@/assets/images/icons/icon-close.svg';
 // Types
 interface ISearchBar {
   additionalClass?: string;
-  onClose?: () => void;
-  onChange?: () => void;
+  onSearchBarClose?: () => void;
+  onSearchBarChange: (event: FormEvent<HTMLInputElement>) => void;
 }
 
 export const SearchBar = ({
   additionalClass,
-  onClose,
-  onChange
+  onSearchBarClose,
+  onSearchBarChange,
 }: ISearchBar) => {
+
   return (
     <div className={`search-bar search-bar-${additionalClass}`}>
       <TextField
         id="input-search-user"
         name="input-search-user"
         placeholder="Search"
-        onInputChange={() => {}}
+        onInputSearch={onSearchBarChange}
         additionalClass="text-field-search"
         isAutoFocus={true}
       />
       <Button
+        type="button"
         additionalClass="close"
         icon={iconClose}
-        onClick={onClose}
+        onClick={onSearchBarClose}
       />
     </div>
   );
