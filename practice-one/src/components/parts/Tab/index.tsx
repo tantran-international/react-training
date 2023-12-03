@@ -17,14 +17,16 @@ interface ITab<T> {
   tabs: string[];
   dataItem: T;
   onReturnButtonClick: () => void;
-  onSubmitForm: (dataItem: IData) => void
+  onSubmitForm: (dataItem: IData) => void;
+  onDeleteUser: (id: string) => void;
 }
 
 export const Tab = ({
   tabs,
   dataItem,
   onReturnButtonClick,
-  onSubmitForm
+  onSubmitForm,
+  onDeleteUser
 }: ITab<IData>): JSX.Element => {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
 
@@ -54,6 +56,7 @@ export const Tab = ({
         activeTab={tabData}
         dataItem={dataItem}
         onSubmitForm={onSubmitForm}
+        onDeleteUser={onDeleteUser}
       />
     </div>
   );
