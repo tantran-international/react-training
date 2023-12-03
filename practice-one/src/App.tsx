@@ -1,6 +1,6 @@
 import '@/App.css';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { createPortal } from 'react-dom';
 
@@ -20,8 +20,7 @@ import { IColumnType } from '@/types/IColumnTypes';
 import { IData } from '@/types/IDatas';
 
 /* Services */
-import { getUsers } from '@/services/usersService';
-import { addUsers } from '@/services/usersService';
+import { getUsers, addUser, updateUser } from '@/services/usersService';
 
 /* Constaints */
 import { ITEM_TYPES, ITEM_TYPE } from '@/constants/itemTypes';
@@ -38,7 +37,7 @@ const columns: IColumnType<IData>[] = [
       <Avatar
         additionalClass='avatar-row'
         variant='rounded'
-        src={item.avatar != '' ? item.avatar : null}
+        src={item.avatar != null ? item.avatar : null}
         alt={item.fullName}
         bgColor={item.bgColor}
       />
@@ -65,32 +64,41 @@ export const App = () => {
   const [rowData, setRowData] = useState<IData | null>(null);
   const [showDetails, setShowDetails] = useState<string | null>(null);
 
-  /* Get new datas and re-render UI when data is changed */
+  /* Get new datas and re-render UI */
   const handleGetUsers = async () => {
     const { data, error } = await getUsers();
     if (error) {
       alert('Something went wrong');
       return;
     }
-    const lastDataItem = data[data.length - 1];
     setUsers(data);
-    setRowData(lastDataItem);
-    setRowIndex(data.length);
   };
 
+  /* Create new dataItem and add to database */
   const handleAddNewUser = async (userName: string) => {
-    const { error } = await addUsers(userName);
+    const { error } = await addUser(userName);
     {
       error && alert('Something went wrong');
     }
   };
 
-  /* Close card information and render editor information */
+  /* Update datas and re-render UI */
+  const handleUpdateUser = async (itemData: IData) => {
+    const { data, error } = await updateUser(itemData);
+    if (error) {
+      alert('Something went wrong');
+      return;
+    }
+    setRowData(data);
+    handleGetUsers();
+  }
+
+  /* Close card information and open editor information */
   const handleShowEditor = () => {
     setShowDetails(SHOW_DETAILS.EDITOR);
   };
 
-  /* Close editor and render card information */
+  /* Close editor and open card information */
   const handleCloseEditor = () => {
     setShowDetails(SHOW_DETAILS.INFO);
   };
@@ -109,7 +117,15 @@ export const App = () => {
   /* Get data to Re-render UI and auto show lastest User's Information */
   const handleAddNewRow = async (userName: string) => {
     await handleAddNewUser(userName);
-    await handleGetUsers();
+    const { data, error } = await getUsers();
+    if (error) {
+      alert('Something went wrong');
+      return;
+    }
+    const lastDataItem = data[data.length - 1];
+    setUsers(data);
+    setRowData(lastDataItem);
+    setRowIndex(data.length);
     setShowDetails(SHOW_DETAILS.INFO);
   };
 
@@ -124,10 +140,6 @@ export const App = () => {
         break;
     }
   };
-
-  // const handleFormUpdate = () => {
-
-  // }
 
   return (
     <>
@@ -174,6 +186,7 @@ export const App = () => {
               tabs={TAB_TYPES}
               dataItem={rowData}
               onReturnButtonClick={handleCloseEditor}
+              onSubmitForm={handleUpdateUser}
             />,
             document.querySelector('.main-body') as HTMLElement
           )}

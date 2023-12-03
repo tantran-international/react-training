@@ -8,55 +8,82 @@ import { TextField } from '@/components/commons/TextField';
 import { ImageUploader } from '@/components/commons/ImageUploader';
 import { Switch } from '@/components/commons/Switch';
 import { Status } from '@/components/commons/Status';
+import { TextArea } from '@/components/commons/TextArea';
 
 /* Types */
 import { IData } from '@/types/IDatas';
 interface IModyfiInfoDetails<T> {
   activeTab: string;
   dataItem: T;
+  onSubmitForm: (dataItem: IData) => void;
 }
 
 /* Helpers */
 import { renderDate } from '@/helpers/renderDate';
-import { TextArea } from '@/components/commons/TextArea';
 
 export const ModifyInfoDetails = ({
   activeTab,
-  dataItem
+  dataItem,
+  onSubmitForm
 }: IModyfiInfoDetails<IData>) => {
+  const [avatar, setAvatar] = useState(dataItem.avatar);
   const [fullName, setFullname] = useState(dataItem.fullName);
   const [email, setEmail] = useState(dataItem.email);
   const [status, setStatus] = useState(dataItem.isActive);
   const [details, setDetails] = useState(dataItem.details)
 
+  /* Get updated value of full-name */
   const handleFullNameChange = (value: string) => {
     setFullname(value);
   };
 
+  /* Get updated value of email */
   const handleEmailChange = (value: string) => {
     setEmail(value);
   };
 
+  /* Get updated value of switch component */
   const handleSwitchChange = () => {
     setStatus(!status);
   };
 
+  /* Get updated value of details */
   const handleDetailsChange = (value: string) => {
     setDetails(value);
   }
 
-  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    console.log('huhu');
+  /* Get updated avatar's source */
+  const handleAvatarChange = (value: string) => {
+    setAvatar(value);
   }
 
-  /* Update the initial value of TextField && TextArea && Switch && Status components
-  when the dataItem prop has changed */
+  /* Generate updated dataItem object and pass to App component */
+  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const date = new Date();
+    const currentDate = date.toString();
+    const updatedItem = {
+      id: dataItem.id,
+      avatar: avatar,
+      fullName: fullName,
+      email: email,
+      isActive: status,
+      registeredDate: dataItem.registeredDate,
+      lastVisitedDate: currentDate,
+      details: details,
+      bgColor: dataItem.bgColor
+    }
+    onSubmitForm(updatedItem);
+  }
+
+  /* Update the initial value of TextField && TextArea && Switch && Status
+  components and re-render when the dataItem prop has changed */
   useEffect(() => {
     setFullname(dataItem.fullName);
     setEmail(dataItem.email);
     setStatus(dataItem.isActive);
     setDetails(dataItem.details);
+    setAvatar(dataItem.avatar)
   }, [dataItem])
 
   switch (activeTab) {
@@ -65,7 +92,7 @@ export const ModifyInfoDetails = ({
         <>
           <div className="tab-toolbar">
             <Button
-              type='button'
+              type="button"
               additionalClass="button-secondary"
               content="Delete"
             />
@@ -88,7 +115,7 @@ export const ModifyInfoDetails = ({
                 name="edit-name"
                 value={fullName}
                 onInputChange={handleFullNameChange}
-                additionalClass="text-field-edit"
+                additionalClass="edit-input"
               />
             </div>
 
@@ -99,11 +126,11 @@ export const ModifyInfoDetails = ({
                 name="edit-email"
                 value={email}
                 onInputChange={handleEmailChange}
-                additionalClass="text-field-edit"
+                additionalClass="edit-input"
               />
             </div>
 
-            <ImageUploader dataItem={dataItem} />
+            <ImageUploader dataItem={dataItem} onAvatarChange={handleAvatarChange} />
 
             <div className="form-edit-item-status">
               <span className="form-edit-label">Status</span>
@@ -136,7 +163,7 @@ export const ModifyInfoDetails = ({
             </div>
 
             <div className="form-edit-item form-edit-item-details">
-              <span className="form-edit-label">Details</span>
+              <span className="label-edit-input">Details</span>
               <TextArea
                 onDetailsChange={handleDetailsChange}
                 value={details}
@@ -145,5 +172,8 @@ export const ModifyInfoDetails = ({
           </form>
         </>
       );
+
+      default:
+      break;
   }
 };
