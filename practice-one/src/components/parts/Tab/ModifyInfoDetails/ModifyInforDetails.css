@@ -36,3 +36,14 @@
   font-family: var(--roboto);
   min-width: 205px;
 }
+
+.tab-toolbar {
+  position: sticky;
+  top: 47px;
+  background-color: var(--white);
+  display: flex;
+  padding: 15px;
+  justify-content: flex-end;
+  gap: 15px;
+  z-index: 1;
+}

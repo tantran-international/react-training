@@ -10,14 +10,14 @@
   border-color: var(--primary-color);
 }
 
-.label-text-field-edit {
-  padding: 0 20px 0 0;
-}
-
-.text-field-edit {
+.edit-input {
   min-width: 350px;
 }
 
 .text-field-search {
   width: 100%;
+}
+
+.label-edit-input {
+  padding: 8px 20px 0 0;
 }
