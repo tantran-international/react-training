@@ -12,6 +12,7 @@ interface IInput {
   onInputChange?: (value: string) => void;
   additionalClass?: string;
   isAutoFocus?: boolean;
+  onInputSearch?: (event: FormEvent<HTMLInputElement>) => void;
 }
 
 export function TextField({
@@ -22,7 +23,8 @@ export function TextField({
   value,
   onInputChange,
   additionalClass,
-  isAutoFocus
+  isAutoFocus,
+  onInputSearch
 }: IInput) {
 
   /**
@@ -31,6 +33,7 @@ export function TextField({
    */
   const handleInputChange = (event: FormEvent<HTMLInputElement>) => {
     onInputChange?.(event.currentTarget.value);
+    onInputSearch?.(event);
   };
 
   return (
