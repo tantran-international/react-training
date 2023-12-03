@@ -17,12 +17,14 @@ interface ITab<T> {
   tabs: string[];
   dataItem: T;
   onReturnButtonClick: () => void;
+  onSubmitForm: (dataItem: IData) => void
 }
 
 export const Tab = ({
   tabs,
   dataItem,
-  onReturnButtonClick
+  onReturnButtonClick,
+  onSubmitForm
 }: ITab<IData>): JSX.Element => {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
 
@@ -35,9 +37,9 @@ export const Tab = ({
   const tabData = tabs[activeTabIndex];
 
   return (
-    <div className='tab-edit-wrapper'>
-      <div className='tab-edit'>
-        <Button type='button' icon={iconReturn} onClick={onReturnButtonClick} />
+    <div className="tab-edit-wrapper">
+      <div className="tab-edit">
+        <Button type="button" icon={iconReturn} onClick={onReturnButtonClick} />
         {tabs.map((tab, index) => (
           <TabButton
             index={index}
@@ -51,6 +53,7 @@ export const Tab = ({
       <ModifyInfoDetails
         activeTab={tabData}
         dataItem={dataItem}
+        onSubmitForm={onSubmitForm}
       />
     </div>
   );

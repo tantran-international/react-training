@@ -1,8 +1,11 @@
 import axios from 'axios';
 
+/* Helpers */
 import { generateRandomColor } from '@/helpers/randoms';
 
+/* Constants */
 import { USER_URL, BASE_URL } from '@/constants/urls';
+import { IData } from '@/types/IDatas';
 
 axios.defaults.baseURL = BASE_URL;
 
@@ -27,9 +30,8 @@ export const getUsers = async () => {
   }
 };
 
-export const addUsers = async (fullName: string) => {
+export const addUser = async (fullName: string) => {
   try {
-
     const date = new Date();
     const currentDate = date.toString();
     const { status } = await axios.post(USER_URL, {
@@ -54,6 +56,37 @@ export const addUsers = async (fullName: string) => {
   } catch (error) {
     return {
       error
+    };
+  }
+};
+
+export const updateUser = async (dataItem: IData) => {
+  try {
+    const { data, status } = await axios.put(`${USER_URL}/${dataItem.id}`, {
+      id: dataItem.id,
+      avatar: dataItem.avatar,
+      fullName: dataItem.fullName,
+      email: dataItem.email,
+      isActive: dataItem.isActive,
+      registeredDate: dataItem.registeredDate,
+      lastVisitedDate: dataItem.lastVisitedDate,
+      details: dataItem.details,
+      bgColor: dataItem.bgColor
+    });
+    if (status === 200) {
+      return {
+        data,
+        error: null
+      };
+    }
+    return {
+      data: null,
+      error: 'Something went wrong'
+    };
+  } catch (error) {
+    return {
+      error,
+      data: null
     };
   }
 };
