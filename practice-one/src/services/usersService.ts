@@ -90,3 +90,21 @@ export const updateUser = async (dataItem: IData) => {
     };
   }
 };
+
+export const deleteUser = async (dataId: string) => {
+  try {
+    const { status } = await axios.delete(`${USER_URL}/${dataId}`);
+    if (status === 200) {
+      return {
+        error: null
+      };
+    }
+    return {
+      error: 'Something went wrong'
+    };
+  } catch (error) {
+    return {
+      error
+    };
+  }
+};

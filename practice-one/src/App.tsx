@@ -1,6 +1,6 @@
 import '@/App.css';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { createPortal } from 'react-dom';
 
@@ -20,7 +20,7 @@ import { IColumnType } from '@/types/IColumnTypes';
 import { IData } from '@/types/IDatas';
 
 /* Services */
-import { getUsers, addUser, updateUser } from '@/services/usersService';
+import { getUsers, addUser, updateUser, deleteUser } from '@/services/usersService';
 
 /* Constaints */
 import { ITEM_TYPES, ITEM_TYPE } from '@/constants/itemTypes';
@@ -91,6 +91,16 @@ export const App = () => {
     }
     setRowData(data);
     handleGetUsers();
+  }
+
+  const handleDeleteUser = async (dataId: string) => {
+    const { error } = await deleteUser(dataId);
+    if (error) {
+      alert('Something went wrong');
+      return;
+    }
+    handleGetUsers();
+    setShowDetails(null);
   }
 
   /* Close card information and open editor information */
@@ -187,6 +197,7 @@ export const App = () => {
               dataItem={rowData}
               onReturnButtonClick={handleCloseEditor}
               onSubmitForm={handleUpdateUser}
+              onDeleteUser={handleDeleteUser}
             />,
             document.querySelector('.main-body') as HTMLElement
           )}
