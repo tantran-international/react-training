@@ -22,13 +22,21 @@ export const ImageUploader = ({
    * Get local image as "object" and assign to state selectedImage
    */
   const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0] || null;
+    const file = event.target.files?.[0];
+    const fileReader = new FileReader();
     if (file != null) {
-      setSelectedImage(URL.createObjectURL(file));
-      onAvatarChange(URL.createObjectURL(file));
+      fileReader.readAsDataURL(file);
     }
+    fileReader.onloadend = (event) => {
+      const avatarUrl = event.target?.result;
+      if (avatarUrl) {
+        setSelectedImage(avatarUrl.toString());
+        onAvatarChange(avatarUrl.toString());
+      }
+    };
   };
 
+  /* Re-render image-uploader when dataItem is updated */
   useEffect(() => {
     setSelectedImage(dataItem.avatar);
   }, [dataItem]);
