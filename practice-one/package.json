@@ -11,7 +11,7 @@
     "lint:fix": "eslint --fix src --ext ts,tsx",
     "prettier": "prettier --check \"src/**/(*.tsx|*.ts|*.css|*.scss)\"",
     "prettier:fix": "prettier --write \"src/**/(*.tsx|*.ts|*.css|*.scss)\"",
-    "server": "json-server --watch src/server/database.json"
+    "server": "json-server --watch src/server/db.json"
   },
   "dependencies": {
     "axios": "^1.6.0",
