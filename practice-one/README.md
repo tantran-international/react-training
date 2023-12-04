@@ -4,14 +4,14 @@
 
 ## Description
 
-- Project **"React-Practice-One"**: build a User Information Management website _"User Manager"_. This application will help manage user's informations - using HTML5, CSS3, Typescript, React + Vite, JSON Server.
+- Project **"React-Practice-One"**: build a User Information Management website _"User Manager"_. This application will help manage user's informations - using HTML5, CSS3, Typescript, React + Vite, JSON Server, Axios.
 
   - Link design - demo: [Webix](https://webix.com/demos/user-manager/)
 
 - Time-line:
 
-  - Estimate: 10 days (November 02, 2023 -- November 12, 2023)
-  - Actual:
+  - Estimate: 10 days (November 02, 2023 -- November 15, 2023)
+  - Actual: 22 days (November 02, 2023 -- December 01, 2023)
 
 ## Overview
 
@@ -20,22 +20,24 @@
   - User Information Management Website with 3 sections:
 
     - Side bar.
-    - Main section contain Search Box and User Tag List.
-    - User Information Card when click on any Tags.
+    - Main section contain Search Box, List Navigation and User Manager Table.
+    - Display User details when click on any Table Row.
+    - Display Editor when click on Edit button.
+    - Display Modals when add new or delete users.
 
   - Allow
 
-    - Read (from JSON Server)
-    - Add new User
+    - Read database (JSON Server)
+    - Add new User with Full Name
+      - New user created with Letter Avatar
     - Edit User
-      - Upload avatar
-      - Update Name && Email
-      - Status (Active || Not Active)
-      - Auto update Last visited
-      - Details (Not display outside)
-      - Takes effect when the Save button is pressed
-      - Allow return to the previous screen
-    - Delete User (In Edit User Information screen)
+      - Update avatar
+      - Update Full Name & Email
+      - Update Status (Active || Not Active)
+      - Auto update Last visited after click button Save
+      - Details (Only show when open Editor)
+      - Can return from Editor to User details
+    - Delete User (Only in Editor)
 
   - Store
 
@@ -48,21 +50,17 @@
     - Status
     - Email
 
-- Requirements of User Manager:
+- Requirements of User Manager Website:
 
-  - Apply responsive.
+  - Use Axios to retrieve database.
 
-  - Use Axios to retrieve data.
+  - When click on each user's tag, User Details will be displayed on the right side of the screen (User information) in the form of a Card.
 
-  - User Row sort by Alphabet.
-
-  - When clicking on each user's tag, User Details will be displayed on the right side of the screen (User information) in the form of a Card.
-
-  - Search box will display a list containing the entered keyword.
+  - Table will display a list of users whose names match the keyword entered in Search Box.
 
 - Targets
 
-  - Apply the React, TypeScript, Storybook knowledge: Using the knowledge about React, TypeScript, Storybook learned in the previous section.
+  - Apply the React, TypeScript: Using the knowledge about React, TypeScript learned in the current sections.
 
   - Practice analyzing the requirements: Try to analyze the requirements of a project
 
@@ -72,7 +70,7 @@
 - Mozilla FireFox - Version 119.0 (64-bit)
 - Sidekick - Version 114.52.2.36023 (Official Build) (64-bit)
 
-## Build environments
+## Deployment tools
 
 1. Visual Studio Code
 2. Node.js -- v16.20.2
@@ -82,13 +80,66 @@
 
 ```
 |- src/
-updating...
-|- .editorconfig
-|- .eslintrc.js
-|- .gitignore
-|- package-lock.json
-|- package.json
-|- README.md
+  |- assets
+      |- fonts/
+          |- ...
+      |- images/
+          |- ...
+  |- components/
+      |- commons/
+          |- Avatar/
+          |- Button/
+          |- ImageUploader/
+          |- ItemNavigation/
+          |- ListNavigation/
+          |- Modal/
+          |- Popper/
+          |- SearchBar/
+          |- Status/
+          |- Switch/
+          |- TextArea/
+          |- TextField/
+      |- parts
+          |- CardInformation/
+          |- Drawer/
+          |- Tab/
+              |- ModifyInfoDetails/
+              |- TabButton/
+          |- Table/
+              |- TableCell/
+              |- TableHeader/
+              |- TableHeaderCell/
+              |- TableRow/
+              |- TableRowCell/
+              |- TableRowItem/
+          |- ToolBar/
+      |- contants/
+          |- ...
+      |- helpers/
+          |- ...
+      |- server/
+          |- database.json
+      |- services/
+          |- ...
+      |- types/
+          |- ...
+      |- App.css
+      |- App.tsx
+      |- main.css
+      |- main.tsx
+      |- reset.css
+      |- vite-env.d.ts
+    |- .eslintrc.cjs
+    |- .gitignore
+    |- .prettierignore
+    |- .prettierrc
+    |- index.html
+    |- package.json
+    |- pnpm-lock.yaml
+    |- README.md
+    |- tsconfig.json
+    |- tsconfig.node.json
+    |- vite.config.ts
 ```
 
 ## Getting started
@@ -96,6 +147,7 @@ updating...
 - **Step 01: Clone repository with HTTPS :**
 
 ```
+Open Git Bash and run:
 git clone https://github.com/tantran-international/react-training.git
 ```
 
@@ -117,10 +169,16 @@ cd practice-one
 pnpm install
 ```
 
-- **Step 05: Run**
+- **Step 05: Run server**
 
 ```
-pnpm run dev
+Open new Git Bash + navigate to practice-one and run: pnpm run server
+```
+
+- **Step 06: Run Website**
+
+```
+Open new Git Bash + navigate to practice-one and run: pnpm run dev
 ```
 
 - **Step 06: Open in Browsers**
