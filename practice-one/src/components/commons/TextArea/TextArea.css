@@ -1,0 +1,14 @@
+.text-area {
+  font-family: var(--roboto);
+  padding: 7px 12px;
+  min-width: 350px;
+  min-height: 120px;
+  border: 1px solid var(--common-border-color);
+  border-radius: 2px;
+  outline: none;
+  resize: none;
+}
+
+.text-area:focus {
+  border: 1px solid var(--primary-color);
+}

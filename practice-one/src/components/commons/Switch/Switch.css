@@ -1,0 +1,48 @@
+.switch-container{
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 23px;
+}
+
+.switch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 25px;
+  cursor: pointer;
+  border: 1px solid var(--common-border-color);
+}
+
+.switch:before {
+  position: absolute;
+  content: '';
+  left: -2px;
+  bottom: -2px;
+  height: 26px;
+  width: 26px;
+  background-color: white;
+  border: 1px solid #edf1f3;
+  border-radius: 50%;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+input[type='checkbox'] {
+  display: none;
+}
+
+input[type='checkbox']:checked + .switch {
+  background-color: var(--active-color);
+}
+
+input[type='checkbox'] + .switch {
+  background-color: var(--not-active-color);
+}
+
+input[type='checkbox']:checked + .switch:before {
+  transform: translateX(27px);
+}
+

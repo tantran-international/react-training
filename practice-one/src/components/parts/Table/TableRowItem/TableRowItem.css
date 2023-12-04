@@ -1,0 +1,29 @@
+.table-row {
+  box-shadow: 0 1px 0 var(--layout-border-color);
+}
+
+/* Cell Avatar */
+.table-row td:first-child {
+  padding: 6px 0 6px 22px;
+  min-width: 85px;
+}
+
+/* Cell Full-Name */
+.table-row td:nth-child(2) {
+  min-width: 100px;
+}
+
+/* Cell Status */
+.table-row td:nth-child(3) {
+  min-width: 110px;
+}
+
+/* Cell Email */
+.table-row td:nth-child(4) {
+  min-width: 200px;
+}
+
+.table-row-selected {
+  background-color: var(--medium-grey-hover);
+  box-shadow: 3px 0 var(--primary-color) inset;
+}

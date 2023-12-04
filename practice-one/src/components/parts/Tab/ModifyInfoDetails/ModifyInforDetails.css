@@ -1,0 +1,49 @@
+.form-edit-item {
+  display: flex;
+  height: fit-content;
+  padding: 0 0 25px;
+}
+
+.form-edit-item-status {
+  margin: 0 185px 0 0;
+  padding: 25px 0;
+}
+
+.form-edit-item-details {
+  margin: 0 2px 0 0;
+}
+
+.form-edit-item-date {
+  margin: 0 148px 0 0;
+}
+
+.form-edit-switch {
+  margin: 0 20px -6px 0;
+}
+
+.status-wrapper {
+  display: inline-block;
+  width: 95px;
+}
+
+.form-edit-label {
+  font-family: var(--roboto-bold);
+  font-size: 15px;
+  margin: 0 20px 0 0;
+}
+
+.form-edit-content {
+  font-family: var(--roboto);
+  min-width: 205px;
+}
+
+.tab-toolbar {
+  position: sticky;
+  top: 47px;
+  background-color: var(--white);
+  display: flex;
+  padding: 15px;
+  justify-content: flex-end;
+  gap: 15px;
+  z-index: 1;
+}
