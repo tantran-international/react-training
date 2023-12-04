@@ -2,11 +2,11 @@ import '@/components/commons/Avatar/Avatar.css';
 
 /* Types */
 interface IAvatar {
-  additionalClass?: string;
   src?: string | null;
   alt: string;
   bgColor?: string;
   variant: 'rounded' | 'square';
+  additionalClass?: string;
 }
 
 export const Avatar = ({
