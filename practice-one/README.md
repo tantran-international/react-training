@@ -66,9 +66,9 @@
 
 ## Test environments
 
-- Google Chrome - Version 118.0.5993.120 (Official Build) (64-bit)
+- Google Chrome - Version 119.0.6045.200 (Official Build) (64-bit)
 - Mozilla FireFox - Version 119.0 (64-bit)
-- Sidekick - Version 114.52.2.36023 (Official Build) (64-bit)
+- Sidekick - Version 116.54.1.36404 (Official Build) (64-bit)
 
 ## Deployment tools
 
@@ -144,10 +144,9 @@
 
 ## Getting started
 
-- **Step 01: Clone repository with HTTPS :**
+- **Step 01: Clone repository with HTTPS ( Open Git Bash and run: )**
 
 ```
-Open Git Bash and run:
 git clone https://github.com/tantran-international/react-training.git
 ```
 
@@ -169,20 +168,20 @@ cd practice-one
 pnpm install
 ```
 
-- **Step 05: Run server**
+- **Step 05: Run server ( Open new Git Bash + Navigate to practice-one and run: )**
 
 ```
-Open new Git Bash + navigate to practice-one and run: pnpm run server
+ pnpm run server
 ```
 
-- **Step 06: Run Website**
+- **Step 06: Run Website ( Open new Git Bash + Navigate to practice-one and run:  )**
 
 ```
-Open new Git Bash + navigate to practice-one and run: pnpm run dev
+pnpm run dev
 ```
 
-- **Step 06: Open in Browsers**
+- **Step 06: Open in Browsers ( Copy and run in your browsers: )**
 
 ```
-Copy and run http://localhost:5173 in your browser
+http://localhost:5173
 ```
