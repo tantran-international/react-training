@@ -34,7 +34,7 @@ import { SHOW_DETAILS } from '@/constants/showDetailsTypes';
 import { TAB_TYPES } from '@/constants/tabTypes';
 
 /* Helpers */
-import { filterUserName } from '@/helpers/objects';
+import { filterUserName } from '@/helpers/arrays';
 
 /* Define column's titles and it's UI */
 const columns: IColumnType<IUsers>[] = [
@@ -77,7 +77,7 @@ export const App = () => {
   const handleGetUsers = async () => {
     const { data, error } = await getUsers();
     if (error) {
-      alert('Something went wrong');
+      alert("Something went wrong");
       return;
     }
     setApiUsers(data);
@@ -88,16 +88,16 @@ export const App = () => {
   const handleAddNewUser = async (userName: string) => {
     const { error } = await addUser(userName);
     {
-      error && alert('Something went wrong');
+      error && alert("Something went wrong");
     }
   };
 
-  /* Get data to Re-render UI and auto show lastest User's Information */
+  /* Get data to Re-render UI and auto show lastest User"s Information */
   const handleAddNewRow = async (userName: string) => {
     await handleAddNewUser(userName);
     const { data, error } = await getUsers();
     if (error) {
-      alert('Something went wrong');
+      alert("Something went wrong");
       return;
     }
     const lastDataItem = data[data.length - 1];
@@ -112,7 +112,7 @@ export const App = () => {
   const handleUpdateUser = async (itemData: IUsers) => {
     const { data, error } = await updateUser(itemData);
     if (error) {
-      alert('Something went wrong');
+      alert("Something went wrong");
       return;
     }
     setRowData(data);
@@ -123,7 +123,7 @@ export const App = () => {
   const handleDeleteUser = async (dataId: string) => {
     const { error } = await deleteUser(dataId);
     if (error) {
-      alert('Something went wrong');
+      alert("Something went wrong");
       return;
     }
     handleGetUsers();
@@ -180,8 +180,8 @@ export const App = () => {
 
   return (
     <>
-      <header className='main-header'>User Manager</header>
-      <div className='main-body'>
+      <header className="main-header">User Manager</header>
+      <div className="main-body">
         <Drawer>
           <Popper onModalSubmit={handleAddNewRow} />
           <ListNavigation
@@ -190,9 +190,9 @@ export const App = () => {
           />
         </Drawer>
 
-        <div className='app-content-wrapper'>
+        <div className="app-content-wrapper">
           <ToolBar
-            type='Users'
+            type="Users"
             onSearchBarChange={handleInputChange}
             onSearchBarClose={handleClosedSearchBar}
           />
@@ -217,7 +217,7 @@ export const App = () => {
               lastVisitedDate={rowData.lastVisitedDate}
               onEditButtonCLick={handleShowEditor}
             />,
-            document.querySelector('.main-body') as HTMLElement
+            document.querySelector(".main-body") as HTMLElement
           )}
 
         {showDetails == SHOW_DETAILS.EDITOR &&
@@ -230,7 +230,7 @@ export const App = () => {
               onSubmitForm={handleUpdateUser}
               onDeleteUser={handleDeleteUser}
             />,
-            document.querySelector('.main-body') as HTMLElement
+            document.querySelector(".main-body") as HTMLElement
           )}
       </div>
     </>
