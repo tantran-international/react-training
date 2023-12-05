@@ -14,23 +14,23 @@ import { TextArea } from '@/components/commons/TextArea';
 import { Modal } from '@/components/commons/Modal';
 
 /* Types */
-import { IData } from '@/types/IDatas';
+import { IUsers } from '@/types/IUsers';
 interface IModyfiInfoDetails<T> {
   activeTab: string;
   dataItem: T;
-  onSubmitForm: (dataItem: IData) => void;
+  onSubmitForm: (dataItem: IUsers) => void;
   onDeleteUser: (id: string) => void;
 }
 
 /* Helpers */
-import { renderDate } from '@/helpers/renderDate';
+import { renderDate } from '@/helpers/dates';
 
 export const ModifyInfoDetails = ({
   activeTab,
   dataItem,
   onSubmitForm,
   onDeleteUser
-}: IModyfiInfoDetails<IData>) => {
+}: IModyfiInfoDetails<IUsers>) => {
   const [avatar, setAvatar] = useState<string | null>(dataItem.avatar);
   const [fullName, setFullname] = useState(dataItem.fullName);
   const [email, setEmail] = useState(dataItem.email);

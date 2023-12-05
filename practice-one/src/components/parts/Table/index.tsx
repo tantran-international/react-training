@@ -5,10 +5,10 @@ import { TableHeader } from '@/components/parts/Table/TableHeader';
 import { TableRow } from '@/components/parts/Table/TableRow';
 
 /* Types */
-import { IData } from '@/types/IDatas';
+import { IUsers } from '@/types/IUsers';
 import { IColumnType } from '@/types/IColumnTypes';
 interface ITable<T> {
-  onRowClick: (index: number, item: IData) => void;
+  onRowClick: (index: number, item: IUsers) => void;
   data: T[];
   columns: IColumnType<T>[];
   additionalClass?: string;
@@ -21,7 +21,7 @@ export const Table = ({
   columns,
   additionalClass,
   selectedRowIndex
-}: ITable<IData>): JSX.Element => {
+}: ITable<IUsers>): JSX.Element => {
 
   return (
     <div className="table-wrapper">

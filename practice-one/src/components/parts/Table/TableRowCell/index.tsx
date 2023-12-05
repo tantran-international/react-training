@@ -3,7 +3,7 @@ import { TableCell } from '@/components/parts/Table/TableCell';
 import { IColumnType } from '@/types/IColumnTypes';
 
 /* Helpers */
-import { getObjectValue } from '@/helpers/getObjects';
+import { getObjectValue } from '@/helpers/objects';
 
 /* Types */
 interface ITableRowCell<T> {

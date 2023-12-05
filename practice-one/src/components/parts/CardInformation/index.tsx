@@ -22,7 +22,7 @@ interface ICardInformation {
 }
 
 /* Helpers */
-import { renderDate } from '@/helpers/renderDate';
+import { renderDate } from '@/helpers/dates';
 
 export const CardInformation = ({
   additionalClass,

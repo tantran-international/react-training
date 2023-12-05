@@ -11,13 +11,13 @@ import { ModifyInfoDetails } from '@/components/parts/Tab/ModifyInfoDetails';
 import iconReturn from '@/assets/images/icons/icon-back.svg';
 
 /* Types */
-import { IData } from '@/types/IDatas';
+import { IUsers } from '@/types/IUsers';
 
 interface ITab<T> {
   tabs: string[];
   dataItem: T;
   onReturnButtonClick: () => void;
-  onSubmitForm: (dataItem: IData) => void;
+  onSubmitForm: (dataItem: IUsers) => void;
   onDeleteUser: (id: string) => void;
 }
 
@@ -27,7 +27,7 @@ export const Tab = ({
   onReturnButtonClick,
   onSubmitForm,
   onDeleteUser
-}: ITab<IData>): JSX.Element => {
+}: ITab<IUsers>): JSX.Element => {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
 
   /* Active tab recognition to display different ModifyInfoDetail */
