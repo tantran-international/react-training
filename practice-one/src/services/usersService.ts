@@ -5,7 +5,7 @@ import { generateRandomColor } from '@/helpers/randoms';
 
 /* Constants */
 import { USER_URL, BASE_URL } from '@/constants/urls';
-import { IData } from '@/types/IDatas';
+import { IData } from '@/types/IUsers';
 
 axios.defaults.baseURL = BASE_URL;
 

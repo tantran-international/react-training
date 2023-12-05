@@ -1,4 +1,4 @@
-export interface IData {
+export interface IUsers {
   id: string;
   avatar: string | null;
   fullName: string;
