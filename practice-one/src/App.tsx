@@ -17,7 +17,7 @@ import { Tab } from '@/components/parts/Tab';
 
 /* Types */
 import { IColumnType } from '@/types/IColumnTypes';
-import { IData } from '@/types/IDatas';
+import { IUsers } from './types/IUsers';
 
 /* Services */
 import {
@@ -33,8 +33,11 @@ import { CARD_TYPES } from '@/constants/cardTypes';
 import { SHOW_DETAILS } from '@/constants/showDetailsTypes';
 import { TAB_TYPES } from '@/constants/tabTypes';
 
+/* Helpers */
+import { filterUserName } from '@/helpers/objects';
+
 /* Define column's titles and it's UI */
-const columns: IColumnType<IData>[] = [
+const columns: IColumnType<IUsers>[] = [
   {
     key: 'avatar',
     title: '',
@@ -64,11 +67,11 @@ const columns: IColumnType<IData>[] = [
 ];
 
 export const App = () => {
-  const [apiUsers, setApiUsers] = useState<IData[]>([]);
+  const [apiUsers, setApiUsers] = useState<IUsers[]>([]);
   const [rowIndex, setRowIndex] = useState(0);
-  const [rowData, setRowData] = useState<IData | null>(null);
+  const [rowData, setRowData] = useState<IUsers | null>(null);
   const [showDetails, setShowDetails] = useState<string | null>(null);
-  const [filteredUsers, setFilteredUsers] = useState<IData[]>([]);
+  const [filteredUsers, setFilteredUsers] = useState<IUsers[]>([]);
 
   /* Get new datas and re-render UI */
   const handleGetUsers = async () => {
@@ -106,7 +109,7 @@ export const App = () => {
   };
 
   /* Update datas and re-render UI */
-  const handleUpdateUser = async (itemData: IData) => {
+  const handleUpdateUser = async (itemData: IUsers) => {
     const { data, error } = await updateUser(itemData);
     if (error) {
       alert('Something went wrong');
@@ -138,7 +141,7 @@ export const App = () => {
   };
 
   /* Get data and row-index of table row && show information details */
-  const handleSelectedRow = (index: number, dataItem: IData): void => {
+  const handleSelectedRow = (index: number, dataItem: IUsers): void => {
     setRowData(dataItem);
     setRowIndex(index);
     if (showDetails == SHOW_DETAILS.INFO || showDetails == null) {
@@ -163,8 +166,9 @@ export const App = () => {
   /* Find user's fullName with serach keywork */
   const handleInputChange = (event: FormEvent<HTMLInputElement>) => {
     const searchKeyWord = event.currentTarget.value;
-    const filteredItems = apiUsers.filter((apiUser) =>
-    apiUser.fullName.toLowerCase().includes(searchKeyWord.toLowerCase())
+    const filteredItems = filterUserName(
+      apiUsers,
+      searchKeyWord
     );
     setFilteredUsers(filteredItems);
   };

@@ -1,8 +1,8 @@
 /* Types */
-import { IData } from '@/types/IDatas';
+import { IUsers } from '@/types/IUsers';
 import { IColumnType } from '@/types/IColumnTypes';
 interface ITableRow<T> {
-  onRowClick: (index: number, item: IData) => void;
+  onRowClick: (index: number, item: IUsers) => void;
   data: T[];
   columns: IColumnType<T>[];
   selectedRowIndex: number;
@@ -17,7 +17,7 @@ export const TableRow = ({
   data,
   columns,
   selectedRowIndex
-}: ITableRow<IData>): JSX.Element => {
+}: ITableRow<IUsers>): JSX.Element => {
   return (
     <>
       {data.map((item, itemIndex) => (

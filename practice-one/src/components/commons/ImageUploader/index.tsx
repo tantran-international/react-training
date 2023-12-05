@@ -6,19 +6,19 @@ import '@/components/commons/ImageUploader/ImageUploader.css';
 import { Avatar } from '@/components/commons/Avatar';
 
 /* Types */
-import { IData } from '@/types/IDatas';
+import { IUsers } from '@/types/IUsers';
 interface IImageUploader<T> {
   dataItem: T;
   onAvatarChange: (data: string) => void;
 }
 
 /* Helpers */
-import { convertBase64String } from '@/helpers/convertBase64String';
+import { convertBase64String } from '@/helpers/strings';
 
 export const ImageUploader = ({
   dataItem,
   onAvatarChange
-}: IImageUploader<IData>) => {
+}: IImageUploader<IUsers>) => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   /* Get File's resource and convert to base64 string and

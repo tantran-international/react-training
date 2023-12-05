@@ -3,7 +3,7 @@ import { useState } from 'react';
 import '@/components/parts/Table/TableRowItem/TableRowItem.css';
 
 /* Types */
-import { IData } from '@/types/IDatas';
+import { IUsers } from '@/types/IUsers';
 
 interface ITableRowItem<T> {
   children: JSX.Element[];
@@ -22,7 +22,7 @@ export const TableRowItem = ({
   selectedRowIndex,
   item,
   onRowItemClick
-}: ITableRowItem<IData>) => {
+}: ITableRowItem<IUsers>) => {
 
   /* Handle index of selected row */
   const [selectedRow, setSelectedRow] = useState(selectedRowIndex);

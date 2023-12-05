@@ -17,7 +17,7 @@ interface IListNavigation {
 import { ITEM_TYPE } from '@/constants/itemTypes';
 
 /* Helpers */
-import { toCapitalizeFirstLetter } from '@/helpers/toCapitalize';
+import { toCapitalizeFirstLetter } from '@/helpers/strings';
 
 export const ListNavigation = ({
   itemTypes,
