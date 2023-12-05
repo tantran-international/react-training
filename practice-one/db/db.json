@@ -1,26 +1,3 @@
 {
-  "users": [
-    {
-      "id": "Mon Dec 04 2023 14:01:00 GMT+0700 (Indochina Time)",
-      "avatar": null,
-      "fullName": "dsfsag",
-      "email": "",
-      "isActive": false,
-      "registeredDate": "Mon Dec 04 2023 14:01:00 GMT+0700 (Indochina Time)",
-      "lastVisitedDate": null,
-      "details": "",
-      "bgColor": "#483319"
-    },
-    {
-      "id": "Mon Dec 04 2023 15:16:25 GMT+0700 (Indochina Time)",
-      "avatar": null,
-      "fullName": "dad",
-      "email": "",
-      "isActive": false,
-      "registeredDate": "Mon Dec 04 2023 15:16:25 GMT+0700 (Indochina Time)",
-      "lastVisitedDate": null,
-      "details": "",
-      "bgColor": "#a49668"
-    }
-  ]
+  "users": []
 }
